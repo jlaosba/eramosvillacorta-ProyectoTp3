@@ -273,6 +273,7 @@
     <Content Include="Content\Images\paper1.png" />
     <Content Include="Content\Images\paper2.png" />
     <Content Include="Content\jquery.dataTables.min.css" />
+    <Content Include="Content\Justified-Nav.css" />
     <Content Include="Content\Login\Login.css" />
     <Content Include="Content\signin.css" />
     <Content Include="Content\tabVertical.css" />
@@ -337,14 +338,10 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Images\ColegioPortada.jpg" />
     <Content Include="Images\innova_schools-logo.png" />
-    <Content Include="Scripts\bootstrap-datepicker.js" />
-    <Content Include="Scripts\bootstrap-table.js" />
-    <Content Include="Scripts\bootstrap-table.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\dataTables.jqueryui.min.js" />
-    <Content Include="Scripts\jquery-2.2.3.min.map" />
+    <Content Include="Images\innova_schools.png" />
+    <Content Include="Images\logo.png" />
     <EntityDeploy Include="Models\DataCole.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DataCole.Designer.cs</LastGenOutput>
@@ -362,6 +359,20 @@
       <DependentUpon>DataCole.edmx</DependentUpon>
       <LastGenOutput>DataCole.cs</LastGenOutput>
     </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-table.js" />
+    <Content Include="Scripts\bootstrap-table.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\dataTables.jqueryui.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.3.js" />
@@ -381,6 +392,9 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <None Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -389,7 +403,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\_references.js" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\heroAccent.png" />
@@ -420,8 +433,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Shared\_Footer.cshtml" />
-    <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Curricula\Index.cshtml" />
     <Content Include="Views\Curricula\Base.cshtml" />
     <Content Include="Views\Curricula\ListaBase.cshtml" />
@@ -429,6 +440,15 @@
     <Content Include="Views\Curricula\FormBase.cshtml" />
     <Content Include="Views\Curricula\FormCompetenciaCapacidadArea.cshtml" />
     <Content Include="Views\Curricula\ListaAreaCompetencia.cshtml" />
+    <Content Include="Views\Home\Modulo1.cshtml" />
+    <Content Include="Views\Home\Opcion1Modulo1.cshtml" />
+    <Content Include="Views\Home\Modulo2.cshtml" />
+    <Content Include="Views\Home\Modulo3.cshtml" />
+    <Content Include="Views\Home\Modulo4.cshtml" />
+    <Content Include="Views\Home\Modulo5.cshtml" />
+    <Content Include="Views\Home\Modulo6.cshtml" />
+    <Content Include="Views\Home\Opcion2Modulo1.cshtml" />
+    <Content Include="Views\Home\Opcion3Modulo1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -438,6 +458,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

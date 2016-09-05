@@ -15,7 +15,7 @@ namespace Innova.Controllers
         //
         // GET: /Curricula/
 
-        public ActionResult Index()
+        public ActionResult Index() 
         {
             return View();
         }

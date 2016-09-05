@@ -84,4 +84,3 @@ C:\Users\eramos\Desktop\tp3\DEV\Colegio\Innova\bin\zh-Hans\System.Spatial.resour
 C:\Users\eramos\Desktop\tp3\DEV\Colegio\Innova\bin\zh-Hant\System.Spatial.resources.dll
 C:\Users\eramos\Desktop\tp3\DEV\Colegio\Innova\obj\Debug\Innova.dll
 C:\Users\eramos\Desktop\tp3\DEV\Colegio\Innova\obj\Debug\Innova.pdb
-C:\Users\eramos\Desktop\tp3\DEV\Colegio\Innova\obj\Debug\Innova.csprojResolveAssemblyReference.cache

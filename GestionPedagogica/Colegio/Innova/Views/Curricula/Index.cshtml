@@ -1,4 +1,4 @@
-﻿<div class="container">
+﻿@*<div class="container">
     <div class="row" style="background-color:gray">
         <div>
             <h3>Inicio</h3>
@@ -37,4 +37,11 @@
     </div>
     <!-- /row -->
 </div>
-<hr>
+<hr>*@
+
+<div class="container">
+
+    @{Html.RenderAction("Base", "Curricula");
+    }
+
+</div>
