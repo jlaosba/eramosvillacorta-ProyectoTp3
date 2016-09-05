@@ -210,34 +210,6 @@
     <Content Include="Components\font-awesome\css\font-awesome.css" />
     <Content Include="Components\font-awesome\css\font-awesome.min.css" />
     <Content Include="Components\font-awesome\fonts\fontawesome-webfont.svg" />
-    <Content Include="Components\Foundation\css\foundation.css" />
-    <Content Include="Components\Foundation\css\foundation.min.css" />
-    <Content Include="Components\Foundation\css\normalize.css" />
-    <Content Include="Components\Foundation\js\foundation.min.js" />
-    <Content Include="Components\Foundation\js\foundation\foundation.abide.js" />
-    <Content Include="Components\Foundation\js\foundation\foundation.accordion.js" />
-    <Content Include="Components\Foundation\js\foundation\foundation.alert.js" />
-    <Content Include="Components\Foundation\js\foundation\foundation.clearing.js" />
-    <Content Include="Components\Foundation\js\foundation\foundation.dropdown.js" />
-    <Content Include="Components\Foundation\js\foundation\foundation.interchange.js" />
-    <Content Include="Components\Foundation\js\foundation\foundation.joyride.js" />
-    <Content Include="Components\Foundation\js\foundation\foundation.js" />
-    <Content Include="Components\Foundation\js\foundation\foundation.magellan.js" />
-    <Content Include="Components\Foundation\js\foundation\foundation.offcanvas.js" />
-    <Content Include="Components\Foundation\js\foundation\foundation.orbit.js" />
-    <Content Include="Components\Foundation\js\foundation\foundation.reveal.js" />
-    <Content Include="Components\Foundation\js\foundation\foundation.tab.js" />
-    <Content Include="Components\Foundation\js\foundation\foundation.tooltip.js" />
-    <Content Include="Components\Foundation\js\foundation\foundation.topbar.js" />
-    <Content Include="Components\Foundation\js\foundation\jquery.cookie.js" />
-    <Content Include="Components\Foundation\js\jquery.js" />
-    <Content Include="Components\Foundation\js\modernizr.js" />
-    <Content Include="Components\Foundation\js\vendor\custom.modernizr.js" />
-    <Content Include="Components\Foundation\js\vendor\fastclick.js" />
-    <Content Include="Components\Foundation\js\vendor\jquery.autocomplete.js" />
-    <Content Include="Components\Foundation\js\vendor\jquery.cookie.js" />
-    <Content Include="Components\Foundation\js\vendor\jquery.js" />
-    <Content Include="Components\Foundation\js\vendor\placeholder.js" />
     <Content Include="Components\GMD\Ajax\Ajax.js" />
     <Content Include="Components\GMD\Calendar\Calendar.js" />
     <Content Include="Components\GMD\Chart\Chart.js" />
@@ -300,18 +272,12 @@
     <Content Include="Components\JQuery\jquery.validate.min.js" />
     <Content Include="Components\JQuery\moment.min.js" />
     <Content Include="Components\JQuery\pikaday.js" />
-    <Content Include="Content\bootstrap\css\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap\css\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap\css\bootstrap.css" />
-    <Content Include="Content\bootstrap\css\bootstrap.min.css" />
-    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\css\bootstrap-add.css" />
     <Content Include="Content\css\comp.css" />
     <Content Include="Content\css\jquery.mCustomScrollbar.css" />
     <Content Include="Content\css\skin.css" />
+    <Content Include="Content\css\justified-nav.css" />
     <Content Include="Content\css\style.css" />
-    <Content Include="Content\font-awesome\font-awesome.css" />
-    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\images\system\40px.png" />
     <Content Include="Content\images\system\arrow.png" />
     <Content Include="Content\images\system\bar.png" />
@@ -322,7 +288,6 @@
     <Content Include="Content\images\system\ico-user-pass.png" />
     <Content Include="Content\images\system\icon-state.png" />
     <Content Include="Content\images\system\img.png" />
-    <Content Include="Content\images\system\innova_schools-logo.png" />
     <Content Include="Content\images\system\loading.gif" />
     <Content Include="Content\images\system\opacidad.png" />
     <Content Include="Content\images\system\sprite_solomon.png" />
@@ -374,14 +339,6 @@
     <Content Include="Components\font-awesome\scss\_spinning.scss" />
     <Content Include="Components\font-awesome\scss\_stacked.scss" />
     <Content Include="Components\font-awesome\scss\_variables.scss" />
-    <Content Include="Components\Foundation\img\.gitkeep" />
-    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.eot" />
-    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.woff" />
-    <Content Include="Content\font-awesome\fonts\FontAwesome.otf" />
     <Content Include="Scripts\bootstrap-jquery-ui\css\custom-theme\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Scripts\bootstrap-jquery-ui\css\custom-theme\images\ui-bg_glass_55_fbf9ee_1x400.png" />
     <Content Include="Scripts\bootstrap-jquery-ui\css\custom-theme\images\ui-bg_glass_65_ffffff_1x400.png" />
@@ -414,7 +371,6 @@
     <Content Include="Scripts\General\PlanAsignatura\Index\Controller.js" />
     <Content Include="Scripts\General\PlanAsignatura\Index\Index.js" />
     <Content Include="Scripts\jquery\jquery-1.11.1.js" />
-    <Content Include="Scripts\modernizr\modernizr.custom.js" />
     <Content Include="Theme\app\box.css" />
     <Content Include="Theme\app\comp.css" />
     <Content Include="Theme\app\form.css" />
@@ -458,6 +414,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\modernizr\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

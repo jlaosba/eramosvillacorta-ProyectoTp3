@@ -16,69 +16,70 @@
     @Styles.Render("~/Components/DataTablesCss")
     @RenderSection("css", required: false)
     <link href="../Content/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../Content/css/justified-nav.css" rel="stylesheet" type="text/css" />
     <link href="../Content/css/skin.css" rel="stylesheet" type="text/css" />
 </head>
 <body class="skin-gym bar-white">
-    <section class="wrap-ui">
-        <!--<header>-->
-        <header class="header">
-            <div class="pull-left">
-                <div class="logo-data">
-                    <img src="../Content/images/system/innova_schools-logo.png" width="90px" />
+    <div class="container">
+        <div class="masthead">
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <img src="~/Content/images/system/innova_schools.png" alt="" />
+                </div>
+                <div class="col-sm-6" style="text-align: right">
+                    <h3 class="text-info">
+                        <a href='@Url.Content("~/Home/Index")'>Sistema de gestión académica</a>
+                    </h3>
                 </div>
             </div>
-            <div class="pull-right">
-                <div class="pull-left comp-btn-user">
-                    <button id="btnGroupDrop2" type="button" class="btn">
-                        <span class="ico-user"></span>
-                        <span class="name">Juan Sanchez ....</span>
-                    </button>
-                </div>
-                <div class="pull-left">
-                    <a href="#" class="btn-salir"></a>
-                </div>
-            </div>
-        </header>
-        <!--</header>-->
-        <!-- nav -->
-        <div class="menu">
-            <a class="btn-show"></a>
-            <a class="logo" href="#">
-                <img src="../Content/images/system/innova_schools-logo.png" alt="Logo">
-            </a>
-            <nav class="nav">
-                <ul class="nav-wrap">
-                    <li class="nav-01">
-                        <span class="list-collapse">Gestión Directiva <i class="ico-collapse"></i></span>
-                        <ul class="nav-collapse">
-                            <li class="nav-02">
-                                <a href="/PlanArea">Plan Área</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
+            <ul class="nav nav-justified">
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#">
+                        Gestión<br />
+                        Pedagógica
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href='@Url.Content("~/Home/Opcion1Modulo1")'>Opcion1</a>
+                        </li>
+                        <li>
+                            <a href='@Url.Content("~/Home/Opcion2Modulo1")'>Opcion2</a>
+                        </li>
+                        <li>
+                            <a href='@Url.Content("~/Home/Opcion3Modulo1")'>Opcion3</a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#">
+                        Gestión <br />Directiva
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href='@Url.Content("~/PlanArea")'>Plan Área</a></li>
+                        <li><a href='@Url.Content("~/PlanArea")'>Plan Asignatura</a></li>
+                        <li><a href='@Url.Content("~/PlanArea")'>Cronograma Plan Asignatura</a></li>
+                    </ul>
+                </li>
+                <li>@Html.ActionLink("Gestión Apoyo Académico", "Modulo3", "Home")</li>
+                <li>@Html.ActionLink("Gestión Selección de Personal", "Modulo3", "Home")</li>
+                <li>@Html.ActionLink("Gestion Académica y Formativa", "Modulo5", "Home")</li>
+                <li>@Html.ActionLink("Gestión de Gobierno Escolar", "Modulo1", "Home")</li>
+            </ul>
         </div>
-        <!-- cierra nav -->
-        <!--<wrap-content>-->
-        <div class="wrap-content">
-            <!--</main-aside>-->
-            <!--<pull-main-content>-->
-            <div class="pull-main-content">
-                <!--<main-content>-->
-                <div class="main-content view-wrap">
-                    @RenderBody()
-                </div>
-                <!--</main-content>-->
-                @*<div class="footer">
-                    <strong>&copy; UPC</strong> Todos los derechos reservados 2016
-                </div>*@
-            </div>
-            <!--</pull-main-content>-->
-        </div>
-        <!--</wrap-content>-->
-        <div class="up-page upPage"><span class="glyphicon glyphicon-chevron-up"></span></div>
-    </section>
+    </div>
+    <div class="container body-content" style="padding-top:50px;">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
     @Scripts.Render("~/Components/JQuery")
     @Scripts.Render("~/FrameworkStyle/js")
     @Scripts.Render("~/Components/Codemaleon")
@@ -86,41 +87,38 @@
     @Scripts.Render("~/Components/Gmd")
     @Scripts.Render("~/Components/Charts")
     <script type="text/javascript">
-    ns('GDirectiva.Presentacion.Web.Formato')
-    GDirectiva.Presentacion.Web.Formato.Fecha = "dd/mm/yy";
-    GDirectiva.Presentacion.Web.Formato.FechaMascara = "00/00/0000";
-    GDirectiva.Presentacion.Web.Formato.Hora = "HH:mm";
+        ns('GDirectiva.Presentacion.Web.Formato')
+        GDirectiva.Presentacion.Web.Formato.Fecha = "dd/mm/yy";
+        GDirectiva.Presentacion.Web.Formato.FechaMascara = "00/00/0000";
+        GDirectiva.Presentacion.Web.Formato.Hora = "HH:mm";
 
-    //Mensajes Genericos
-    ns('GDirectiva.Presentacion.Base.MensajeResource');
-    GDirectiva.Presentacion.Base.MensajeResource.SeGuardoInformacionExito = '@Html.Raw(MensajeResource.SeGuardoInformacionExito)';
-    GDirectiva.Presentacion.Base.MensajeResource.ConfirmacionEliminacion = '@Html.Raw(MensajeResource.ConfirmacionEliminacion)';
-    GDirectiva.Presentacion.Base.MensajeResource.TextoEliminacion = '@Html.Raw(MensajeResource.TextoEliminacion)';
-    GDirectiva.Presentacion.Base.MensajeResource.DebeSeleccionarRegistro = '@Html.Raw(MensajeResource.DebeSeleccionarRegistro)';
-    GDirectiva.Presentacion.Base.MensajeResource.EtiquetaMensajeDesactivar = '@Html.Raw(MensajeResource.EtiquetaMensajeDesactivar)';
-    GDirectiva.Presentacion.Base.MensajeResource.SeEliminoRegistro = '@Html.Raw(MensajeResource.SeEliminoRegistro)';
-    GDirectiva.Presentacion.Base.MensajeResource.ConfirmacionActivacion = '@Html.Raw(MensajeResource.ConfirmacionActivacion)';
-    GDirectiva.Presentacion.Base.MensajeResource.SeActivoRegistro = '@Html.Raw(MensajeResource.SeActivoRegistro)';
-    GDirectiva.Presentacion.Base.MensajeResource.TextoReactivacion = '@Html.Raw(MensajeResource.TextoReactivacion)';
+        //Mensajes Genericos
+        ns('GDirectiva.Presentacion.Base.MensajeResource');
+        GDirectiva.Presentacion.Base.MensajeResource.SeGuardoInformacionExito = '@Html.Raw(MensajeResource.SeGuardoInformacionExito)';
+        GDirectiva.Presentacion.Base.MensajeResource.ConfirmacionEliminacion = '@Html.Raw(MensajeResource.ConfirmacionEliminacion)';
+        GDirectiva.Presentacion.Base.MensajeResource.TextoEliminacion = '@Html.Raw(MensajeResource.TextoEliminacion)';
+        GDirectiva.Presentacion.Base.MensajeResource.DebeSeleccionarRegistro = '@Html.Raw(MensajeResource.DebeSeleccionarRegistro)';
+        GDirectiva.Presentacion.Base.MensajeResource.EtiquetaMensajeDesactivar = '@Html.Raw(MensajeResource.EtiquetaMensajeDesactivar)';
+        GDirectiva.Presentacion.Base.MensajeResource.SeEliminoRegistro = '@Html.Raw(MensajeResource.SeEliminoRegistro)';
+        GDirectiva.Presentacion.Base.MensajeResource.ConfirmacionActivacion = '@Html.Raw(MensajeResource.ConfirmacionActivacion)';
+        GDirectiva.Presentacion.Base.MensajeResource.SeActivoRegistro = '@Html.Raw(MensajeResource.SeActivoRegistro)';
+        GDirectiva.Presentacion.Base.MensajeResource.TextoReactivacion = '@Html.Raw(MensajeResource.TextoReactivacion)';
 
-    ns('GDirectiva.Presentacion.Base.GenericResource');
-    GDirectiva.Presentacion.Base.GenericResource.EtiquetaEditar = '@Html.Raw(GenericResource.EtiquetaEditar)';
-    GDirectiva.Presentacion.Base.GenericResource.EtiquetaEliminar = '@Html.Raw(GenericResource.EtiquetaEliminar)';
-    GDirectiva.Presentacion.Base.GenericResource.EtiquetaDesactivar = '@Html.Raw(GenericResource.EtiquetaDesactivar)';
-    GDirectiva.Presentacion.Base.GenericResource.EtiquetaSeleccionar = '@Html.Raw(GenericResource.EtiquetaSeleccionar)';
-    GDirectiva.Presentacion.Base.GenericResource.GridAcciones = '@Html.Raw(GenericResource.GridAcciones)';
-    GDirectiva.Presentacion.Base.GenericResource.EtiquetaCalendario = '@Html.Raw(GenericResource.EtiquetaCalendario)';
+        ns('GDirectiva.Presentacion.Base.GenericResource');
+        GDirectiva.Presentacion.Base.GenericResource.EtiquetaEditar = '@Html.Raw(GenericResource.EtiquetaEditar)';
+        GDirectiva.Presentacion.Base.GenericResource.EtiquetaEliminar = '@Html.Raw(GenericResource.EtiquetaEliminar)';
+        GDirectiva.Presentacion.Base.GenericResource.EtiquetaDesactivar = '@Html.Raw(GenericResource.EtiquetaDesactivar)';
+        GDirectiva.Presentacion.Base.GenericResource.EtiquetaSeleccionar = '@Html.Raw(GenericResource.EtiquetaSeleccionar)';
+        GDirectiva.Presentacion.Base.GenericResource.GridAcciones = '@Html.Raw(GenericResource.GridAcciones)';
+        GDirectiva.Presentacion.Base.GenericResource.EtiquetaCalendario = '@Html.Raw(GenericResource.EtiquetaCalendario)';
 
-    ns('GDirectiva.Presentacion.Web.Global.Format');
-    GDirectiva.Presentacion.Web.Global.Format.Date = "dd/mm/yy";
+        ns('GDirectiva.Presentacion.Web.Global.Format');
+        GDirectiva.Presentacion.Web.Global.Format.Date = "dd/mm/yy";
 
-    $('[data-toggle="tooltip"]').tooltip();
+        $('[data-toggle="tooltip"]').tooltip();
     </script>
     @CustomHtmlHelper.RenderViewJs()
     @RenderSection("scripts", required: false)
-    <script type="text/javascript" src="../Scripts/app/ajax.navegacion.js"></script>
-    <script type="text/javascript" src="../Scripts/bootstrap-jquery-ui/js/bootstrap.js"></script>
-    <script type="text/javascript" src="../Scripts/app/jquery.mCustomScrollbar.js"></script>
     <script type="text/javascript" src="../Scripts/app/common.js"></script>
 </body>
 
