@@ -1,0 +1,70 @@
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.csprojResolveAssemblyReference.cache
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba\InnovaSchool.UserLayer\bin\InnovaSchool.UserLayer.dll.config
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba\InnovaSchool.UserLayer\bin\InnovaSchool.UserLayer.dll
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba\InnovaSchool.UserLayer\bin\InnovaSchool.UserLayer.pdb
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba\InnovaSchool.UserLayer\bin\InnovaSchool.BL.dll
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba\InnovaSchool.UserLayer\bin\InnovaSchool.Entity.dll
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba\InnovaSchool.UserLayer\bin\InnovaSchool.BL.pdb
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba\InnovaSchool.UserLayer\bin\InnovaSchool.Entity.pdb
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.dll
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.pdb
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba WEB\InnovaSchool.UserLayer\bin\InnovaSchool.UserLayer.dll.config
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba WEB\InnovaSchool.UserLayer\bin\InnovaSchool.UserLayer.dll
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba WEB\InnovaSchool.UserLayer\bin\InnovaSchool.UserLayer.pdb
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba WEB\InnovaSchool.UserLayer\bin\InnovaSchool.BL.dll
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba WEB\InnovaSchool.UserLayer\bin\InnovaSchool.Entity.dll
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba WEB\InnovaSchool.UserLayer\bin\InnovaSchool.BL.pdb
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba WEB\InnovaSchool.UserLayer\bin\InnovaSchool.Entity.pdb
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba WEB\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.csprojResolveAssemblyReference.cache
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba WEB\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.dll
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba WEB\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.pdb
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba WEB\InnovaSchool.UserLayer\bin\InnovaSchool.DAL.dll
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba WEB\InnovaSchool.UserLayer\bin\InnovaSchool.DAL.pdb
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.UserLayer.dll.config
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.UserLayer.dll
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.UserLayer.pdb
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.BL.dll
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.Entity.dll
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.DAL.dll
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.BL.pdb
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.Entity.pdb
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.DAL.pdb
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.csprojResolveAssemblyReference.cache
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.dll
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.pdb
+D:\Taller de Proyecto III\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.UserLayer.dll.config
+D:\Taller de Proyecto III\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.UserLayer.dll
+D:\Taller de Proyecto III\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.UserLayer.pdb
+D:\Taller de Proyecto III\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.BL.dll
+D:\Taller de Proyecto III\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.Entity.dll
+D:\Taller de Proyecto III\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.DAL.dll
+D:\Taller de Proyecto III\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.BL.pdb
+D:\Taller de Proyecto III\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.Entity.pdb
+D:\Taller de Proyecto III\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.DAL.pdb
+D:\Taller de Proyecto III\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.csprojResolveAssemblyReference.cache
+D:\Taller de Proyecto III\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.dll
+D:\Taller de Proyecto III\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.pdb
+D:\Personal\Taller de Proyecto III\0309\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.UserLayer.dll.config
+D:\Personal\Taller de Proyecto III\0309\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.UserLayer.dll
+D:\Personal\Taller de Proyecto III\0309\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.UserLayer.pdb
+D:\Personal\Taller de Proyecto III\0309\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.BL.dll
+D:\Personal\Taller de Proyecto III\0309\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.Entity.dll
+D:\Personal\Taller de Proyecto III\0309\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.DAL.dll
+D:\Personal\Taller de Proyecto III\0309\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.BL.pdb
+D:\Personal\Taller de Proyecto III\0309\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.Entity.pdb
+D:\Personal\Taller de Proyecto III\0309\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.DAL.pdb
+D:\Personal\Taller de Proyecto III\0309\InnovaSchool\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.csprojResolveAssemblyReference.cache
+D:\Personal\Taller de Proyecto III\0309\InnovaSchool\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.dll
+D:\Personal\Taller de Proyecto III\0309\InnovaSchool\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.pdb
+D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.UserLayer.dll.config
+D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.UserLayer.dll
+D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.UserLayer.pdb
+D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.BL.dll
+D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.Entity.dll
+D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.DAL.dll
+D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.BL.pdb
+D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.Entity.pdb
+D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.DAL.pdb
+D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.csprojResolveAssemblyReference.cache
+D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.dll
+D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.pdb

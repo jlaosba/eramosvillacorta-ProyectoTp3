@@ -1,0 +1,39 @@
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba\InnovaSchool.DAL\bin\Debug\InnovaSchool.DAL.dll
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba\InnovaSchool.DAL\bin\Debug\InnovaSchool.DAL.pdb
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba\InnovaSchool.DAL\obj\Debug\InnovaSchool.DAL.dll
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba\InnovaSchool.DAL\obj\Debug\InnovaSchool.DAL.pdb
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba WEB\InnovaSchool.DAL\bin\Debug\InnovaSchool.DAL.dll
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba WEB\InnovaSchool.DAL\bin\Debug\InnovaSchool.DAL.pdb
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba WEB\InnovaSchool.DAL\obj\Debug\InnovaSchool.DAL.csprojResolveAssemblyReference.cache
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba WEB\InnovaSchool.DAL\obj\Debug\InnovaSchool.DAL.dll
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba WEB\InnovaSchool.DAL\obj\Debug\InnovaSchool.DAL.pdb
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba WEB\InnovaSchool.DAL\bin\Debug\InnovaSchool.Entity.dll
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool - prueba WEB\InnovaSchool.DAL\bin\Debug\InnovaSchool.Entity.pdb
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.DAL\bin\Debug\InnovaSchool.DAL.dll
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.DAL\bin\Debug\InnovaSchool.DAL.pdb
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.DAL\bin\Debug\InnovaSchool.Entity.dll
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.DAL\bin\Debug\InnovaSchool.Entity.pdb
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.DAL\obj\Debug\InnovaSchool.DAL.csprojResolveAssemblyReference.cache
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.DAL\obj\Debug\InnovaSchool.DAL.dll
+D:\Proyectos\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.DAL\obj\Debug\InnovaSchool.DAL.pdb
+D:\Taller de Proyecto III\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.DAL\bin\Debug\InnovaSchool.DAL.dll
+D:\Taller de Proyecto III\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.DAL\bin\Debug\InnovaSchool.DAL.pdb
+D:\Taller de Proyecto III\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.DAL\bin\Debug\InnovaSchool.Entity.dll
+D:\Taller de Proyecto III\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.DAL\bin\Debug\InnovaSchool.Entity.pdb
+D:\Taller de Proyecto III\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.DAL\obj\Debug\InnovaSchool.DAL.csprojResolveAssemblyReference.cache
+D:\Taller de Proyecto III\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.DAL\obj\Debug\InnovaSchool.DAL.dll
+D:\Taller de Proyecto III\InnovaSchool\InnovaSchool\InnovaSchool\InnovaSchool.DAL\obj\Debug\InnovaSchool.DAL.pdb
+D:\Personal\Taller de Proyecto III\0309\InnovaSchool\InnovaSchool.DAL\bin\Debug\InnovaSchool.DAL.dll
+D:\Personal\Taller de Proyecto III\0309\InnovaSchool\InnovaSchool.DAL\bin\Debug\InnovaSchool.DAL.pdb
+D:\Personal\Taller de Proyecto III\0309\InnovaSchool\InnovaSchool.DAL\bin\Debug\InnovaSchool.Entity.dll
+D:\Personal\Taller de Proyecto III\0309\InnovaSchool\InnovaSchool.DAL\bin\Debug\InnovaSchool.Entity.pdb
+D:\Personal\Taller de Proyecto III\0309\InnovaSchool\InnovaSchool.DAL\obj\Debug\InnovaSchool.DAL.csprojResolveAssemblyReference.cache
+D:\Personal\Taller de Proyecto III\0309\InnovaSchool\InnovaSchool.DAL\obj\Debug\InnovaSchool.DAL.dll
+D:\Personal\Taller de Proyecto III\0309\InnovaSchool\InnovaSchool.DAL\obj\Debug\InnovaSchool.DAL.pdb
+D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.DAL\bin\Debug\InnovaSchool.DAL.dll
+D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.DAL\bin\Debug\InnovaSchool.DAL.pdb
+D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.DAL\bin\Debug\InnovaSchool.Entity.dll
+D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.DAL\bin\Debug\InnovaSchool.Entity.pdb
+D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.DAL\obj\Debug\InnovaSchool.DAL.csprojResolveAssemblyReference.cache
+D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.DAL\obj\Debug\InnovaSchool.DAL.dll
+D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.DAL\obj\Debug\InnovaSchool.DAL.pdb
