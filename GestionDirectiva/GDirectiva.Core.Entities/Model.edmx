@@ -338,6 +338,9 @@
           <Parameter Name="PAGINA_INICIO" Type="int" Mode="In" />
           <Parameter Name="TAMANIO_PAGINA" Type="int" Mode="In" />
         </Function>
+        <Function Name="PA_PLAN_AREA_LISTA_VIGENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="gd">
+          <Parameter Name="ID_PERIODOACADEMICO" Type="int" Mode="In" />
+        </Function>
         <Function Name="PA_PLAN_AREA_SEL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="gd">
           <Parameter Name="PlanAreaId" Type="int" Mode="In" />
         </Function>
@@ -868,6 +871,9 @@
           <Parameter Name="PlanAreaId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="PA_PLAN_ESTUDIO_SEL" ReturnType="Collection(DB_INNOVASCHOOLSModel.PA_PLAN_ESTUDIO_SEL_Result)" />
+          <FunctionImport Name="PA_PLAN_AREA_LISTA_VIGENTE" ReturnType="Collection(DB_INNOVASCHOOLSModel.PA_PLAN_AREA_LISTA_VIGENTE_Result)" >
+            <Parameter Name="ID_PERIODOACADEMICO" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="PA_AREA_LISTA_Result">
           <Property Type="Int32" Name="ID_AREA" Nullable="false" />
@@ -932,6 +938,10 @@
           <Property Type="Int64" Name="FilasTotal" Nullable="true" />
           <Property Type="Int64" Name="NumeroFila" Nullable="true" />
           <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="PA_PLAN_AREA_LISTA_VIGENTE_Result">
+          <Property Type="Int32" Name="ID_PLANAREA" Nullable="false" />
+          <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="255" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1169,6 +1179,14 @@
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
                 <ScalarProperty Name="ANIO" ColumnName="ANIO" />
                 <ScalarProperty Name="DOCUMENTO" ColumnName="DOCUMENTO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PA_PLAN_AREA_LISTA_VIGENTE" FunctionName="DB_INNOVASCHOOLSModel.Store.PA_PLAN_AREA_LISTA_VIGENTE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_INNOVASCHOOLSModel.PA_PLAN_AREA_LISTA_VIGENTE_Result">
+                <ScalarProperty Name="ID_PLANAREA" ColumnName="ID_PLANAREA" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

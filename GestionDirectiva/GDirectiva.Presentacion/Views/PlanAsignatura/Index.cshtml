@@ -27,7 +27,15 @@
                                     <label>@PlanAsignaturaResource.EtiquetaPeriodoAcademico:</label>
                                     <select id="slcPeriodoAcademico" name="value" class="form-control">
                                         <option value="0">@GenericResource.EtiquetaSeleccionar</option>
-                                        
+                                        @{
+                                            if (Model.ListaPeriodoAcademico != null)
+                                            {
+                                                foreach (var item in Model.ListaPeriodoAcademico)
+                                                {
+                                                    <option value="@item.ID_PERIODOACADEMICO">@item.PERIODO</option>
+                                                }
+                                            }
+                                        }
                                     </select>
                                 </div>
                             </div>
@@ -60,7 +68,6 @@
                     <div class="box-acciones">
                         <div class="pull-right">
                             <button type="button" id="btnBuscar" class="btn-s btn-search">Buscar</button>
-                            <button type="reset" class="btn-s btn-clean">@GenericResource.BotonLimpiar</button>
                         </div>
                     </div>
                 </div>

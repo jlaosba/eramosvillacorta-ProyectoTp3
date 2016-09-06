@@ -27,6 +27,22 @@ namespace GDirectiva.Domain.Main
             return resultado;
         }
 
+        public ProcessResult<List<PA_PLAN_AREA_LISTA_VIGENTE_Result>> ListarPlanAreaVigente(int periodoacademicoId)
+        {
+            ProcessResult<List<PA_PLAN_AREA_LISTA_VIGENTE_Result>> resultado = new ProcessResult<List<PA_PLAN_AREA_LISTA_VIGENTE_Result>>();
+            try
+            {
+                DA_PlanArea objeto = new DA_PlanArea();
+                resultado.Result = objeto.ListarPlanAreaVigente(periodoacademicoId);
+            }
+            catch (Exception e)
+            {
+                resultado.IsSuccess = false;
+                resultado.Exception = new ApplicationLayerException<BL_PlanArea>(e);
+            }
+            return resultado;
+        }
+
         public ProcessResult<PA_PLAN_AREA_SEL_Result> ObtenerPlanArea(int pIdPlanArea)
         {
             ProcessResult<PA_PLAN_AREA_SEL_Result> resultado = new ProcessResult<PA_PLAN_AREA_SEL_Result>();
