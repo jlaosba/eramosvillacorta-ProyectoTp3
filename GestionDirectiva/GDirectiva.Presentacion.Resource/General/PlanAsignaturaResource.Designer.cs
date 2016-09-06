@@ -70,24 +70,6 @@ namespace GDirectiva.Presentacion.Resource.General {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Asociar reglas:.
-        /// </summary>
-        public static string EtiquetaAsociarReglas {
-            get {
-                return ResourceManager.GetString("EtiquetaAsociarReglas", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Debe asociar al menos una regla..
-        /// </summary>
-        public static string EtiquetaDebeAsociarUnaRegla {
-            get {
-                return ResourceManager.GetString("EtiquetaDebeAsociarUnaRegla", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Docente.
         /// </summary>
         public static string EtiquetaDocente {
@@ -142,29 +124,11 @@ namespace GDirectiva.Presentacion.Resource.General {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Regla.
-        /// </summary>
-        public static string EtiquetaRegla {
-            get {
-                return ResourceManager.GetString("EtiquetaRegla", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Resultado de la búsqueda.
         /// </summary>
         public static string EtiquetaResultadosBusqueda {
             get {
                 return ResourceManager.GetString("EtiquetaResultadosBusqueda", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Seleccionar una regla..
-        /// </summary>
-        public static string EtiquetaSeleccionarUnaRegla {
-            get {
-                return ResourceManager.GetString("EtiquetaSeleccionarUnaRegla", resourceCulture);
             }
         }
         

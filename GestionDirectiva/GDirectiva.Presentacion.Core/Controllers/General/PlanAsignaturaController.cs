@@ -29,6 +29,9 @@ namespace GDirectiva.Presentacion.Core.Controllers.General
         public ActionResult Index()
         {
             var model = new PlanAsignaturaBusquedaModel();
+            var bl_PeriodoAcademico = new BL_PeriodoAcademico();
+
+            model.ListaPeriodoAcademico = bl_PeriodoAcademico.ListarPeriodosAcademicos();
 
             return View(model);
         }
@@ -44,6 +47,26 @@ namespace GDirectiva.Presentacion.Core.Controllers.General
         #endregion
 
         #region JsonResult
+
+        public JsonResult BuscarPlanArea(int pId_Periodo)
+        {
+            ProcessResult<List<SelectListItem>> resultado = new ProcessResult<List<SelectListItem>>();
+            resultado.Result = new List<SelectListItem>();
+            var bl_PlanArea = new BL_PlanArea();
+            var proceso = bl_PlanArea.ListarPlanAreaVigente(pId_Periodo);
+            if (proceso != null)
+            {
+                proceso.Result.ForEach(delegate(PA_PLAN_AREA_LISTA_VIGENTE_Result plan)
+                {
+                    resultado.Result.Add(new SelectListItem() { Value = plan.ID_PLANAREA.ToString(), Text = plan.NOMBRE });
+                });
+            }
+            else
+            {
+                resultado.Result = null;
+            }
+            return Json(resultado);
+        }
 
         #endregion
     }
