@@ -32,7 +32,7 @@ namespace GDirectiva.Core.Entities
     
         public virtual Empleado Empleado { get; set; }
         public virtual ICollection<ActividadPlanAsignatura> ActividadPlanAsignatura { get; set; }
-        public virtual Asignatura Asignatura { get; set; }
         public virtual PlanArea PlanArea { get; set; }
+        public virtual Curso Curso { get; set; }
     }
 }

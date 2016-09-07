@@ -15,5 +15,7 @@ namespace GDirectiva.Presentacion.Core.ViewModel.General
         {
             
         }
+
+        public PA_PLAN_ASIGNATURA_SEL_Result planAsignatura { get; set; }
     }
 }

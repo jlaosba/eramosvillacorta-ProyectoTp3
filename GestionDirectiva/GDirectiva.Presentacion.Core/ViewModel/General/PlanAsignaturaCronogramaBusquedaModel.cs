@@ -14,6 +14,6 @@ namespace GDirectiva.Presentacion.Core.ViewModel.General
         {
 
         }
-        
+        public List<PA_PERIODO_ACADEMICO_LISTA_Result> ListaPeriodoAcademico = new List<PA_PERIODO_ACADEMICO_LISTA_Result>();
     }
 }

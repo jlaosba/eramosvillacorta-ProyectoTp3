@@ -29,6 +29,22 @@ namespace GDirectiva.Domain.Main
             return resultado;
         }
 
+        public ProcessResult<List<PA_PLAN_ASIGNATURA_LISTA_VIGENTE_Result>> ListarPlanAsignaturaVigente(int periodoacademicoId, int planAreaId, int asignaturaId, int pAGINA_INICIO, int tAMANIO_PAGINA)
+        {
+            ProcessResult<List<PA_PLAN_ASIGNATURA_LISTA_VIGENTE_Result>> resultado = new ProcessResult<List<PA_PLAN_ASIGNATURA_LISTA_VIGENTE_Result>>();
+            try
+            {
+                DA_PlanAsignatura objeto = new DA_PlanAsignatura();
+                resultado.Result = objeto.ListarPlanAsignaturaVigente(periodoacademicoId, planAreaId, asignaturaId, pAGINA_INICIO, tAMANIO_PAGINA);
+            }
+            catch (Exception e)
+            {
+                resultado.IsSuccess = false;
+                resultado.Exception = new ApplicationLayerException<BL_PlanAsignatura>(e);
+            }
+            return resultado;
+        }
+
         public ProcessResult<PA_PLAN_ASIGNATURA_SEL_Result> ObtenerPlanAsignatura(int planAsignaturaId)
         {
             ProcessResult<PA_PLAN_ASIGNATURA_SEL_Result> resultado = new ProcessResult<PA_PLAN_ASIGNATURA_SEL_Result>();

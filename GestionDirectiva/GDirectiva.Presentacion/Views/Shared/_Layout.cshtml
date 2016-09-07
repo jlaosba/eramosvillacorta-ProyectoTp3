@@ -63,7 +63,7 @@
                     <ul class="dropdown-menu">
                         <li><a href='@Url.Content("~/PlanArea")'>Plan Área</a></li>
                         <li><a href='@Url.Content("~/PlanAsignatura")'>Plan Asignatura</a></li>
-                        <li><a href='@Url.Content("~/PlanArea")'>Cronograma Plan Asignatura</a></li>
+                        <li><a href='@Url.Content("~/PlanAsignaturaCronograma")'>Cronograma Plan Asignatura</a></li>
                     </ul>
                 </li>
                 <li>@Html.ActionLink("Gestión Apoyo Académico", "Modulo3", "Home")</li>
@@ -104,6 +104,7 @@
         ns('GDirectiva.Presentacion.Base.GenericResource');
         GDirectiva.Presentacion.Base.GenericResource.EtiquetaEditar = '@Html.Raw(GenericResource.EtiquetaEditar)';
         GDirectiva.Presentacion.Base.GenericResource.EtiquetaEliminar = '@Html.Raw(GenericResource.EtiquetaEliminar)';
+        GDirectiva.Presentacion.Base.GenericResource.EtiquetaEliminarActividades = '@Html.Raw(GenericResource.EtiquetaEliminarActividades)';        
         GDirectiva.Presentacion.Base.GenericResource.EtiquetaDesactivar = '@Html.Raw(GenericResource.EtiquetaDesactivar)';
         GDirectiva.Presentacion.Base.GenericResource.EtiquetaSeleccionar = '@Html.Raw(GenericResource.EtiquetaSeleccionar)';
         GDirectiva.Presentacion.Base.GenericResource.GridAcciones = '@Html.Raw(GenericResource.GridAcciones)';

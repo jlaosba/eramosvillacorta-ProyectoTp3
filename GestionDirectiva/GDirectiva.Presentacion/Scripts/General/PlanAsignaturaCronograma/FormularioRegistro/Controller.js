@@ -73,9 +73,6 @@ GDirectiva.Presentacion.General.PlanAsignaturaCronograma.FormularioRegistro.Cont
         BtnCancelarClick: function () {
             base.Control.DlgFormulario.close();
         },
-        BtnGridEditarActividadClick: function (row, data) {
-            base.Control.FormularioRegistroActividad.MostrarActividades(base.Control.HdnCodigo().val(), data.ID_ACTIVIDAD);
-        },
         BtnGridEliminarActividadClick: function (row, data) {
             base.Control.Mensaje.Confirmation({
                 title: GDirectiva.Presentacion.Base.MensajeResource.ConfirmacionEliminacion,
@@ -126,14 +123,12 @@ GDirectiva.Presentacion.General.PlanAsignaturaCronograma.FormularioRegistro.Cont
     base.Function = {
         CrearGrid: function () {
             var columns = new Array();
-            columns.push({ data: 'NOMBRE_ACTIVIDAD', title: GDirectiva.Presentacion.General.PlanAsignaturaCronograma.Resource.EtiquetaNombreActividad });
-            columns.push({ data: 'FECHA_INICIO', title: GDirectiva.Presentacion.General.PlanAsignaturaCronograma.Resource.EtiquetaFechaInicio });
-            columns.push({ data: 'FECHA_FIN', title: GDirectiva.Presentacion.General.PlanAsignaturaCronograma.Resource.EtiquetaFechaFin });
+            columns.push({ data: 'ACTIVIDAD', title: GDirectiva.Presentacion.General.PlanAsignaturaCronograma.Resource.EtiquetaNombreActividad });
+            columns.push({ data: 'FECHAINICIO', title: GDirectiva.Presentacion.General.PlanAsignaturaCronograma.Resource.EtiquetaFechaInicio });
+            columns.push({ data: 'FECHAFIN', title: GDirectiva.Presentacion.General.PlanAsignaturaCronograma.Resource.EtiquetaFechaFin });
             columns.push({ data: 'PORCENTAJE', title: GDirectiva.Presentacion.General.PlanAsignaturaCronograma.Resource.EtiquetaPorcentaje });
-            columns.push({ data: 'NOMBRE_EMPLEADO', title: GDirectiva.Presentacion.General.PlanAsignaturaCronograma.Resource.EtiquetaResponsables });
 
             var listaOpciones = new Array();
-            listaOpciones.push({ type: GDirectiva.Presentacion.Web.Components.GridAction.Edit, event: { on: 'click', callBack: base.Event.BtnGridEditarActividadClick } });
             listaOpciones.push({ type: GDirectiva.Presentacion.Web.Components.GridAction.Delete, event: { on: 'click', callBack: base.Event.BtnGridEliminarActividadClick } });
 
             columns.push({

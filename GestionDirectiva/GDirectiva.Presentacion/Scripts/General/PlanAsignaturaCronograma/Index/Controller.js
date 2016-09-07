@@ -53,7 +53,6 @@ GDirectiva.Presentacion.General.PlanAsignaturaCronograma.Index.Controller = func
                 pId_Periodo: base.Control.SlcPeriodoAcademico().val(),
                 pGD_Plan_Area_Id_Plan_Area: base.Control.SlcPlanArea().val(),
                 pGD_Asignatura_Id_Asignatura: base.Control.SlcAsignatura().val(),
-                pGRMS_Empleado_Id_Empleado: 0
             };
             base.Control.GrdResultado.Load(base.Configurations.search.parameters);
         },
@@ -61,14 +60,14 @@ GDirectiva.Presentacion.General.PlanAsignaturaCronograma.Index.Controller = func
             base.Control.FormularioRegistro.Mostrar();
         },
         BtnGridEditarClick: function (row, data) {
-            base.Control.FormularioRegistro.Mostrar(data.ID_PLAN_ASIGNATURA);
+            base.Control.FormularioRegistro.Mostrar(data.ID_PLANASIGNATURA);
         },
         BtnGridEliminarClick: function (row, data) {
             base.Control.Mensaje.Confirmation({
                 title: GDirectiva.Presentacion.Base.MensajeResource.ConfirmacionEliminacion,
                 message: GDirectiva.Presentacion.Base.MensajeResource.TextoEliminacion,
                 onAccept: function () {
-                    base.Ajax.AjaxEliminar.send({ pId_Plan_Asignatura: data.ID_PLAN_ASIGNATURA })
+                    base.Ajax.AjaxEliminar.send({ pId_Plan_Asignatura: data.ID_PLANASIGNATURA })
                 }
             });
         },
@@ -156,13 +155,13 @@ GDirectiva.Presentacion.General.PlanAsignaturaCronograma.Index.Controller = func
         CrearGrid: function () {
 
             var columns = new Array();
-            columns.push({ data: 'PERIODO', title: GDirectiva.Presentacion.General.PlanAsignaturaCronograma.Resource.EtiquetaPeriodoAcademico });
-            columns.push({ data: 'NOMBRE_PLAN_AREA', title: GDirectiva.Presentacion.General.PlanAsignaturaCronograma.Resource.EtiquetaPlanArea });
-            columns.push({ data: 'NOMBRE_CURSO', title: GDirectiva.Presentacion.General.PlanAsignaturaCronograma.Resource.EtiquetaAsignatura });
+            columns.push({ data: 'NOMBRE_PERIODO', title: GDirectiva.Presentacion.General.PlanAsignaturaCronograma.Resource.EtiquetaPeriodoAcademico });
+            columns.push({ data: 'NOMBRE_PLANAREA', title: GDirectiva.Presentacion.General.PlanAsignaturaCronograma.Resource.EtiquetaPlanArea });
+            columns.push({ data: 'NOMBRE_ASIGNATURA', title: GDirectiva.Presentacion.General.PlanAsignaturaCronograma.Resource.EtiquetaAsignatura });
             
             var listaOpciones = new Array();
             listaOpciones.push({ type: GDirectiva.Presentacion.Web.Components.GridAction.Calendario, event: { on: 'click', callBack: base.Event.BtnGridEditarClick } });
-            listaOpciones.push({ type: GDirectiva.Presentacion.Web.Components.GridAction.Delete, event: { on: 'click', callBack: base.Event.BtnGridEliminarClick } });
+            listaOpciones.push({ type: GDirectiva.Presentacion.Web.Components.GridAction.DeleteActividades, event: { on: 'click', callBack: base.Event.BtnGridEliminarClick } });
 
             columns.push({
                 data: null,

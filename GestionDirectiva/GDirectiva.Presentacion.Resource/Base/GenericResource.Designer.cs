@@ -187,6 +187,15 @@ namespace GDirectiva.Presentacion.Resource.Base {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Eliminar actividades.
+        /// </summary>
+        public static string EtiquetaEliminarActividades {
+            get {
+                return ResourceManager.GetString("EtiquetaEliminarActividades", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Resultado de la búsqueda.
         /// </summary>
         public static string EtiquetaResultadosBusqueda {

@@ -29,6 +29,16 @@ namespace GDirectiva.Infraestructure.Data.Sql
             }
         }
 
+        public List<PA_PLAN_ASIGNATURA_LISTA_VIGENTE_Result> ListarPlanAsignaturaVigente(int periodoacademicoId, int planAreaId, int asignaturaId, int pAGINA_INICIO, int tAMANIO_PAGINA)
+        {
+            using (DB_INNOVASCHOOLSEntities contexto = new DB_INNOVASCHOOLSEntities())
+            {
+                List<PA_PLAN_ASIGNATURA_LISTA_VIGENTE_Result> objeto = new List<PA_PLAN_ASIGNATURA_LISTA_VIGENTE_Result>();
+                objeto = contexto.PA_PLAN_ASIGNATURA_LISTA_VIGENTE(periodoacademicoId, planAreaId, asignaturaId, pAGINA_INICIO, tAMANIO_PAGINA).ToList();
+                return objeto;
+            }
+        }
+
         public PA_PLAN_ASIGNATURA_SEL_Result ObtenerPlanAsignatura(int planAsignaturaId)
         {
             using (DB_INNOVASCHOOLSEntities contexto = new DB_INNOVASCHOOLSEntities())

@@ -14,6 +14,8 @@ namespace GDirectiva.Core.Entities
     public partial class PA_PLAN_AREA_LISTA_Result
     {
         public Nullable<long> RegistrosPagina { get; set; }
+        public Nullable<long> FilasTotal { get; set; }
+        public Nullable<long> NumeroFila { get; set; }
         public Nullable<int> TamanioPagina { get; set; }
         public int ID_PLANAREA { get; set; }
         public string NOMBRE_PLANAREA { get; set; }
@@ -21,6 +23,7 @@ namespace GDirectiva.Core.Entities
         public string CRITERIOS { get; set; }
         public string REQUISITOS { get; set; }
         public int ID_ESTADO { get; set; }
+        public string ESTADO { get; set; }
         public string DOCUMENTO_PLANAREA { get; set; }
         public Nullable<int> ID_PERIODOACADEMICO { get; set; }
         public string PERIODO { get; set; }
@@ -29,8 +32,5 @@ namespace GDirectiva.Core.Entities
         public string NOMBRE_GRADO { get; set; }
         public Nullable<int> ID_AREA { get; set; }
         public string NOMBRE_AREA { get; set; }
-        public Nullable<long> FilasTotal { get; set; }
-        public Nullable<long> NumeroFila { get; set; }
-        public string ESTADO { get; set; }
     }
 }

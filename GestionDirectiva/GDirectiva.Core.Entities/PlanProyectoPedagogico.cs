@@ -33,9 +33,9 @@ namespace GDirectiva.Core.Entities
         public Nullable<System.DateTime> FechaModificacion { get; set; }
     
         public virtual ICollection<ActividadPlanProyectoPedagogico> ActividadPlanProyectoPedagogico { get; set; }
-        public virtual Area Area { get; set; }
-        public virtual Grado Grado { get; set; }
         public virtual PeriodoAcademico PeriodoAcademico { get; set; }
         public virtual PlanEstudio PlanEstudio { get; set; }
+        public virtual AreaCurricular AreaCurricular { get; set; }
+        public virtual Grado Grado { get; set; }
     }
 }
