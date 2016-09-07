@@ -52,3 +52,12 @@ D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.BL\bin\Debug\Innova
 D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.BL\obj\Debug\InnovaSchool.BL.csprojResolveAssemblyReference.cache
 D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.BL\obj\Debug\InnovaSchool.BL.dll
 D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.BL\obj\Debug\InnovaSchool.BL.pdb
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.BL\bin\Debug\InnovaSchool.BL.dll
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.BL\bin\Debug\InnovaSchool.BL.pdb
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.BL\bin\Debug\InnovaSchool.DAL.dll
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.BL\bin\Debug\InnovaSchool.Entity.dll
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.BL\bin\Debug\InnovaSchool.DAL.pdb
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.BL\bin\Debug\InnovaSchool.Entity.pdb
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.BL\obj\Debug\InnovaSchool.BL.csprojResolveAssemblyReference.cache
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.BL\obj\Debug\InnovaSchool.BL.dll
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.BL\obj\Debug\InnovaSchool.BL.pdb

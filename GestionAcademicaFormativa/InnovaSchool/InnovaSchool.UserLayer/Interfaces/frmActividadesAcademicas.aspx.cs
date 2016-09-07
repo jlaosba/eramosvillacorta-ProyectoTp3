@@ -38,8 +38,8 @@ namespace InnovaSchool.UserLayer.Interfaces
                 IdAgenda = ECalendario.IdAgenda
             };
             EAgenda = BAgenda.ConsultarAgenda(EAgenda);
-            var FecIniAnio = string.Format("{0:dd/MM/yyyy}", EAgenda.FecIniEscolar);
-            var FecFinAnio = string.Format("{0:dd/MM/yyyy}", EAgenda.FecFinEscolar);
+            var FecIniAnio = string.Format("{0:dd/MM/yyyy}", EAgenda.fechaInicioEscolar);
+            var FecFinAnio = string.Format("{0:dd/MM/yyyy}", EAgenda.FechaTerminoEscolar);
             rvInicio.MinimumValue = FecIniAnio.ToString();
             rvInicio.MaximumValue = FecFinAnio.ToString();
             rvTermino.MinimumValue = FecIniAnio.ToString();
@@ -169,7 +169,7 @@ namespace InnovaSchool.UserLayer.Interfaces
             EFeriado = BFeriado.VerificarFeriado(EActividad);
             if (EFeriado != null)
             {
-                string Feriado = " " + string.Format("{0:dd/MM/yyyy}", EFeriado.Fecha) + " - " + EFeriado.Motivo.ToString();
+                string Feriado = " " + string.Format("{0:dd/MM/yyyy}", EFeriado.FecCreacion) + " - " + EFeriado.Motivo.ToString();
                 ClientScript.RegisterStartupScript(this.GetType(), "Mensaje", "<script>$('#mensaje').html(GenerarMensaje('" + Constant.TituloActividadFeriado + "','" + Constant.MensajeActividadFeriado + Feriado + "'))</script>");
                 ClientScript.RegisterStartupScript(this.GetType(), "Show", "<script>myModalShow();</script>");
             }

@@ -74,10 +74,10 @@ namespace InnovaSchool.UserLayer.Interfaces
                 EUsuario EUsuario = (EUsuario)Session["Usuario"];
                 EAgenda EAgenda = new EAgenda
                 {
-                    FecApertura = objResources.GetDateFromTextBox(txtFApertura),
-                    FecCierre = objResources.GetDateFromTextBox(txtFCierre),
-                    FecIniEscolar = objResources.GetDateFromTextBox(txtFInicio),
-                    FecFinEscolar = objResources.GetDateFromTextBox(txtFTermino)
+                    fechaApertura = objResources.GetDateFromTextBox(txtFApertura),
+                    fechaCierre = objResources.GetDateFromTextBox(txtFCierre),
+                    fechaInicioEscolar = objResources.GetDateFromTextBox(txtFInicio),
+                    FechaTerminoEscolar = objResources.GetDateFromTextBox(txtFTermino)
                 };
                 int result = 0;
                 result = BAgenda.RegistrarAperturaAgenda(EAgenda, EUsuario);
@@ -110,10 +110,10 @@ namespace InnovaSchool.UserLayer.Interfaces
                 EAgenda = BAgenda.ConsultarAgenda(EAgenda);
                 if (EAgenda != null)
                 {
-                    txtFAperturaC.Text = string.Format("{0:dd/MM/yyyy}", EAgenda.FecApertura);
-                    txtFCierreC.Text = string.Format("{0:dd/MM/yyyy}", EAgenda.FecCierre);
-                    txtFInicioC.Text = string.Format("{0:dd/MM/yyyy}", EAgenda.FecIniEscolar);
-                    txtFTerminoC.Text = string.Format("{0:dd/MM/yyyy}", EAgenda.FecFinEscolar);
+                    txtFAperturaC.Text = string.Format("{0:dd/MM/yyyy}", EAgenda.fechaApertura);
+                    txtFCierreC.Text = string.Format("{0:dd/MM/yyyy}", EAgenda.fechaCierre);
+                    txtFInicioC.Text = string.Format("{0:dd/MM/yyyy}", EAgenda.fechaInicioEscolar);
+                    txtFTerminoC.Text = string.Format("{0:dd/MM/yyyy}", EAgenda.FechaTerminoEscolar);
                     txtFAprobacion.Text = string.Format("{0:dd/MM/yyyy}", EAgenda.FecModificacion);
                     txtResponsable.Text = EAgenda.UsuModificación.ToString();
                     txtDescripcion.Text = EAgenda.Descripcion.ToString();

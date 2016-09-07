@@ -68,3 +68,15 @@ D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.UserLayer\bin\Innov
 D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.csprojResolveAssemblyReference.cache
 D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.dll
 D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.pdb
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.UserLayer.dll.config
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.UserLayer.dll
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.UserLayer.pdb
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.BL.dll
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.Entity.dll
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.DAL.dll
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.BL.pdb
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.Entity.pdb
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.UserLayer\bin\InnovaSchool.DAL.pdb
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.csprojResolveAssemblyReference.cache
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.dll
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.UserLayer\obj\Debug\InnovaSchool.UserLayer.pdb

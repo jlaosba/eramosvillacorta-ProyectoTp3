@@ -27,3 +27,7 @@ D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.Entity\bin\Debug\In
 D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.Entity\obj\Debug\InnovaSchool.Entity.csprojResolveAssemblyReference.cache
 D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.Entity\obj\Debug\InnovaSchool.Entity.dll
 D:\Personal\Taller de Proyecto III\InnovaSchool\InnovaSchool.Entity\obj\Debug\InnovaSchool.Entity.pdb
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.Entity\bin\Debug\InnovaSchool.Entity.dll
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.Entity\bin\Debug\InnovaSchool.Entity.pdb
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.Entity\obj\Debug\InnovaSchool.Entity.dll
+C:\Users\SMITH\Documents\Smith\Repositorio\Upc\TP3All\GestionAcademicaFormativa\InnovaSchool\InnovaSchool.Entity\obj\Debug\InnovaSchool.Entity.pdb

@@ -103,7 +103,7 @@ namespace InnovaSchool.DAL
                             IdCalendario = int.Parse(reader["IdCalendario"].ToString()),
                             IdAgenda = reader["IdAgenda"].ToString(),
                             FecCreacion = Convert.ToDateTime(reader["FecCreacion"].ToString()),
-                            FecModificacion = Convert.ToDateTime(reader["FecCierre"].ToString()), //FecCierre
+                            FecModificacion = Convert.ToDateTime(reader["fechaCierre"].ToString()), //FecCierre
                             Estado = int.Parse(reader["Estado"].ToString()),
                             UsuCreacion = reader["UsuCreacion"].ToString()
                         });

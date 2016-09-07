@@ -101,8 +101,8 @@ namespace InnovaSchool.UserLayer.Interfaces
             EAgenda = BAgenda.ConsultarAgenda(EAgenda);
             if (EAgenda != null)
             {
-                FecIniAnio = string.Format("{0:dd/MM/yyyy}", EAgenda.FecIniEscolar);
-                FecFinAnio = string.Format("{0:dd/MM/yyyy}", EAgenda.FecFinEscolar);
+                FecIniAnio = string.Format("{0:dd/MM/yyyy}", EAgenda.fechaInicioEscolar);
+                FecFinAnio = string.Format("{0:dd/MM/yyyy}", EAgenda.FechaTerminoEscolar);
 
                 if (EAgenda.Estado == int.Parse(Constant.ParametroAgendaEstadoVigente))
                 {
@@ -467,7 +467,7 @@ namespace InnovaSchool.UserLayer.Interfaces
                 EFeriado = BFeriado.VerificarFeriado(EActividad);                
                 if (EFeriado != null)
                 {
-                    string Feriado = " " + string.Format("{0:dd/MM/yyyy}", EFeriado.Fecha) + " - " + EFeriado.Motivo.ToString();                   
+                    string Feriado = " " + string.Format("{0:dd/MM/yyyy}", EFeriado.FecCreacion) + " - " + EFeriado.Motivo.ToString();                   
                     lblTituloMensaje.Text = Constant.TituloActividadFeriado;
                     lblDescripcionMensaje.Text = Constant.MensajeActividadFeriado;
                     ClientScript.RegisterStartupScript(this.GetType(), "Show", "<script>$('#myModalMensaje').modal('show');</script>");   

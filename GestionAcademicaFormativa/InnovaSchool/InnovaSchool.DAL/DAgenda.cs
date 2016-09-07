@@ -20,10 +20,10 @@ namespace InnovaSchool.DAL
             using (SqlCommand cmd = new SqlCommand("SP_RegistrarAperturaAgenda", cn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@FecApertura", EAgenda.FecApertura));
-                cmd.Parameters.Add(new SqlParameter("@FecCierre", EAgenda.FecCierre));
-                cmd.Parameters.Add(new SqlParameter("@FecIniEscolar", EAgenda.FecIniEscolar));
-                cmd.Parameters.Add(new SqlParameter("@FecFinEscolar", EAgenda.FecFinEscolar));
+                cmd.Parameters.Add(new SqlParameter("@FecApertura", EAgenda.fechaApertura));
+                cmd.Parameters.Add(new SqlParameter("@FecCierre", EAgenda.fechaCierre ));
+                cmd.Parameters.Add(new SqlParameter("@FecIniEscolar", EAgenda.fechaInicioEscolar));
+                cmd.Parameters.Add(new SqlParameter("@FecFinEscolar", EAgenda.FechaTerminoEscolar));
 	            cmd.Parameters.Add(new SqlParameter("@UsuCreacion", EUsuario.Usuario));
                 retval = cmd.ExecuteNonQuery();
             }
@@ -91,10 +91,10 @@ namespace InnovaSchool.DAL
                         {
                             IdAgenda = reader["IdAgenda"].ToString(),
                             Descripcion = reader["Descripcion"].ToString(),
-                            FecApertura = Convert.ToDateTime(reader["FecApertura"].ToString()),
-                            FecCierre = Convert.ToDateTime(reader["FecCierre"].ToString()),
-                            FecIniEscolar = Convert.ToDateTime(reader["FecIniEscolar"].ToString()),
-                            FecFinEscolar = Convert.ToDateTime(reader["FecFinEscolar"].ToString()),
+                            fechaApertura = Convert.ToDateTime(reader["fechaApertura"].ToString()),
+                            fechaCierre = Convert.ToDateTime(reader["fechaCierre"].ToString()),
+                            fechaInicioEscolar = Convert.ToDateTime(reader["fechaInicioEscolar"].ToString()),
+                            FechaTerminoEscolar = Convert.ToDateTime(reader["FechaTerminoEscolar"].ToString()),
                             Estado = int.Parse(reader["Estado"].ToString()),
                             UsuModificación = reader["UsuModificacion"].ToString(),
                             FecModificacion = reader.IsDBNull(8) ? (DateTime?)null : Convert.ToDateTime(reader["FecModificacion"].ToString())

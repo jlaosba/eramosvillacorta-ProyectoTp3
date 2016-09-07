@@ -16,5 +16,15 @@ namespace InnovaSchool.BL
         {
             return DFeriado.VerificarFeriado(EActividad);
         }
+
+        public EFeriado ConsultarFeriado(EFeriado EFeriado)
+        {
+            return DFeriado.ConsultarFeriado(EFeriado);
+        }
+
+        public List<EFeriado> ConsultarFeriadoLista(EFeriado EFeriado)
+        {
+            return DFeriado.ConsultarFeriadoLista(EFeriado);
+        }
     }
 }

@@ -10,10 +10,10 @@ namespace InnovaSchool.Entity
     {
         public string IdAgenda { get; set; }
         public string Descripcion { get; set; }
-        public DateTime? FecApertura { get; set; }
-        public DateTime? FecCierre { get; set; }
-        public DateTime? FecIniEscolar { get; set; }
-        public DateTime? FecFinEscolar { get; set; }
+        public DateTime? fechaApertura { get; set; }
+        public DateTime? fechaCierre { get; set; }
+        public DateTime? fechaInicioEscolar { get; set; }
+        public DateTime? FechaTerminoEscolar { get; set; }
         public int Estado { get; set; }
         public string UsuCreacion { get; set; }
         public DateTime? FecCreacion { get; set; }

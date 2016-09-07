@@ -110,6 +110,9 @@
                         <li>
                             <a href="../Interfaces/frmSolicitudActividad.aspx">Solicitud de Actividade</a>
                         </li>
+                        <li>
+                            <a href="../Interfaces/frmActualizarFeriados.aspx">Actualizar Feriados</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="dropdown">
