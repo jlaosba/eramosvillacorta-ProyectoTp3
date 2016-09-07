@@ -3,8 +3,8 @@
 @using GDirectiva.Presentacion.Resource.Mensaje
 @model GDirectiva.Presentacion.Core.ViewModel.General.PlanAsignaturaRegistroModel
 
-@Html.Hidden("hdnFormularioRegistroCodigo", Model.planAsignatura.ID_PLAN_ASIGNATURA, new { id = "hdnFormularioRegistroCodigo" })
-@Html.Hidden("hdnFormularioRegistroEstado", Model.planAsignatura.ESTADO, new { id = "hdnFormularioRegistroEstado" })
+@*@Html.Hidden("hdnFormularioRegistroCodigo", Model.planAsignatura.ID_PLAN_ASIGNATURA, new { id = "hdnFormularioRegistroCodigo" })
+@Html.Hidden("hdnFormularioRegistroEstado", Model.planAsignatura.ESTADO, new { id = "hdnFormularioRegistroEstado" })*@
 <form id="frmRegistrarPlanAsignatura">
     <div class="row">
         <div class="col-sm-6">
@@ -17,7 +17,7 @@
                         {
                             foreach (var item in Model.ListaPeriodoAcademico)
                             {
-                                <option value="@item.ID_PERIODO" @((Model.planAsignatura.ID_PERIODO == item.ID_PERIODO) ? "selected" : "")>@item.PERIODO</option>
+                                <option value="@item.ID_PERIODOACADEMICO" @((Model.planAsignatura.ID_PERIODO == item.ID_PERIODO) ? "selected" : "")>@item.PERIODO</option>
                             }
                         }
                     }

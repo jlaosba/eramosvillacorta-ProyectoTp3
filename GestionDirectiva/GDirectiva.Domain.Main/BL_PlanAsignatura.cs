@@ -13,6 +13,6 @@ namespace GDirectiva.Domain.Main
 {
     public class BL_PlanAsignatura
     {
-
+        
     }
 }

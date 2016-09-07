@@ -42,6 +42,10 @@ namespace GDirectiva.Presentacion.Core.Controllers.General
         {
             var model = new PlanAsignaturaRegistroModel();
 
+            var bl_PeriodoAcademico = new BL_PeriodoAcademico();
+
+            model.ListaPeriodoAcademico = bl_PeriodoAcademico.ListarPeriodosAcademicosVigentes();
+
             return PartialView(model);
         }
         #endregion
@@ -68,6 +72,25 @@ namespace GDirectiva.Presentacion.Core.Controllers.General
             return Json(resultado);
         }
 
+        public JsonResult BuscarAsignatura(int pId_PlanArea)
+        {
+            ProcessResult<List<SelectListItem>> resultado = new ProcessResult<List<SelectListItem>>();
+            resultado.Result = new List<SelectListItem>();
+            var bl_Asignatura = new BL_Asignatura();
+            var proceso = bl_Asignatura.ListarAsignaturaPlanArea(pId_PlanArea);
+            if (proceso != null)
+            {
+                proceso.Result.ForEach(delegate(PA_ASIGNATURA_PLANAREA_LISTA_Result asignatura)
+                {
+                    resultado.Result.Add(new SelectListItem() { Value = asignatura.ID_ASIGNATURA.ToString(), Text = asignatura.NOMBRE_ASIGNATURA });
+                });
+            }
+            else
+            {
+                resultado.Result = null;
+            }
+            return Json(resultado);
+        }
         #endregion
     }
 }

@@ -106,5 +106,14 @@ namespace GDirectiva.Core.Entities
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PA_PLAN_AREA_LISTA_VIGENTE_Result>("PA_PLAN_AREA_LISTA_VIGENTE", iD_PERIODOACADEMICOParameter);
         }
+    
+        public virtual ObjectResult<PA_ASIGNATURA_PLANAREA_LISTA_Result> PA_ASIGNATURA_PLANAREA_LISTA(Nullable<int> iD_PLANAREA)
+        {
+            var iD_PLANAREAParameter = iD_PLANAREA.HasValue ?
+                new ObjectParameter("ID_PLANAREA", iD_PLANAREA) :
+                new ObjectParameter("ID_PLANAREA", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PA_ASIGNATURA_PLANAREA_LISTA_Result>("PA_ASIGNATURA_PLANAREA_LISTA", iD_PLANAREAParameter);
+        }
     }
 }

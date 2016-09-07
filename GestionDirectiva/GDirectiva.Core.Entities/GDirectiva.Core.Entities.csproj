@@ -89,6 +89,9 @@
     <Compile Include="PA_AREA_LISTA_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="PA_ASIGNATURA_PLANAREA_LISTA_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="PA_GRADO_LISTA_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

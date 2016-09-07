@@ -328,6 +328,9 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="PA_AREA_LISTA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="gd" />
+        <Function Name="PA_ASIGNATURA_PLANAREA_LISTA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="gd">
+          <Parameter Name="ID_PLANAREA" Type="int" Mode="In" />
+        </Function>
         <Function Name="PA_GRADO_LISTA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="gd" />
         <Function Name="PA_PERIODO_ACADEMICO_LISTA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="gd" />
         <Function Name="PA_PERIODO_ACADEMICO_LISTA_VIGENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="gd" />
@@ -872,7 +875,10 @@
           </FunctionImport>
           <FunctionImport Name="PA_PLAN_ESTUDIO_SEL" ReturnType="Collection(DB_INNOVASCHOOLSModel.PA_PLAN_ESTUDIO_SEL_Result)" />
           <FunctionImport Name="PA_PLAN_AREA_LISTA_VIGENTE" ReturnType="Collection(DB_INNOVASCHOOLSModel.PA_PLAN_AREA_LISTA_VIGENTE_Result)" >
-            <Parameter Name="ID_PERIODOACADEMICO" Mode="In" Type="Int32" />
+          <Parameter Name="ID_PERIODOACADEMICO" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PA_ASIGNATURA_PLANAREA_LISTA" ReturnType="Collection(DB_INNOVASCHOOLSModel.PA_ASIGNATURA_PLANAREA_LISTA_Result)">
+          <Parameter Name="ID_PLANAREA" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="PA_AREA_LISTA_Result">
@@ -942,6 +948,10 @@
         <ComplexType Name="PA_PLAN_AREA_LISTA_VIGENTE_Result">
           <Property Type="Int32" Name="ID_PLANAREA" Nullable="false" />
           <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="PA_ASIGNATURA_PLANAREA_LISTA_Result">
+          <Property Type="Int32" Name="ID_ASIGNATURA" Nullable="false" />
+          <Property Type="String" Name="NOMBRE_ASIGNATURA" Nullable="true" MaxLength="255" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1187,6 +1197,14 @@
               <ComplexTypeMapping TypeName="DB_INNOVASCHOOLSModel.PA_PLAN_AREA_LISTA_VIGENTE_Result">
                 <ScalarProperty Name="ID_PLANAREA" ColumnName="ID_PLANAREA" />
                 <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PA_ASIGNATURA_PLANAREA_LISTA" FunctionName="DB_INNOVASCHOOLSModel.Store.PA_ASIGNATURA_PLANAREA_LISTA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_INNOVASCHOOLSModel.PA_ASIGNATURA_PLANAREA_LISTA_Result">
+                <ScalarProperty Name="ID_ASIGNATURA" ColumnName="ID_ASIGNATURA" />
+                <ScalarProperty Name="NOMBRE_ASIGNATURA" ColumnName="NOMBRE_ASIGNATURA" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
