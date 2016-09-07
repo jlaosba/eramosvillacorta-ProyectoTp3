@@ -107,6 +107,7 @@
           <Property Name="Id_Empleado" Type="int" />
           <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
           <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="Estado" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="PlanEstudio">
           <Key>
@@ -354,6 +355,9 @@
           <Parameter Name="PAGINA_INICIO" Type="int" Mode="In" />
           <Parameter Name="TAMANIO_PAGINA" Type="int" Mode="In" />
         </Function>
+        <Function Name="PA_PLAN_ASIGNATURA_SEL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="gd">
+          <Parameter Name="ID_PLANASIGNATURA" Type="int" Mode="In" />
+        </Function>
         <Function Name="PA_PLAN_ESTUDIO_SEL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="gd" />
         <EntityContainer Name="DB_INNOVASCHOOLSModelStoreContainer">
           <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
@@ -563,6 +567,7 @@
           <NavigationProperty Name="ActividadPlanAsignatura" Relationship="Self.FK__Actividad__Id_Pl__286302EC" FromRole="PlanAsignatura" ToRole="ActividadPlanAsignatura" />
           <NavigationProperty Name="Asignatura" Relationship="Self.FK__PlanAsign__Id_As__31EC6D26" FromRole="PlanAsignatura" ToRole="Asignatura" />
           <NavigationProperty Name="PlanArea" Relationship="Self.FK__PlanAsign__Id_Pl__30F848ED" FromRole="PlanAsignatura" ToRole="PlanArea" />
+          <Property Name="Estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="PlanEstudio">
           <Key>
@@ -894,6 +899,9 @@
             <Parameter Name="PAGINA_INICIO" Mode="In" Type="Int32" />
             <Parameter Name="TAMANIO_PAGINA" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="PA_PLAN_ASIGNATURA_SEL" ReturnType="Collection(DB_INNOVASCHOOLSModel.PA_PLAN_ASIGNATURA_SEL_Result)">
+          <Parameter Name="ID_PLANASIGNATURA" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="PA_AREA_LISTA_Result">
           <Property Type="Int32" Name="ID_AREA" Nullable="false" />
@@ -972,10 +980,32 @@
           <Property Type="String" Name="META" Nullable="false" />
           <Property Type="String" Name="METOLOGIA" Nullable="false" />
           <Property Type="String" Name="DOCUMENTO_PLANASIGNATURA" Nullable="false" MaxLength="255" />
+          <Property Type="Int32" Name="ID_PLANAREA" Nullable="false" />
+          <Property Type="Int32" Name="ID_ASIGNATURA" Nullable="false" />
+          <Property Type="String" Name="NOMBRE_ASIGNATURA" Nullable="true" MaxLength="255" />
+          <Property Type="Int64" Name="RegistrosPagina" Nullable="true" />
+          <Property Type="Int64" Name="FilasTotal" Nullable="true" />
+          <Property Type="Int64" Name="NumeroFila" Nullable="true" />
+          <Property Type="Int32" Name="TamanioPagina" Nullable="true" />
+          <Property Type="String" Name="NOMBRE_PLANAREA" Nullable="false" MaxLength="255" />
+          <Property Type="Int32" Name="ID_EMPLEADO" Nullable="true" />
+          <Property Type="Int32" Name="ID_PERIODOACADEMICO" Nullable="false" />
+          <Property Type="String" Name="NOMBRE_PERIODO" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="ID_ESTADO" Nullable="false" />
+          <Property Type="String" Name="ESTADO" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="PA_PLAN_ASIGNATURA_SEL_Result">
+          <Property Type="Int32" Name="ID_PLANASIGNATURA" Nullable="false" />
+          <Property Type="String" Name="META" Nullable="false" />
+          <Property Type="String" Name="DOCUMENTO_PLANASIGNATURA" Nullable="false" MaxLength="255" />
           <Property Type="Int32" Name="ID_PLANAREA" Nullable="true" />
           <Property Type="Int32" Name="ID_ASIGNATURA" Nullable="false" />
           <Property Type="String" Name="NOMBRE_ASIGNATURA" Nullable="true" MaxLength="255" />
-          <Property Type="Int32" Name="Id_Empleado" Nullable="true" />
+          <Property Type="String" Name="METODOLOGIA" Nullable="false" />
+          <Property Type="Int32" Name="ID_EMPLEADO" Nullable="true" />
+          <Property Type="Int32" Name="ID_PERIODOACADEMICO" Nullable="true" />
+          <Property Type="String" Name="NOMBRE_PLANAREA" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="ESTADO" Nullable="true" MaxLength="20" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1083,6 +1113,7 @@
           <EntitySetMapping Name="PlanAsignatura">
             <EntityTypeMapping TypeName="DB_INNOVASCHOOLSModel.PlanAsignatura">
               <MappingFragment StoreEntitySet="PlanAsignatura">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Id_PlanAsignatura" ColumnName="Id_PlanAsignatura" />
                 <ScalarProperty Name="Meta" ColumnName="Meta" />
                 <ScalarProperty Name="Metodologia" ColumnName="Metodologia" />
@@ -1242,7 +1273,33 @@
                 <ScalarProperty Name="ID_PLANAREA" ColumnName="ID_PLANAREA" />
                 <ScalarProperty Name="ID_ASIGNATURA" ColumnName="ID_ASIGNATURA" />
                 <ScalarProperty Name="NOMBRE_ASIGNATURA" ColumnName="NOMBRE_ASIGNATURA" />
-                <ScalarProperty Name="Id_Empleado" ColumnName="Id_Empleado" />
+                <ScalarProperty Name="RegistrosPagina" ColumnName="RegistrosPagina" />
+                <ScalarProperty Name="FilasTotal" ColumnName="FilasTotal" />
+                <ScalarProperty Name="NumeroFila" ColumnName="NumeroFila" />
+                <ScalarProperty Name="TamanioPagina" ColumnName="TamanioPagina" />
+                <ScalarProperty Name="NOMBRE_PLANAREA" ColumnName="NOMBRE_PLANAREA" />
+                <ScalarProperty Name="ID_EMPLEADO" ColumnName="ID_EMPLEADO" />
+                <ScalarProperty Name="ID_PERIODOACADEMICO" ColumnName="ID_PERIODOACADEMICO" />
+                <ScalarProperty Name="NOMBRE_PERIODO" ColumnName="NOMBRE_PERIODO" />
+                <ScalarProperty Name="ID_ESTADO" ColumnName="ID_ESTADO" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PA_PLAN_ASIGNATURA_SEL" FunctionName="DB_INNOVASCHOOLSModel.Store.PA_PLAN_ASIGNATURA_SEL">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_INNOVASCHOOLSModel.PA_PLAN_ASIGNATURA_SEL_Result">
+                <ScalarProperty Name="ID_PLANASIGNATURA" ColumnName="ID_PLANASIGNATURA" />
+                <ScalarProperty Name="META" ColumnName="META" />
+                <ScalarProperty Name="DOCUMENTO_PLANASIGNATURA" ColumnName="DOCUMENTO_PLANASIGNATURA" />
+                <ScalarProperty Name="ID_PLANAREA" ColumnName="ID_PLANAREA" />
+                <ScalarProperty Name="ID_ASIGNATURA" ColumnName="ID_ASIGNATURA" />
+                <ScalarProperty Name="NOMBRE_ASIGNATURA" ColumnName="NOMBRE_ASIGNATURA" />
+                <ScalarProperty Name="METODOLOGIA" ColumnName="METODOLOGIA" />
+                <ScalarProperty Name="ID_EMPLEADO" ColumnName="ID_EMPLEADO" />
+                <ScalarProperty Name="ID_PERIODOACADEMICO" ColumnName="ID_PERIODOACADEMICO" />
+                <ScalarProperty Name="NOMBRE_PLANAREA" ColumnName="NOMBRE_PLANAREA" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

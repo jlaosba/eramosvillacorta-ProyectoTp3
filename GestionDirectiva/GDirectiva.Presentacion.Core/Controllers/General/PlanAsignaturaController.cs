@@ -43,7 +43,12 @@ namespace GDirectiva.Presentacion.Core.Controllers.General
             var model = new PlanAsignaturaRegistroModel();
 
             var bl_PeriodoAcademico = new BL_PeriodoAcademico();
+            var bl_PlanAsignatura = new BL_PlanAsignatura();
 
+            if (pId_Plan_Asignatura > 0)
+            {
+                model.planAsignatura = bl_PlanAsignatura.ObtenerPlanAsignatura(pId_Plan_Asignatura).Result;
+            }
             model.ListaPeriodoAcademico = bl_PeriodoAcademico.ListarPeriodosAcademicosVigentes();
 
             return PartialView(model);
@@ -96,6 +101,29 @@ namespace GDirectiva.Presentacion.Core.Controllers.General
             {
                 resultado.Result = null;
             }
+            return Json(resultado);
+        }
+
+        public JsonResult Registrar(PlanAsignatura planAsignatura)
+        {
+            ProcessResult<PlanAsignatura> resultado = new ProcessResult<PlanAsignatura>();
+            var bl_PlanAsignatura = new BL_PlanAsignatura();
+            if (planAsignatura.Id_PlanAsignatura == 0)
+            {
+                resultado = bl_PlanAsignatura.InsertarPlanAsignatura(planAsignatura);
+            }
+            else
+            {
+                resultado = bl_PlanAsignatura.ActualizarPlanAsignatura(planAsignatura);
+            }
+            return Json(resultado);
+        }
+
+        public JsonResult Eliminar(int pId_PlanAsignatura)
+        {
+            ProcessResult<PlanAsignatura> resultado = new ProcessResult<PlanAsignatura>();
+            var bl_PlanAsignatura = new BL_PlanAsignatura();
+            resultado = bl_PlanAsignatura.EliminarPlanAsignatura(pId_PlanAsignatura);
             return Json(resultado);
         }
         #endregion

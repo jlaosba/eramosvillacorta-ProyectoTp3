@@ -140,5 +140,14 @@ namespace GDirectiva.Core.Entities
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PA_PLAN_ASIGNATURA_LISTA_Result>("PA_PLAN_ASIGNATURA_LISTA", iD_PERIODOACADEMICOParameter, iD_PLANAREAParameter, iD_ASIGNATURAParameter, pAGINA_INICIOParameter, tAMANIO_PAGINAParameter);
         }
+    
+        public virtual ObjectResult<PA_PLAN_ASIGNATURA_SEL_Result> PA_PLAN_ASIGNATURA_SEL(Nullable<int> iD_PLANASIGNATURA)
+        {
+            var iD_PLANASIGNATURAParameter = iD_PLANASIGNATURA.HasValue ?
+                new ObjectParameter("ID_PLANASIGNATURA", iD_PLANASIGNATURA) :
+                new ObjectParameter("ID_PLANASIGNATURA", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PA_PLAN_ASIGNATURA_SEL_Result>("PA_PLAN_ASIGNATURA_SEL", iD_PLANASIGNATURAParameter);
+        }
     }
 }

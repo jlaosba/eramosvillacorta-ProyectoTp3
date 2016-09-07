@@ -117,11 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="EtiquetaAsignatura" xml:space="preserve">
-    <value>Asignatura</value>
+  <data name="ErrorDeExtension" xml:space="preserve">
+    <value>Error de extensión: Archivo Inválido, solo se acepta archivos de tipo Word.</value>
   </data>
-  <data name="EtiquetaDocente" xml:space="preserve">
-    <value>Docente</value>
+  <data name="EtiquetaAsignatura" xml:space="preserve">
+    <value>Curso</value>
+  </data>
+  <data name="EtiquetaEstado" xml:space="preserve">
+    <value>Estado</value>
   </data>
   <data name="EtiquetaLineaNegocio" xml:space="preserve">
     <value>Línea de Negocio</value>
@@ -146,5 +149,8 @@
   </data>
   <data name="EtiquetaTituloPrincipal" xml:space="preserve">
     <value>Plan Asignatura</value>
+  </data>
+  <data name="MensajeDebeSeleccionarArchivoWord" xml:space="preserve">
+    <value>Debe seleccionar el archivo Excel (.doc | .docx).</value>
   </data>
 </root>

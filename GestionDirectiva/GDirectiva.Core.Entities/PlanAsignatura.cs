@@ -28,6 +28,7 @@ namespace GDirectiva.Core.Entities
         public Nullable<int> Id_Empleado { get; set; }
         public System.DateTime FechaCreacion { get; set; }
         public Nullable<System.DateTime> FechaModificacion { get; set; }
+        public string Estado { get; set; }
     
         public virtual Empleado Empleado { get; set; }
         public virtual ICollection<ActividadPlanAsignatura> ActividadPlanAsignatura { get; set; }

@@ -28,5 +28,80 @@ namespace GDirectiva.Infraestructure.Data.Sql
                 return objeto;
             }
         }
+
+        public PA_PLAN_ASIGNATURA_SEL_Result ObtenerPlanAsignatura(int planAsignaturaId)
+        {
+            using (DB_INNOVASCHOOLSEntities contexto = new DB_INNOVASCHOOLSEntities())
+            {
+                PA_PLAN_ASIGNATURA_SEL_Result objeto = new PA_PLAN_ASIGNATURA_SEL_Result();
+                objeto = contexto.PA_PLAN_ASIGNATURA_SEL(planAsignaturaId).ToList().FirstOrDefault();
+                return objeto;
+            }
+        }
+
+        public PlanAsignatura InsertarPlanAsignatura(PlanAsignatura planAsignatura)
+        {
+            using (DB_INNOVASCHOOLSEntities contexto = new DB_INNOVASCHOOLSEntities())
+            {
+                PlanAsignatura objeto = contexto.PlanAsignatura.Add(planAsignatura);
+                if (contexto.SaveChanges() > 0)
+                {
+                    return objeto;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        public bool ActualizarPlanAsignatura(PlanAsignatura planAsignatura)
+        {
+            using (DB_INNOVASCHOOLSEntities contexto = new DB_INNOVASCHOOLSEntities())
+            {
+                PlanAsignatura objeto = (from x in contexto.PlanAsignatura
+                                   where x.Id_PlanAsignatura == planAsignatura.Id_PlanAsignatura
+                                   select x).FirstOrDefault();
+
+                objeto.Meta = planAsignatura.Meta;
+                objeto.Metodologia = planAsignatura.Metodologia;
+                objeto.Id_PlanArea = planAsignatura.Id_PlanArea;
+                objeto.Id_Asignatura = planAsignatura.Id_Asignatura;
+                objeto.Estado = planAsignatura.Estado;
+                objeto.Documento = planAsignatura.Documento;
+                objeto.FechaModificacion = planAsignatura.FechaModificacion;
+
+                if (contexto.SaveChanges() > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool EliminarPlanAsignatura(PlanAsignatura planAsignatura)
+        {
+            using (DB_INNOVASCHOOLSEntities contexto = new DB_INNOVASCHOOLSEntities())
+            {
+                PlanAsignatura objeto = (from x in contexto.PlanAsignatura
+                                         where x.Id_PlanAsignatura == planAsignatura.Id_PlanAsignatura
+                                         select x).FirstOrDefault();
+
+                objeto.Id_PlanAsignatura = planAsignatura.Id_PlanAsignatura;
+                objeto.Estado = planAsignatura.Estado;
+
+                if (contexto.SaveChanges() > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
     }
 }
