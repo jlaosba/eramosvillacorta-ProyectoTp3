@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innova Schools</title>
+    
+    <!-- start: MVC-->
+    <!--<link href="../Content/bootstrap.css" rel="stylesheet" />-->
+    <!--<link href="../Content/bootstrap.min.css" rel="stylesheet" />-->
+    <link href="../Content/Justified-Nav.css" rel="stylesheet" />
+    <link href="../Content/Site.css" rel="stylesheet" />
+    <script src="../Scripts/modernizr.js"></script>
+    <!-- start: MVC-->
+
+    <!-- start: JavaScript-->
+    <script src="../Scripts/jquery-1.9.1.min.js"></script>
+    <script src="../Scripts/jquery-migrate-1.0.0.min.js"></script>
+    <script src="../Scripts/jquery-ui-1.10.0.custom.min.js"></script>
+    <script src="../Scripts/jquery.ui.touch-punch.js"></script>
+    <script src="../Scripts/modernizr.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/jquery.cookie.js"></script>
+    <script src='../Scripts/fullcalendar.min.js'></script>
+    <script src='../Scripts/jquery.dataTables.min.js'></script>
+    <script src="../Scripts/excanvas.js"></script>
+    <script src="../Scripts/jquery.flot.js"></script>
+    <script src="../Scripts/jquery.flot.pie.js"></script>
+    <script src="../Scripts/jquery.flot.stack.js"></script>
+    <script src="../Scripts/jquery.flot.resize.min.js"></script>
+    <script src="../Scripts/jquery.chosen.min.js"></script>
+    <script src="../Scripts/jquery.uniform.min.js"></script>
+    <script src="../Scripts/jquery.cleditor.min.js"></script>
+    <script src="../Scripts/jquery.noty.js"></script>
+    <script src="../Scripts/jquery.elfinder.min.js"></script>
+    <script src="../Scripts/jquery.raty.min.js"></script>
+    <script src="../Scripts/jquery.iphone.toggle.js"></script>
+    <script src="../Scripts/jquery.uploadify-3.1.min.js"></script>
+    <script src="../Scripts/jquery.gritter.min.js"></script>
+    <script src="../Scripts/jquery.imagesloaded.js"></script>
+    <script src="../Scripts/jquery.masonry.min.js"></script>
+    <script src="../Scripts/jquery.knob.modified.js"></script>
+    <script src="../Scripts/jquery.sparkline.min.js"></script>
+    <script src="../Scripts/counter.js"></script>
+    <script src="../Scripts/retina.js"></script>
+    <script src="../Scripts/custom.js"></script>
+    <script src="../Scripts/mensaje.js"></script>
+    <!-- end: JavaScript-->
+    <!-- start: CSS -->	    
+    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+	<link href="../css/bootstrap-responsive.min.css" rel="stylesheet" />    		
+	<link href="../css/style-responsive.css" rel="stylesheet" />
+    <link href="../css/style.css" rel="stylesheet" />
+	<!--<link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext" rel="stylesheet" type="text/css" />	-->
+    <link href="../css/pages.css" rel="stylesheet" />
+    <!-- end: CSS -->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="container">
+        <div class="masthead">
+            <div class="row">
+                <div style="float: left;">
+                    <img src="../Img/logo/innova_schools.png" alt="" />
+                </div>
+                <div class="col-sm-6" style="text-align: right">
+                    <h3 class="text-info">
+                        <a href="../Index.aspx" style="color: #428bca !important; font-size: 24px !important; font-weight: normal !important;  font-family: Helvetica Neue, Helvetica, Arial, sans-serif !important;" >Sistema de gestión académica</a>
+                    </h3>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+            <ul class="nav nav-justified">
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#">Gestion<br /> Pedagógica
+                        <span class="caret"></span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#">Gestión<br /> Directiva
+                        <span class="caret"></span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#">Gestión Apoyo <br />Académico
+                        <span class="caret"></span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#">Selección de <br />Personal
+                        <span class="caret"></span>
+                    </a>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#">Gestion Académica y Formativa
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="../Interfaces/frmMantenerAgenda.aspx">Mantener Agenda</a>
+                        </li>
+                        <li>
+                            <a href="../Interfaces/frmMantenerCalendarioAcademico.aspx">Calendario Académico</a>
+                        </li>
+                        <li>
+                            <a href="../Interfaces/frmSolicitudActividad.aspx">Solicitud de Actividade</a>
+                        </li>
+                        <li>
+                            <a href="../Interfaces/frmActualizarFeriados.aspx">Actualizar Feriados</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#">Gestión de Gobierno Escolar
+                        <span class="caret"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>    
+    <br />
+    <div class="container body-content">
+        <form id="form1" runat="server" >
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+            </asp:ContentPlaceHolder>
+        </form>
+        <hr />
+        © 2016 - Innova Schools
+    </div>
+
+    <!--@Scripts.Render("~/bundles/jquery")-->
+    <!--@Scripts.Render("~/bundles/bootstrap")-->
+    <!--@RenderSection("scripts", required: false)-->
+</body>
+</html>
