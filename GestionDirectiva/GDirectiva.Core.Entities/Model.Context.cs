@@ -115,5 +115,30 @@ namespace GDirectiva.Core.Entities
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PA_ASIGNATURA_PLANAREA_LISTA_Result>("PA_ASIGNATURA_PLANAREA_LISTA", iD_PLANAREAParameter);
         }
+    
+        public virtual ObjectResult<PA_PLAN_ASIGNATURA_LISTA_Result> PA_PLAN_ASIGNATURA_LISTA(Nullable<int> iD_PERIODOACADEMICO, Nullable<int> iD_PLANAREA, Nullable<int> iD_ASIGNATURA, Nullable<int> pAGINA_INICIO, Nullable<int> tAMANIO_PAGINA)
+        {
+            var iD_PERIODOACADEMICOParameter = iD_PERIODOACADEMICO.HasValue ?
+                new ObjectParameter("ID_PERIODOACADEMICO", iD_PERIODOACADEMICO) :
+                new ObjectParameter("ID_PERIODOACADEMICO", typeof(int));
+    
+            var iD_PLANAREAParameter = iD_PLANAREA.HasValue ?
+                new ObjectParameter("ID_PLANAREA", iD_PLANAREA) :
+                new ObjectParameter("ID_PLANAREA", typeof(int));
+    
+            var iD_ASIGNATURAParameter = iD_ASIGNATURA.HasValue ?
+                new ObjectParameter("ID_ASIGNATURA", iD_ASIGNATURA) :
+                new ObjectParameter("ID_ASIGNATURA", typeof(int));
+    
+            var pAGINA_INICIOParameter = pAGINA_INICIO.HasValue ?
+                new ObjectParameter("PAGINA_INICIO", pAGINA_INICIO) :
+                new ObjectParameter("PAGINA_INICIO", typeof(int));
+    
+            var tAMANIO_PAGINAParameter = tAMANIO_PAGINA.HasValue ?
+                new ObjectParameter("TAMANIO_PAGINA", tAMANIO_PAGINA) :
+                new ObjectParameter("TAMANIO_PAGINA", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PA_PLAN_ASIGNATURA_LISTA_Result>("PA_PLAN_ASIGNATURA_LISTA", iD_PERIODOACADEMICOParameter, iD_PLANAREAParameter, iD_ASIGNATURAParameter, pAGINA_INICIOParameter, tAMANIO_PAGINAParameter);
+        }
     }
 }

@@ -110,6 +110,9 @@
     <Compile Include="PA_PLAN_AREA_SEL_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="PA_PLAN_ASIGNATURA_LISTA_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="PA_PLAN_ESTUDIO_SEL_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

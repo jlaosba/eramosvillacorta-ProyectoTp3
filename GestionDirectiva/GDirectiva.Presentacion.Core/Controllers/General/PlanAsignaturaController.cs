@@ -52,6 +52,13 @@ namespace GDirectiva.Presentacion.Core.Controllers.General
 
         #region JsonResult
 
+        public JsonResult Buscar(int pId_Periodo, int pGD_Plan_Area_Id_Plan_Area, int pGD_Asignatura_Id_Asignatura)
+        {
+            var bl_PlanAsignatura = new BL_PlanAsignatura();
+            var proceso = bl_PlanAsignatura.ListarPlanAsignatura(pId_Periodo, pGD_Plan_Area_Id_Plan_Area, pGD_Asignatura_Id_Asignatura, 0, 100);
+            return Json(proceso);
+        }
+
         public JsonResult BuscarPlanArea(int pId_Periodo)
         {
             ProcessResult<List<SelectListItem>> resultado = new ProcessResult<List<SelectListItem>>();
