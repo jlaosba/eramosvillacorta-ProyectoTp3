@@ -22,7 +22,7 @@ namespace GDirectiva.Core.Entities
         public int Id_PlanAsignatura { get; set; }
         public string Meta { get; set; }
         public string Metodologia { get; set; }
-        public byte[] Documento { get; set; }
+        public string Documento { get; set; }
         public Nullable<int> Id_PlanArea { get; set; }
         public Nullable<int> Id_Asignatura { get; set; }
         public Nullable<int> Id_Empleado { get; set; }

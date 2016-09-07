@@ -89,6 +89,9 @@
     <Compile Include="PA_AREA_LISTA_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="PA_ASIGNATURA_PLANAREA_LISTA_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="PA_GRADO_LISTA_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -101,7 +104,13 @@
     <Compile Include="PA_PLAN_AREA_LISTA_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="PA_PLAN_AREA_LISTA_VIGENTE_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="PA_PLAN_AREA_SEL_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PA_PLAN_ASIGNATURA_LISTA_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="PA_PLAN_ESTUDIO_SEL_Result.cs">

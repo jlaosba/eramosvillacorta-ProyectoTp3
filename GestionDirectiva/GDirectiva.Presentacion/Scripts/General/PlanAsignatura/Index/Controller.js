@@ -35,7 +35,6 @@ GDirectiva.Presentacion.General.PlanAsignatura.Index.Controller = function () {
         SlcPeriodoAcademico: function () { return $('#slcPeriodoAcademico'); },
         SlcPlanArea: function () { return $('#slcPlanArea'); },
         SlcAsignatura: function () { return $('#slcAsignatura'); },
-        SlcDocente: function () { return $('#slcDocente'); },        
         BtnAgregar: function () { return $('#btnAgregar'); },
         BtnEliminar: function () { return $('#btnEliminar'); },
         BtnBuscar: function () { return $('#btnBuscar'); }
@@ -53,8 +52,7 @@ GDirectiva.Presentacion.General.PlanAsignatura.Index.Controller = function () {
             base.Configurations.search.parameters = {
                 pId_Periodo: base.Control.SlcPeriodoAcademico().val(),
                 pGD_Plan_Area_Id_Plan_Area: base.Control.SlcPlanArea().val(),
-                pGD_Asignatura_Id_Asignatura: base.Control.SlcAsignatura().val(),
-                pGRMS_Empleado_Id_Empleado: base.Control.SlcDocente().val()
+                pGD_Asignatura_Id_Asignatura: base.Control.SlcAsignatura().val()
             };
             base.Control.GrdResultado.Load(base.Configurations.search.parameters);
         },
@@ -91,16 +89,11 @@ GDirectiva.Presentacion.General.PlanAsignatura.Index.Controller = function () {
         AjaxBuscarPlanAreaSuccess: function (data) {
             base.Control.SlcPlanArea().empty();
             base.Control.SlcAsignatura().empty();
-            base.Control.SlcDocente().empty();
             base.Control.SlcPlanArea().append($('<option>', {
                 value: '0',
                 text: '--SELECCIONE--'
             }));
             base.Control.SlcAsignatura().append($('<option>', {
-                value: '0',
-                text: '--SELECCIONE--'
-            }));
-            base.Control.SlcDocente().append($('<option>', {
                 value: '0',
                 text: '--SELECCIONE--'
             }));
@@ -122,40 +115,13 @@ GDirectiva.Presentacion.General.PlanAsignatura.Index.Controller = function () {
         },
         AjaxBuscarAsignaturaSuccess: function (data) {
             base.Control.SlcAsignatura().empty();
-            base.Control.SlcDocente().empty();
             base.Control.SlcAsignatura().append($('<option>', {
-                value: '0',
-                text: '--SELECCIONE--'
-            }));
-            base.Control.SlcDocente().append($('<option>', {
                 value: '0',
                 text: '--SELECCIONE--'
             }));
             if (data.Result != null) {
                 $.each(data.Result, function (i, item) {
                     base.Control.SlcAsignatura().append($('<option>', {
-                        value: item.Value,
-                        text: item.Text
-                    }));
-                });
-            }
-        },
-        SlcAsignaturaChange: function () {
-            vId_Asignatura = base.Control.SlcAsignatura().val() == "" ? 0 : base.Control.SlcAsignatura().val();
-            base.Ajax.AjaxBuscarDocente.data = {
-                pId_Asignatura: vId_Asignatura
-            };
-            base.Ajax.AjaxBuscarDocente.submit();
-        },
-        AjaxBuscarDocenteSuccess: function (data) {
-            base.Control.SlcDocente().empty();
-            base.Control.SlcDocente().append($('<option>', {
-                value: '0',
-                text: '--SELECCIONE--'
-            }));
-            if (data.Result != null) {
-                $.each(data.Result, function (i, item) {
-                    base.Control.SlcDocente().append($('<option>', {
                         value: item.Value,
                         text: item.Text
                     }));
@@ -182,12 +148,6 @@ GDirectiva.Presentacion.General.PlanAsignatura.Index.Controller = function () {
             action: GDirectiva.Presentacion.General.PlanAsignatura.Actions.BuscarAsignatura,
             autoSubmit: false,
             onSuccess: base.Event.AjaxBuscarAsignaturaSuccess
-        }),
-        AjaxBuscarDocente: new GDirectiva.Presentacion.Web.Components.Ajax(
-        {
-            action: GDirectiva.Presentacion.General.PlanAsignatura.Actions.BuscarDocente,
-            autoSubmit: false,
-            onSuccess: base.Event.AjaxBuscarDocenteSuccess
         })
     };
 
