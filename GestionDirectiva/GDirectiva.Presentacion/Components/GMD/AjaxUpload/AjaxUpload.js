@@ -4,6 +4,7 @@ GDirectiva.Presentacion.Web.Components.AjaxUpload = function (opts) {
 };
 
 GDirectiva.Presentacion.Web.Components.AjaxUpload.prototype = {
+
     inputFile: null,
     urlValidateFile: null,
     callbackValidateFile: null,
