@@ -59,8 +59,19 @@ namespace InnovaSchool.UserLayer.Common
         public static string MensajeConfirmarEnviarSolicitud = ConfigurationManager.AppSettings["MensajeConfirmarEnviarSolicitud"].Trim();
         public static string MensajeErrorEnviarSolicitud = ConfigurationManager.AppSettings["MensajeErrorEnviarSolicitud"].Trim();
             
-        
-        
+        //Actualizar Feriado
+        public static string TituloRegistroFeriado = ConfigurationManager.AppSettings["TituloRegistroFeriado"].Trim();
+        public static string MensajeRegistroFeriado = ConfigurationManager.AppSettings["MensajeRegistroFeriado"].Trim();
+        public static string TituloErrorFeriado = ConfigurationManager.AppSettings["TituloErrorFeriado"].Trim();
+        public static string MensajeErrorRegistrarFeriado = ConfigurationManager.AppSettings["MensajeErrorRegistrarFeriado"].Trim();
+        public static string MensajeConfirmarCargaFeriadosRepetidos = ConfigurationManager.AppSettings["MensajeConfirmarCargaFeriadosRepetidos"].Trim();
+        public static string MensajeRegistroFeriadoExistente = ConfigurationManager.AppSettings["MensajeRegistroFeriadoExistente"].Trim();
+        public static string MensajeConfirmarEliminarFeriado = ConfigurationManager.AppSettings["MensajeConfirmarEliminarFeriado"].Trim();
+        public static string MensajeConfirmarFeriadoExcedido = ConfigurationManager.AppSettings["MensajeConfirmarFeriadoExcedido"].Trim();
+
+
+
+
         /* ---------- PARAMETROS ---------- */
         public static int ParametroTipoCalendario = int.Parse(ConfigurationManager.AppSettings["ParametroTipoCalendario"]);
         public static int ParametroEstadoAgenda = int.Parse(ConfigurationManager.AppSettings["ParametroEstadoAgenda"]);

@@ -12,20 +12,20 @@ namespace GDirectiva.Core.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Area
+    public partial class AreaCurricular
     {
-        public Area()
+        public AreaCurricular()
         {
-            this.Asignatura = new HashSet<Asignatura>();
             this.PlanArea = new HashSet<PlanArea>();
             this.PlanProyectoPedagogico = new HashSet<PlanProyectoPedagogico>();
+            this.Curso = new HashSet<Curso>();
         }
     
-        public int Id_Area { get; set; }
+        public int Id_AreaCurricular { get; set; }
         public string Nombre { get; set; }
     
-        public virtual ICollection<Asignatura> Asignatura { get; set; }
         public virtual ICollection<PlanArea> PlanArea { get; set; }
         public virtual ICollection<PlanProyectoPedagogico> PlanProyectoPedagogico { get; set; }
+        public virtual ICollection<Curso> Curso { get; set; }
     }
 }

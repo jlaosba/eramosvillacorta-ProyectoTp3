@@ -1,4 +1,5 @@
-﻿using GDirectiva.Core.Entities.General;
+﻿using GDirectiva.Core.Entities;
+using GDirectiva.Core.Entities.General;
 using GDirectiva.Presentacion.Core.ViewModel.Base;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,8 @@ namespace GDirectiva.Presentacion.Core.ViewModel.General
     {
         public PlanAsignaturaCronogramaRegistroModel()
         {
-            this.planAsignatura = new EN_PlanAsignatura();
+            this.planAsignatura = new PA_PLAN_ASIGNATURA_SEL_Result();
         }
-        public EN_PlanAsignatura planAsignatura { get; set; }
+        public PA_PLAN_ASIGNATURA_SEL_Result planAsignatura { get; set; }
     }
 }

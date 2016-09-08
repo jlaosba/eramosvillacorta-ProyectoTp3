@@ -39,6 +39,15 @@ namespace GDirectiva.Infraestructure.Data.Sql
             }
         }
 
+        public int ObtenerPlanAreaExiste(int periodoacademicoId, int areaId, int planEstudioId, int gradoId)
+        {
+            using (DB_INNOVASCHOOLSEntities contexto = new DB_INNOVASCHOOLSEntities())
+            {
+                var objeto = contexto.PA_PLAN_AREA_EXISTE(periodoacademicoId, areaId, planEstudioId, gradoId).FirstOrDefault();
+                return Convert.ToInt32(objeto);
+            }
+        }
+
         public PlanArea InsertarPlanArea(PlanArea planArea)
         {
             using (DB_INNOVASCHOOLSEntities contexto = new DB_INNOVASCHOOLSEntities())

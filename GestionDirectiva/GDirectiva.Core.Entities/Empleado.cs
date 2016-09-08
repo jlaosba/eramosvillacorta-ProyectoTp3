@@ -19,6 +19,7 @@ namespace GDirectiva.Core.Entities
             this.ActividadPlanAsignatura = new HashSet<ActividadPlanAsignatura>();
             this.ActividadPlanProyectoPedagogico = new HashSet<ActividadPlanProyectoPedagogico>();
             this.PlanAsignatura = new HashSet<PlanAsignatura>();
+            this.Curso = new HashSet<Curso>();
         }
     
         public int Id_Empleado { get; set; }
@@ -31,5 +32,6 @@ namespace GDirectiva.Core.Entities
         public virtual ICollection<ActividadPlanAsignatura> ActividadPlanAsignatura { get; set; }
         public virtual ICollection<ActividadPlanProyectoPedagogico> ActividadPlanProyectoPedagogico { get; set; }
         public virtual ICollection<PlanAsignatura> PlanAsignatura { get; set; }
+        public virtual ICollection<Curso> Curso { get; set; }
     }
 }

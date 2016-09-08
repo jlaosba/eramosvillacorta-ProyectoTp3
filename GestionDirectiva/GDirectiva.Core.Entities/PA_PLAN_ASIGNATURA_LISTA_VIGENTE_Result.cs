@@ -11,7 +11,7 @@ namespace GDirectiva.Core.Entities
 {
     using System;
     
-    public partial class PA_PLAN_ASIGNATURA_LISTA_Result
+    public partial class PA_PLAN_ASIGNATURA_LISTA_VIGENTE_Result
     {
         public Nullable<long> RegistrosPagina { get; set; }
         public Nullable<long> FilasTotal { get; set; }

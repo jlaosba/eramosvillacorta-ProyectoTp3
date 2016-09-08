@@ -74,7 +74,7 @@ GDirectiva.Presentacion.General.PlanArea.FormularioRegistro.Controller = functio
         HdnFormularioCodigoPlanEstudio: function () { return $('#hdnFormularioCodigoPlanEstudio'); },
         HdnCodigo: function () { return $('#hdnFormularioRegistroCodigo'); },
         TxtFile: function () { return $('#txtFile'); },
-        ajaxform: function () { return $('#ajaxform_Archivo'); },
+        ajaxform: function () { return $('#ajaxform_Archivo'); }
     };
 
     base.Event = {

@@ -159,6 +159,9 @@
   <data name="EtiquetaEliminar" xml:space="preserve">
     <value>Eliminar</value>
   </data>
+  <data name="EtiquetaEliminarActividades" xml:space="preserve">
+    <value>Eliminar actividades</value>
+  </data>
   <data name="EtiquetaResultadosBusqueda" xml:space="preserve">
     <value>Resultado de la búsqueda</value>
   </data>
