@@ -98,5 +98,23 @@ namespace InnovaSchool.DAL
             cn.Close();
             return retval;
         }
+
+        public int RegistrarFeriado(EFeriado EFeriado, EUsuario EUsuario)
+        {
+            int retval = 0;
+            cn.Open();
+            using (SqlCommand cmd = new SqlCommand("SP_RegistrarFeriado", cn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@motivo", EFeriado.Motivo));
+                cmd.Parameters.Add(new SqlParameter("@repetitivo", EFeriado.Repetitivo));
+                cmd.Parameters.Add(new SqlParameter("@fechaInicio", EFeriado.FechaInicio));
+                cmd.Parameters.Add(new SqlParameter("@fechaTermino", EFeriado.FechaTermino));
+                cmd.Parameters.Add(new SqlParameter("@usuCreacion", EUsuario.Usuario));
+                retval = cmd.ExecuteNonQuery();
+            }
+            cn.Close();
+            return retval;
+        }
     }
 }

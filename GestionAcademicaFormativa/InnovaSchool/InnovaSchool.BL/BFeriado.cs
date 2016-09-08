@@ -26,5 +26,9 @@ namespace InnovaSchool.BL
         {
             return DFeriado.ConsultarFeriadoLista(EFeriado);
         }
+        public int RegistrarFeriado(EFeriado EFeriado, EUsuario EUsuario)
+        {
+            return DFeriado.RegistrarFeriado(EFeriado, EUsuario);
+        }
     }
 }

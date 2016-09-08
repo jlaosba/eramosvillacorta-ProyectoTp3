@@ -78,5 +78,39 @@ namespace InnovaSchool.UserLayer.Interfaces
                 txtDescripcion.CssClass = "input-xxlarge uneditable-input";
             }
         }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                EUsuario EUsuario = (EUsuario)Session["Usuario"];
+                EFeriado eFeriado = new EFeriado
+                {
+                    Motivo = txtDescripcion.Text,
+                    FechaInicio = objResources.GetDateFromTextBox(txtFechaInicio),
+                    FechaTermino = objResources.GetDateFromTextBox(txtFechaFin),
+                    Repetitivo = (chkRepiteCadaAnio.Checked?1:0)
+                };
+                int result = 0;
+                result = bFeriado.RegistrarFeriado(eFeriado, EUsuario);
+                if (result != 0)
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "Mensaje", "<script>$('#mensaje').html(GenerarMensaje('" + Constant.TituloRegistroFeriado + "','" + Constant.MensajeRegistroFeriado + "'))</script>");
+                    ClientScript.RegisterStartupScript(this.GetType(), "Show", "<script>myModalShow();</script>");
+                    objResources.LimpiarControles(this.Controls);
+                    CargarAniosAgenda();
+                    //(VerificarAperturaAgenda();
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "Mensaje", "<script>$('#mensaje').html(GenerarMensaje('" + Constant.TituloErrorFeriado + "','" + Constant.MensajeErrorRegistrarFeriado + "'))</script>");
+                    ClientScript.RegisterStartupScript(this.GetType(), "Show", "<script>myModalShow();</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("../Error/NoAccess.html");
+            }
+        }
     }
 }

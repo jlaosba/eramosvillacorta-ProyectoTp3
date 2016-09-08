@@ -104,7 +104,7 @@
                             </div>
                         </div>
                         <div class="form-actions">
-                            <asp:Button ID="btnGuardar" runat="server" type="submit" Text="Guardar" class="btn btn-primary"  ValidationGroup="SolicitudValid"  />
+                            <asp:Button ID="btnGuardar" runat="server" type="submit" Text="Guardar" class="btn btn-primary"  ValidationGroup="SolicitudValid" OnClick="btnGuardar_Click"  />
                             <asp:Button ID="btnCargarFeriado" runat="server" type="submit" Text="Cargar Feriados" class="btn btn-primary" Visible="false" />
                             <asp:Button ID="btnLimpiar" runat="server" type="submit" Text="Limpiar" class="btn btn-warning" />                            
                             <a href="../Index.aspx" class="btn btn-success">Cancelar</a>
@@ -201,5 +201,32 @@
             </div>
         </div>
     </div>
-
+<%-- Mensaje de Confirmación Apertura de Agenda --%>
+    <div class="modal hide fade in" id="myModalApertura">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h2>Aperturar Agenda</h2>
+        </div>
+        <div class="modal-body">
+            <p>¿Está seguro de aperturar la agenda escolar para el año escolar vigente?</p>
+        </div>
+        <div class="modal-footer">
+            <asp:Button ID="Button1" runat="server" type="submit" Text="Si" class="btn btn-primary" OnClick="btnGuardar_Click" />
+            <a href="#" class="btn btn-success" data-dismiss="modal">No</a>
+        </div>
+    </div>
+    <%-- Mensaje de Confirmación Generar de Agenda --%>
+    <div class="modal hide fade in" id="myModalGenerar">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h2>Generar Agenda</h2>
+        </div>
+        <div class="modal-body">
+            <p>¿Está seguro de generar la agenda escolar para el año escolar vigente?</p>
+        </div>
+        <div class="modal-footer">
+            <asp:Button ID="btnGenerar" runat="server" type="submit" Text="Si" class="btn btn-primary" OnClick="btnGenerar_Click" />
+            <a href="#" class="btn btn-success" data-dismiss="modal">No</a>
+        </div>
+    </div>
 </asp:Content>
