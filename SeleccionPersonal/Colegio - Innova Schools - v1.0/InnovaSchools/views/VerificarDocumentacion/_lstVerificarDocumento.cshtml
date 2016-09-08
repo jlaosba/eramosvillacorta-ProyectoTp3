@@ -1,0 +1,81 @@
+﻿@model InnovaSchools.Models.VerificarDocumentacionViewModel
+
+@{
+    int index = 0;
+}
+<span class="TitleEstTimeClass" style="color: red">
+    @Html.DisplayFor(m => m.resultadoFind)
+</span>
+
+
+<br />
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-condensed">
+        <tr class="active">
+            <th colspan="7">LISTA DE CANDIDATOS</th>
+        </tr>
+        <tr class="active">
+            <th>
+                @Html.DisplayNameFor(model => model.Candidato.Persona.fecha_inicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidato.Persona.fecha_fin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidato.Persona.Puesto.descripcion_puesto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidato.Persona.codigo_persona)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidato.Persona.nombreCompleto)
+            </th>            
+            <th>
+                @Html.DisplayNameFor(model => model.Candidato.Persona.telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidato.Persona.direccion)
+            </th>
+        </tr>
+
+        @for (index = 0; index < Model.Candidatos.Count; index++)
+        {
+            <tr>
+                <td>
+                    @Model.Candidatos[index].Persona.fecha_inicio 
+                </td>
+                <td>
+                    @Model.Candidatos[index].Persona.fecha_fin
+                </td>
+                <td>
+                    @Model.Candidatos[index].Persona.Puesto.descripcion_puesto
+                </td>
+                <td>
+                    @Model.Candidatos[index].Persona.codigo_persona
+                </td>
+                <td>
+                    @Html.ActionLink(@Model.Candidatos[index].Persona.nombreCompleto.ToString(), "getContrato", "VerificarDocumentacion", new { pCodigo_persona = @Model.Candidatos[index].Persona.codigo_persona }, null)
+                </td>                
+                <td>
+                    @Model.Candidatos[index].Persona.telefono
+                </td>
+                <td>
+                    @Model.Candidatos[index].Persona.direccion
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            debugger;
+            alert(1);
+
+        });
+    </script>
+
+}

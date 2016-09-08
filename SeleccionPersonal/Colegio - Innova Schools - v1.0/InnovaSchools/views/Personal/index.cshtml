@@ -1,0 +1,158 @@
+﻿@model InnovaSchools.Models.PersonalViewModel
+
+@using PagedList.Mvc;
+@using InnovaSchools.Util
+
+@{
+    ViewBag.Title = "Actualizar Personal";
+}
+<div class="jumbotron">
+    <h4>ACTUALIZAR PERSONAL</h4>
+    <hr />
+    <form class="form-horizontal">
+        @using (Html.BeginForm("Agregar", "Personal", FormMethod.Get))
+        {
+            <div class="form-inline">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.dni, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
+                    @Html.TextBoxFor(x => x.dni, new { @id = "txtDNI", @class = "form-control", @style = "width:175px;", @maxlength = "8" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
+                    @Html.TextBoxFor(x => x.nombre, new { @id = "txtNombre", @class = "form-control input-sm", @style = "width:175px;", @maxlength = "15" })
+                </div>
+                <div class="form-group">
+                </div>
+            </div>
+            <div class="form-inline">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.apellido_paterno, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
+                    @Html.TextBoxFor(x => x.apellido_paterno, new { @id = "txtApPaterno", @class = "form-control input-sm", @style = "width:175px;", @maxlength = "30" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.apellido_materno, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
+                    @Html.TextBoxFor(x => x.apellido_materno, new { @id = "txtApMaterno", @class = "form-control input-sm", @style = "width:175px;", @maxlength = "30" })
+                </div>
+                <div class="form-group">
+                </div>
+            </div>                        
+            <div class="form-inline">
+                <div class="form-group">
+                    @Html.Label(" ", htmlAttributes: new { @class = "control-label", @style = "width:145px;" })
+                    <input type="button" id="btn-buscar" value="Buscar" class="btn btn-primary btn-sm" />
+                    @*<input type="button" id="btn-buscar3" value="Añadir" class="btn btn-success btn-sm" />*@
+                    @*<input type="submit" value="Añadir" class="btn btn-success btn-sm" />*@
+
+                </div>
+                <div class="form-group">
+                </div>
+                <div class="form-group">
+                </div>
+            </div>
+        }
+    </form>
+</div>
+<div class="form-horizontal">
+    @Html.ActionLink("Añadir Personal", "newPersona", null, null, htmlAttributes: new { @class = "btn btn-success btn-sm" })
+    <div class="form-group" id="divIndexDetail">
+        @Html.Partial("_lstPersonas")       
+    </div>
+</div>
+@*<script src="~/Content/jquery-1.7.1.min.js"></script>*@
+@section Scripts {
+   @* @Scripts.Render("~/bundles/jqueryval")*@
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $(".input-sm").keypress(function (key) {
+                window.console.log(key.charCode)
+                if ((key.charCode < 97 || key.charCode > 122)//letras mayusculas
+                    && (key.charCode < 65 || key.charCode > 90) //letras minusculas
+                    && (key.charCode != 45) //retroceso
+                    && (key.charCode != 241) //ñ
+                     && (key.charCode != 209) //Ñ
+                     && (key.charCode != 32) //espacio
+                     && (key.charCode != 225) //á
+                     && (key.charCode != 233) //é
+                     && (key.charCode != 237) //í
+                     && (key.charCode != 243) //ó
+                     && (key.charCode != 250) //ú
+                     && (key.charCode != 193) //Á
+                     && (key.charCode != 201) //É
+                     && (key.charCode != 205) //Í
+                     && (key.charCode != 211) //Ó
+                     && (key.charCode != 218) //Ú
+                    )
+                    return false;
+            });
+
+            $("#txtDNI").on("keydown", numericTextBox);
+            
+        });     
+
+        function numericTextBox(e) {
+            if (
+                e.keyCode == 8 // backspace
+                || e.keyCode == 9 // tab
+                || e.keyCode == 13 // enter
+                || e.keyCode == 27 // escape
+                || e.keyCode == 46 // delete
+                || (e.keyCode >= 35 && e.keyCode <= 39) // end, home, left arrow, up arrow, right arrow
+            ) {
+                return;
+            }
+            else {
+                if (!((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 96 && e.keyCode <= 105))) {
+                    // not 0-9, numpad 0-9
+                    e.preventDefault();
+                    return;
+                }
+                else {
+                    var keyCode = e.keyCode;
+                    if (keyCode >= 96 && keyCode <= 105) {
+                        keyCode -= 48;
+                    }
+                    var value = $(this).val();
+                    value += String.fromCharCode(keyCode);
+                    value = parseInt(value, 10)
+                    var maxNumber = $(this).data("maxnumber");
+                    if (maxNumber) {
+                        maxNumber = parseInt(maxNumber);
+                        if (value > maxNumber) {
+                            e.preventDefault();
+                        }
+                    }
+                }
+            }
+        }
+
+        $(function () {
+            $("#btn-buscar").on("click", function () {
+                var vDni = $('#txtDNI').val();
+                var vNombre = $('#txtNombre').val();
+                var vApePaterno = $('#txtApPaterno').val();
+                var vApeMaterno = $('#txtApMaterno').val();
+
+                $('#txtDNI').val('');
+                $('#txtNombre').val('');
+                $('#txtApPaterno').val('');
+                $('#txtApMaterno').val('');
+
+                debugger
+
+                $.ajax({
+                    url: "/Personal/lstPersonas",
+                    data: { 'pDni': vDni, 'pNombre': vNombre, 'pApePaterno': vApePaterno, 'pApeMaterno': vApeMaterno },
+                    async: false,
+                    success: function (data) {
+                        $("#divIndexDetail").html(data);
+                    },
+                    error: function (ex) {
+                        console.log(ex);
+                    }
+                });                
+            });
+        });                        
+    </script>
+}
