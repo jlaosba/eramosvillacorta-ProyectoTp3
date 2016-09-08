@@ -10,20 +10,10 @@
 namespace GDirectiva.Core.Entities
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Asignatura
+    public partial class PA_ASIGNATURA_PLANAREA_LISTA_Result
     {
-        public Asignatura()
-        {
-            this.PlanAsignatura = new HashSet<PlanAsignatura>();
-        }
-    
-        public int Id_Asignatura { get; set; }
-        public string Nombre { get; set; }
-        public Nullable<int> Id_Area { get; set; }
-    
-        public virtual Area Area { get; set; }
-        public virtual ICollection<PlanAsignatura> PlanAsignatura { get; set; }
+        public int ID_ASIGNATURA { get; set; }
+        public string NOMBRE_ASIGNATURA { get; set; }
     }
 }

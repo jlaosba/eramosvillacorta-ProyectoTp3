@@ -65,11 +65,18 @@ namespace GDirectiva.Domain.Main
             try
             {
                 DA_PlanArea objDA = new DA_PlanArea();
-                planArea.Estado = "REGISTRADO";
-                planArea.FechaCreacion = DateTime.Now;
-                objDA.InsertarPlanArea(planArea);
-
-                resultado.IsProcess = true;
+                if (objDA.ObtenerPlanAreaExiste((int)planArea.Id_PeriodoAcademico, (int)planArea.Id_Area, (int)planArea.Id_PlanEstudio, (int)planArea.Id_Grado) == 0)
+                {
+                    planArea.Estado = "REGISTRADO";
+                    planArea.FechaCreacion = DateTime.Now;
+                    objDA.InsertarPlanArea(planArea);
+                    resultado.IsProcess = true;
+                }
+                else
+                {
+                    resultado.Message = "El Plan de estudio existe para el siguiente: Periodo, Area Curricular o Grado";
+                    resultado.IsProcess = false;
+                }
             }
             catch (Exception e)
             {

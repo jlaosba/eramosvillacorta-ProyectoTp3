@@ -35,7 +35,6 @@ GDirectiva.Presentacion.General.PlanAsignatura.Index.Controller = function () {
         SlcPeriodoAcademico: function () { return $('#slcPeriodoAcademico'); },
         SlcPlanArea: function () { return $('#slcPlanArea'); },
         SlcAsignatura: function () { return $('#slcAsignatura'); },
-        SlcDocente: function () { return $('#slcDocente'); },        
         BtnAgregar: function () { return $('#btnAgregar'); },
         BtnEliminar: function () { return $('#btnEliminar'); },
         BtnBuscar: function () { return $('#btnBuscar'); }
@@ -53,8 +52,7 @@ GDirectiva.Presentacion.General.PlanAsignatura.Index.Controller = function () {
             base.Configurations.search.parameters = {
                 pId_Periodo: base.Control.SlcPeriodoAcademico().val(),
                 pGD_Plan_Area_Id_Plan_Area: base.Control.SlcPlanArea().val(),
-                pGD_Asignatura_Id_Asignatura: base.Control.SlcAsignatura().val(),
-                pGRMS_Empleado_Id_Empleado: base.Control.SlcDocente().val()
+                pGD_Asignatura_Id_Asignatura: base.Control.SlcAsignatura().val()
             };
             base.Control.GrdResultado.Load(base.Configurations.search.parameters);
         },
@@ -62,14 +60,14 @@ GDirectiva.Presentacion.General.PlanAsignatura.Index.Controller = function () {
             base.Control.FormularioRegistro.Mostrar();
         },
         BtnGridEditarClick: function (row, data) {
-            base.Control.FormularioRegistro.Mostrar(data.ID_PLAN_ASIGNATURA);
+            base.Control.FormularioRegistro.Mostrar(data.ID_PLANASIGNATURA);
         },
         BtnGridEliminarClick: function (row, data) {
             base.Control.Mensaje.Confirmation({
                 title: GDirectiva.Presentacion.Base.MensajeResource.ConfirmacionEliminacion,
                 message: GDirectiva.Presentacion.Base.MensajeResource.TextoEliminacion,
                 onAccept: function () {
-                    base.Ajax.AjaxEliminar.send({ pId_Plan_Asignatura: data.ID_PLAN_ASIGNATURA })
+                    base.Ajax.AjaxEliminar.send({ pId_PlanAsignatura: data.ID_PLANASIGNATURA })
                 }
             });
         },
@@ -91,16 +89,11 @@ GDirectiva.Presentacion.General.PlanAsignatura.Index.Controller = function () {
         AjaxBuscarPlanAreaSuccess: function (data) {
             base.Control.SlcPlanArea().empty();
             base.Control.SlcAsignatura().empty();
-            base.Control.SlcDocente().empty();
             base.Control.SlcPlanArea().append($('<option>', {
                 value: '0',
                 text: '--SELECCIONE--'
             }));
             base.Control.SlcAsignatura().append($('<option>', {
-                value: '0',
-                text: '--SELECCIONE--'
-            }));
-            base.Control.SlcDocente().append($('<option>', {
                 value: '0',
                 text: '--SELECCIONE--'
             }));
@@ -122,40 +115,13 @@ GDirectiva.Presentacion.General.PlanAsignatura.Index.Controller = function () {
         },
         AjaxBuscarAsignaturaSuccess: function (data) {
             base.Control.SlcAsignatura().empty();
-            base.Control.SlcDocente().empty();
             base.Control.SlcAsignatura().append($('<option>', {
-                value: '0',
-                text: '--SELECCIONE--'
-            }));
-            base.Control.SlcDocente().append($('<option>', {
                 value: '0',
                 text: '--SELECCIONE--'
             }));
             if (data.Result != null) {
                 $.each(data.Result, function (i, item) {
                     base.Control.SlcAsignatura().append($('<option>', {
-                        value: item.Value,
-                        text: item.Text
-                    }));
-                });
-            }
-        },
-        SlcAsignaturaChange: function () {
-            vId_Asignatura = base.Control.SlcAsignatura().val() == "" ? 0 : base.Control.SlcAsignatura().val();
-            base.Ajax.AjaxBuscarDocente.data = {
-                pId_Asignatura: vId_Asignatura
-            };
-            base.Ajax.AjaxBuscarDocente.submit();
-        },
-        AjaxBuscarDocenteSuccess: function (data) {
-            base.Control.SlcDocente().empty();
-            base.Control.SlcDocente().append($('<option>', {
-                value: '0',
-                text: '--SELECCIONE--'
-            }));
-            if (data.Result != null) {
-                $.each(data.Result, function (i, item) {
-                    base.Control.SlcDocente().append($('<option>', {
                         value: item.Value,
                         text: item.Text
                     }));
@@ -182,27 +148,28 @@ GDirectiva.Presentacion.General.PlanAsignatura.Index.Controller = function () {
             action: GDirectiva.Presentacion.General.PlanAsignatura.Actions.BuscarAsignatura,
             autoSubmit: false,
             onSuccess: base.Event.AjaxBuscarAsignaturaSuccess
-        }),
-        AjaxBuscarDocente: new GDirectiva.Presentacion.Web.Components.Ajax(
-        {
-            action: GDirectiva.Presentacion.General.PlanAsignatura.Actions.BuscarDocente,
-            autoSubmit: false,
-            onSuccess: base.Event.AjaxBuscarDocenteSuccess
         })
     };
 
     base.Function = {
+        ActivarEliminar: function (data, type, full) {
+            return full.ID_ESTADO;
+        },
         CrearGrid: function () {
 
             var columns = new Array();
-            columns.push({ data: 'PERIODO', title: GDirectiva.Presentacion.General.PlanAsignatura.Resource.EtiquetaPeriodoAcademico });
-            columns.push({ data: 'NOMBRE_PLAN_AREA', title: GDirectiva.Presentacion.General.PlanAsignatura.Resource.EtiquetaPlanArea });
-            columns.push({ data: 'NOMBRE_CURSO', title: GDirectiva.Presentacion.General.PlanAsignatura.Resource.EtiquetaAsignatura });
-            columns.push({ data: 'NOMBRE_EMPLEADO', title: GDirectiva.Presentacion.General.PlanAsignatura.Resource.EtiquetaDocente });
+            columns.push({ data: 'NOMBRE_PERIODO', title: GDirectiva.Presentacion.General.PlanAsignatura.Resource.EtiquetaPeriodoAcademico });
+            columns.push({ data: 'NOMBRE_PLANAREA', title: GDirectiva.Presentacion.General.PlanAsignatura.Resource.EtiquetaPlanArea });
+            columns.push({ data: 'NOMBRE_ASIGNATURA', title: GDirectiva.Presentacion.General.PlanAsignatura.Resource.EtiquetaAsignatura });
+            columns.push({
+                data: null, title: GDirectiva.Presentacion.General.PlanAsignatura.Resource.EtiquetaEstado, 'mRender': function (data, type, full) {
+                    return full.ESTADO;
+                }
+            });
             
             var listaOpciones = new Array();
             listaOpciones.push({ type: GDirectiva.Presentacion.Web.Components.GridAction.Edit, event: { on: 'click', callBack: base.Event.BtnGridEditarClick } });
-            listaOpciones.push({ type: GDirectiva.Presentacion.Web.Components.GridAction.Delete, event: { on: 'click', callBack: base.Event.BtnGridEliminarClick } });
+            listaOpciones.push({ type: GDirectiva.Presentacion.Web.Components.GridAction.Delete, validateRender: base.Function.ActivarEliminar, event: { on: 'click', callBack: base.Event.BtnGridEliminarClick } });
 
             columns.push({
                 data: null,

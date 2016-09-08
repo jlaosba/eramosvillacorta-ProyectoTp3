@@ -63,7 +63,7 @@
                     <ul class="dropdown-menu">
                         <li><a href='@Url.Content("~/PlanArea")'>Plan Área</a></li>
                         <li><a href='@Url.Content("~/PlanAsignatura")'>Plan Asignatura</a></li>
-                        <li><a href='@Url.Content("~/PlanArea")'>Cronograma Plan Asignatura</a></li>
+                        <li><a href='@Url.Content("~/PlanAsignaturaCronograma")'>Cronograma Plan Asignatura</a></li>
                     </ul>
                 </li>
                 <li>@Html.ActionLink("Gestión Apoyo Académico", "Modulo3", "Home")</li>
@@ -98,15 +98,13 @@
         GDirectiva.Presentacion.Base.MensajeResource.ConfirmacionEliminacion = '@Html.Raw(MensajeResource.ConfirmacionEliminacion)';
         GDirectiva.Presentacion.Base.MensajeResource.TextoEliminacion = '@Html.Raw(MensajeResource.TextoEliminacion)';
         GDirectiva.Presentacion.Base.MensajeResource.DebeSeleccionarRegistro = '@Html.Raw(MensajeResource.DebeSeleccionarRegistro)';
-        GDirectiva.Presentacion.Base.MensajeResource.EtiquetaMensajeDesactivar = '@Html.Raw(MensajeResource.EtiquetaMensajeDesactivar)';
         GDirectiva.Presentacion.Base.MensajeResource.SeEliminoRegistro = '@Html.Raw(MensajeResource.SeEliminoRegistro)';
-        GDirectiva.Presentacion.Base.MensajeResource.ConfirmacionActivacion = '@Html.Raw(MensajeResource.ConfirmacionActivacion)';
-        GDirectiva.Presentacion.Base.MensajeResource.SeActivoRegistro = '@Html.Raw(MensajeResource.SeActivoRegistro)';
         GDirectiva.Presentacion.Base.MensajeResource.TextoReactivacion = '@Html.Raw(MensajeResource.TextoReactivacion)';
 
         ns('GDirectiva.Presentacion.Base.GenericResource');
         GDirectiva.Presentacion.Base.GenericResource.EtiquetaEditar = '@Html.Raw(GenericResource.EtiquetaEditar)';
         GDirectiva.Presentacion.Base.GenericResource.EtiquetaEliminar = '@Html.Raw(GenericResource.EtiquetaEliminar)';
+        GDirectiva.Presentacion.Base.GenericResource.EtiquetaEliminarActividades = '@Html.Raw(GenericResource.EtiquetaEliminarActividades)';        
         GDirectiva.Presentacion.Base.GenericResource.EtiquetaDesactivar = '@Html.Raw(GenericResource.EtiquetaDesactivar)';
         GDirectiva.Presentacion.Base.GenericResource.EtiquetaSeleccionar = '@Html.Raw(GenericResource.EtiquetaSeleccionar)';
         GDirectiva.Presentacion.Base.GenericResource.GridAcciones = '@Html.Raw(GenericResource.GridAcciones)';

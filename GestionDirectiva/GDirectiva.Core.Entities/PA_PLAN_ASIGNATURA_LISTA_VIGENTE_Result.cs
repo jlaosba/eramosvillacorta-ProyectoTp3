@@ -11,26 +11,24 @@ namespace GDirectiva.Core.Entities
 {
     using System;
     
-    public partial class PA_PLAN_AREA_LISTA_Result
+    public partial class PA_PLAN_ASIGNATURA_LISTA_VIGENTE_Result
     {
         public Nullable<long> RegistrosPagina { get; set; }
         public Nullable<long> FilasTotal { get; set; }
         public Nullable<long> NumeroFila { get; set; }
         public Nullable<int> TamanioPagina { get; set; }
+        public int ID_PLANASIGNATURA { get; set; }
+        public string META { get; set; }
+        public string METOLOGIA { get; set; }
+        public string DOCUMENTO_PLANASIGNATURA { get; set; }
         public int ID_PLANAREA { get; set; }
         public string NOMBRE_PLANAREA { get; set; }
-        public string OBJETIVOS { get; set; }
-        public string CRITERIOS { get; set; }
-        public string REQUISITOS { get; set; }
+        public int ID_ASIGNATURA { get; set; }
+        public string NOMBRE_ASIGNATURA { get; set; }
+        public Nullable<int> ID_EMPLEADO { get; set; }
+        public int ID_PERIODOACADEMICO { get; set; }
+        public string NOMBRE_PERIODO { get; set; }
         public int ID_ESTADO { get; set; }
         public string ESTADO { get; set; }
-        public string DOCUMENTO_PLANAREA { get; set; }
-        public Nullable<int> ID_PERIODOACADEMICO { get; set; }
-        public string PERIODO { get; set; }
-        public Nullable<int> ID_PLANESTUDIO { get; set; }
-        public int ID_GRADO { get; set; }
-        public string NOMBRE_GRADO { get; set; }
-        public Nullable<int> ID_AREA { get; set; }
-        public string NOMBRE_AREA { get; set; }
     }
 }

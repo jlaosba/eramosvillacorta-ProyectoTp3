@@ -61,7 +61,16 @@ namespace GDirectiva.Presentacion.Resource.General {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Asignatura.
+        ///   Looks up a localized string similar to Error de extensión: Archivo Inválido, solo se acepta archivos de tipo Word..
+        /// </summary>
+        public static string ErrorDeExtension {
+            get {
+                return ResourceManager.GetString("ErrorDeExtension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Curso.
         /// </summary>
         public static string EtiquetaAsignatura {
             get {
@@ -70,11 +79,11 @@ namespace GDirectiva.Presentacion.Resource.General {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Docente.
+        ///   Looks up a localized string similar to Estado.
         /// </summary>
-        public static string EtiquetaDocente {
+        public static string EtiquetaEstado {
             get {
-                return ResourceManager.GetString("EtiquetaDocente", resourceCulture);
+                return ResourceManager.GetString("EtiquetaEstado", resourceCulture);
             }
         }
         
@@ -147,6 +156,15 @@ namespace GDirectiva.Presentacion.Resource.General {
         public static string EtiquetaTituloPrincipal {
             get {
                 return ResourceManager.GetString("EtiquetaTituloPrincipal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debe seleccionar el archivo Excel (.doc | .docx)..
+        /// </summary>
+        public static string MensajeDebeSeleccionarArchivoWord {
+            get {
+                return ResourceManager.GetString("MensajeDebeSeleccionarArchivoWord", resourceCulture);
             }
         }
     }
