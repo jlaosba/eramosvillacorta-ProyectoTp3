@@ -422,6 +422,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
+    <Content Include="Components\JQuery\jquery.ajax_upload.js" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\PlanAsignaturaCronograma\Index.cshtml">
       <SubType>

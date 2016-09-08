@@ -16,7 +16,8 @@ namespace GDirectiva.Presentacion.Web
                         "~/Components/JQuery/jquery.validate.js",
                         "~/Components/JQuery/jquery.validate.additional-methods.js",
                         "~/Components/JQuery/jquery.mask.js",
-                        "~/Components/JQuery/jquery.mask.min.js"
+                        "~/Components/JQuery/jquery.mask.min.js",
+                        "~/Components/JQuery/jquery.ajax_upload.js"
             ));
 
             bundles.Add(new ScriptBundle("~/Components/DataTables").Include(
@@ -40,7 +41,8 @@ namespace GDirectiva.Presentacion.Web
                         "~/Components/Gmd/TextBox/TextBox.js",
                         "~/Components/Gmd/Calendar/Calendar.js",
                         "~/Components/Gmd/Grid/Grid.js",
-                        "~/Components/Gmd/Chart/Chart.js"
+                        "~/Components/Gmd/Chart/Chart.js",
+                        "~/Components/Gmd/AjaxUpload/AjaxUpload.js"
             ));
 
             bundles.Add(new ScriptBundle("~/FrameworkStyle/js").Include(

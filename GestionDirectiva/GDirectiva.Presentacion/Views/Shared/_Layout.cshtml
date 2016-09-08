@@ -85,12 +85,18 @@
     @Scripts.Render("~/Components/Codemaleon")
     @Scripts.Render("~/Components/DataTables")
     @Scripts.Render("~/Components/Gmd")
+    @Scripts.Render("~/Scripts/baselayout")
     @Scripts.Render("~/Components/Charts")
+    <script src="~/Scripts/Base/Layout/common.js"></script>
     <script type="text/javascript">
         ns('GDirectiva.Presentacion.Web.Formato')
         GDirectiva.Presentacion.Web.Formato.Fecha = "dd/mm/yy";
         GDirectiva.Presentacion.Web.Formato.FechaMascara = "00/00/0000";
         GDirectiva.Presentacion.Web.Formato.Hora = "HH:mm";
+
+        //Modal de Cargar Archivo
+        ns('GDirectiva.Presentacion.Base.CargarArchivo.Actions');
+        GDirectiva.Presentacion.Base.CargarArchivo.Actions.UploadDocument = '@Url.Action("UploadDocument", "CargaArchivo", new { Area = "Base" })';
 
         //Mensajes Genericos
         ns('GDirectiva.Presentacion.Base.MensajeResource');
@@ -103,6 +109,9 @@
         GDirectiva.Presentacion.Base.MensajeResource.ConfirmacionActivacion = '@Html.Raw(MensajeResource.ConfirmacionActivacion)';
         GDirectiva.Presentacion.Base.MensajeResource.SeActivoRegistro = '@Html.Raw(MensajeResource.SeActivoRegistro)';
         GDirectiva.Presentacion.Base.MensajeResource.TextoReactivacion = '@Html.Raw(MensajeResource.TextoReactivacion)';
+        GDirectiva.Presentacion.Base.MensajeResource.MensajeValidarElegirArchivo = '@Html.Raw(MensajeResource.MensajeValidarElegirArchivo)';
+        GDirectiva.Presentacion.Base.MensajeResource.MensajeValidarExtensionArchivo = '@Html.Raw(MensajeResource.MensajeValidarExtensionArchivo)';
+
 
         ns('GDirectiva.Presentacion.Base.GenericResource');
         GDirectiva.Presentacion.Base.GenericResource.EtiquetaEditar = '@Html.Raw(GenericResource.EtiquetaEditar)';

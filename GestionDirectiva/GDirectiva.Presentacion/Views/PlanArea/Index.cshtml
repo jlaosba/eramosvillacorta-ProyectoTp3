@@ -102,6 +102,7 @@
     GDirectiva.Presentacion.General.PlanArea.Actions.FormularioRegistro = '@Url.Action("FormularioRegistro", "PlanArea", new { Area = "General" })';
     GDirectiva.Presentacion.General.PlanArea.Actions.Registrar = '@Url.Action("Registrar", "PlanArea", new { Area = "General" })';
     GDirectiva.Presentacion.General.PlanArea.Actions.Eliminar = '@Url.Action("Eliminar", "PlanArea", new { Area = "General" })';
+    GDirectiva.Presentacion.General.PlanArea.Actions.UploadDocument = '@Url.Action("UploadDocument", "PlanArea", new { Area = "General" })';
 
     ns('GDirectiva.Presentacion.General.PlanArea.Resource')
     GDirectiva.Presentacion.General.PlanArea.Resource.EtiquetaTituloFormulario = '@PlanAreaResource.EtiquetaTituloFormulario';
@@ -119,4 +120,5 @@
     GDirectiva.Presentacion.General.PlanArea.Resource.EtiquetaEstado = '@PlanAreaResource.EtiquetaEstado';
 </script>
     @CustomHtmlHelper.RenderViewJs("generalplanareaformularioregistro")
+    @CustomHtmlHelper.RenderViewJs("basecargaarchivo")
 }

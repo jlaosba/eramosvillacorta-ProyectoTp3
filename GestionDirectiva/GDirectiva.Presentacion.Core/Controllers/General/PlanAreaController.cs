@@ -1,6 +1,7 @@
 ﻿using GDirectiva.Core.Entities;
 using GDirectiva.Domain.Main;
 using GDirectiva.Presentacion.Core.Controllers.Base;
+using GDirectiva.Presentacion.Core.ViewModel.Base;
 using GDirectiva.Presentacion.Core.ViewModel.General;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 
 namespace GDirectiva.Presentacion.Core.Controllers.General
@@ -130,5 +132,25 @@ namespace GDirectiva.Presentacion.Core.Controllers.General
             return PartialView(model);
         }
         #endregion
+
+        public void UploadDocument()
+        {
+            CargarArchivoViewModel ObjCargarArchivo = new CargarArchivoViewModel();
+            for (int i = 0; i < Request.Files.Count; i++)
+            {
+                HttpPostedFileBase item = Request.Files[i];
+
+                ObjCargarArchivo.NombreArchivo = System.IO.Path.GetFileName(item.FileName);
+                ObjCargarArchivo.Extension = System.IO.Path.GetExtension(item.FileName);
+                ObjCargarArchivo.Tamaño = item.ContentLength;
+                byte[] fileData = null;
+                using (var binaryReader = new BinaryReader(Request.Files[i].InputStream))
+                {
+                    fileData = binaryReader.ReadBytes(Request.Files[i].ContentLength);
+                }
+                ObjCargarArchivo.ArchivoBase64 = Convert.ToBase64String(fileData);
+            }
+            Response.Write(Newtonsoft.Json.JsonConvert.SerializeObject(ObjCargarArchivo));
+        }
     }
 }

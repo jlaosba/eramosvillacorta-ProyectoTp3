@@ -207,4 +207,10 @@
   <data name="TextoReactivacion" xml:space="preserve">
     <value>Por favor confirme la activación del registro.</value>
   </data>
+  <data name="MensajeValidarElegirArchivo" xml:space="preserve">
+    <value>Debe seleccionar un archivo, verifique.</value>
+  </data>
+  <data name="MensajeValidarExtensionArchivo" xml:space="preserve">
+    <value>El archivo elegido no tiene la extensión permitida, verifique.</value>
+  </data>
 </root>
