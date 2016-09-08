@@ -1,0 +1,226 @@
+﻿@model InnovaSchools.Models.ActualizarPersonalViewModel
+
+@using PagedList.Mvc;
+@using InnovaSchools.Util
+
+@{
+    ViewBag.Title = "Búsqueda de Personal";
+}
+<div class="jumbotron">
+    <h4>BÚSQUEDA DE PERSONAL</h4>
+    <hr />
+    <form class="form-horizontal">
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.LabelFor(model => model.fecha_inicio, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
+                @Html.TextBox("ddlFecha_inicio", "", new { @class = "date-picker", @style = "border-color: red" })
+                @Html.ValidationMessageFor(model => model.fecha_inicio, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.fecha_fin, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
+                @Html.TextBox("ddlFecha_fin", "", new { @class = "date-picker", @style = "border-color: red" })
+                @Html.ValidationMessageFor(model => model.fecha_fin, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
+                @Html.TextBoxFor(x => x.nombre, new { @id = "txtNombre", @class = "form-control input-sm", @style = "width:175px;", @maxlength = "15" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.apellido_paterno, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
+                @Html.TextBoxFor(x => x.apellido_paterno, new { @id = "txtApPaterno", @class = "form-control input-sm", @style = "width:175px;", @maxlength = "30" })
+            </div>
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.Label("Puesto", htmlAttributes: new { @id = "ddlPuesto", @class = "control-label", @style = "width:140px;" })
+                @Html.DropDownListFor(m => m.SelectedPuestoId, new SelectList(Model.Puestos, "Value", "Text", "0"), "--Seleccionar--", new { @class = "form-control input-sm", @style = "width:175px; border-color: red;" })
+                @Html.ValidationMessageFor(m => m.SelectedPuestoId)
+            </div>
+            <div class="form-group">
+                @Html.Label("Estado", htmlAttributes: new { @id = "ddlEstado", @class = "control-label", @style = "width:140px;" })
+                @*@Html.DropDownListFor(m => m.SelectedEstadoId, new SelectList(Model.Puestos, "Value", "Text", "0"), "--Seleccionar--", new { @class = "form-control input-sm", @style = "width:175px; border-color: red;" })
+                @Html.ValidationMessageFor(m => m.SelectedEstadoId)*@
+            </div>
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="form-group">                
+            </div>
+            <div class="form-group">
+                @Html.Label(" ", htmlAttributes: new { @class = "control-label", @style = "width:165px;" })
+                <input type="button" id="btn-buscar" value="Buscar" class="btn btn-primary btn-sm" />
+            </div>
+            <div class="form-group">
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="form-horizontal">
+    <div class="form-group" id="divIndexDetail">
+        @Html.Partial("_lstActualizarPersonal")
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery-2.2.3.min.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+           $(".programar").css("display", "none");
+        });
+        $("#btn-buscar").on("click", function () {
+            var vFechaInicioVal = $('#ddlFecha_inicio').val();
+            if (vFechaInicioVal == "") {
+                WarningMessage("Debe ingresar una Fecha de Inicio");
+                return;
+            }
+
+            var vFechaFinVal = $('#ddlFecha_fin').val();
+            if (vFechaFinVal == "") {
+                WarningMessage("Debe ingresar una Fecha de Fin");
+                return;
+            }           
+
+            var vPuestoVal = $('#SelectedPuestoId').val();
+            if (vPuestoVal == 0) {
+                WarningMessage("Debe seleccionar un puesto");
+                return;
+            }
+            vPuestoVal = vPuestoVal !== "" ? parseInt(vPuestoVal) : 0;           
+
+            $(".programar").css("display", "block");
+            $("#ddlFecha_inicio").attr("disabled", "disabled");
+            $("#ddlFecha_fin").attr("disabled", "disabled");
+            $("#SelectedPuestoId").attr("disabled", "disabled");
+            $("#btn-buscar").attr("disabled", "disabled");
+
+            $.ajax({
+                url: "/ProgramarPersonal/lstProgramarPersonal",
+                data: { 'pFechaInicio': vFechaInicioVal, 'pFechaFin': vFechaFinVal, 'pIdPuesto': vPuestoVal },
+                async: false,
+                success: function (data) {
+                    $("#divIndexDetail").html(data);
+                },
+                error: function (ex) {
+                    console.log(ex);
+                }
+            });
+        });
+
+        $("#btn-programar").on("click", function () {
+            var counter = 0;
+            var capacidadTotal = 0;
+            var arrayDetalleSelec = "";
+
+            var vFechaInicioVal = $('#ddlFecha_inicio').val();
+            if (vFechaInicioVal == "") {
+                WarningMessage("Debe ingresar una Fecha de Inicio");
+                return;
+            }
+
+            var vFechaFinVal = $('#ddlFecha_fin').val();
+            if (vFechaFinVal == "") {
+                WarningMessage("Debe ingresar una Fecha de Fin");
+                return;
+            }
+
+            var vIdPuesto = $('#SelectedPuestoId').val();
+            vIdPuesto = vIdPuesto !== "" ? parseInt(vIdPuesto) : 0;
+            if (vIdPuesto == 0) {
+                WarningMessage("Debe seleccionar un puesto");
+                return;
+            }
+
+            var vTurnoVal = $('#SelectedTurnoId').val();
+            vTurnoVal = vTurnoVal !== "" ? parseInt(vTurnoVal) : 0;
+            if (vTurnoVal == 0) {
+                WarningMessage("Debe seleccionar un turno");
+                return;
+            }
+
+
+
+            var vPuestoVal = $('#SelectedPuestoId').val();
+            vPuestoVal = vPuestoVal !== "" ? parseInt(vPuestoVal) : 0;
+
+            $("input[type='checkbox']").each(function () {
+                debugger;
+                if (this.checked) {
+                    var idChk = this.id;
+
+                    if (arrayDetalleSelec === "")
+                        arrayDetalleSelec = idChk;
+                    else
+                        arrayDetalleSelec = arrayDetalleSelec + "," + idChk;
+
+                    counter++;
+                }
+            }
+           );
+            if (counter === 0) {
+                WarningMessage("Debe Seleccionar al menos un Personal");
+                return;
+            }
+
+            //debugger;
+            var form = $("#form-programar-personal");
+
+            $.ajax({
+                url: "/ProgramarPersonal/addProgramarPersona",
+                data: { 'pFechaInicio': vFechaInicioVal, 'pFechaFin': vFechaFinVal, 'pIdTurno': vTurnoVal, 'pIdPuesto': vPuestoVal, 'pId_persona': arrayDetalleSelec },
+                async: false,
+                success: function (data) {
+                    $("#divIndexDetail").html(data);
+                },
+                error: function (ex) {
+                    console.log(ex);
+                }
+            });
+        });
+
+        $("#btn-cancelar").on("click", function () {
+            //$("#btn-insertar").css("display", "none");
+            //$("#btn-cancelar").css("display", "none");
+            ////$("#tets").removeAttr("disabled");
+            //$("#btn-buscar").removeAttr("disabled");
+
+            $(".programar").css("display", "none");
+            //$(".filtro").removeAttr("disabled");
+            $("#ddlFecha_inicio").removeAttr("disabled");
+            $("#ddlFecha_fin").removeAttr("disabled");
+            $("#SelectedPuestoId").removeAttr("disabled");
+            $("#btn-buscar").removeAttr("disabled");            
+            $("#tblResultado tbody").remove();
+
+        });
+    </script>
+    <script>
+        $("#ddlFecha_inicio").datepicker({ dateFormat: "dd/mm/yy" }).mask("99/99/9999");
+        $("#ddlFecha_fin").datepicker({ dateFormat: "dd/mm/yy" }).mask("99/99/9999");
+        $.validator.addMethod('date',
+        function (value, element, params) {
+            if (this.optional(element)) {
+                return true;
+            }
+            var ok = true;
+            try {
+                $.datepicker.parseDate('dd/mm/yy', value);
+            }
+            catch (err) {
+                ok = false;
+            }
+            return ok;
+        });
+    </script>
+}

@@ -1,0 +1,217 @@
+﻿@model InnovaSchools.Models.PersonalViewModel
+@using InnovaSchools.Util
+
+@{
+    ViewBag.Title = "Actualizar Personal";
+}
+<div class="jumbotron">
+    <h4>EDITAR PERSONAL</h4>
+    <hr />
+    <form class="form-horizontal">
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.LabelFor(model => model.dni, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
+                @Html.TextBoxFor(x => x.Persona.dni, new { @id = "txtDNI", @class = "form-control", @style = "width:175px;", @disabled = "disabled", @maxlength = "8" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
+                @Html.TextBoxFor(x => x.Persona.nombre, new { @id = "txtNombre", @class = "form-control input-sm", @style = "width:175px; border-color: red", @maxlength = "15" })
+            </div>
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.LabelFor(model => model.apellido_paterno, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
+                @Html.TextBoxFor(x => x.Persona.apellido_paterno, new { @id = "txtApPaterno", @class = "form-control input-sm", @style = "width:175px; border-color: red", @maxlength = "30" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.apellido_materno, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
+                @Html.TextBoxFor(x => x.Persona.apellido_materno, new { @id = "txtApMaterno", @class = "form-control input-sm", @style = "width:175px; border-color: red", @maxlength = "30" })
+            </div>
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Persona.direccion, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
+                @Html.TextBoxFor(x => x.Persona.direccion, new { @id = "txtDireccion", @class = "form-control", @style = "width:470px;", @maxlength = "50" })
+            </div>
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Persona.telefono, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
+                @Html.TextBoxFor(x => x.Persona.telefono, new { @id = "txtTelefono", @class = "form-control", @style = "width:175px;", @maxlength = "7" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Persona.celular, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
+                @Html.TextBoxFor(x => x.Persona.celular, new { @id = "txtCelular", @class = "form-control", @style = "width:175px;", @maxlength = "9" })
+            </div>
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.Label("Puesto", htmlAttributes: new { @id = "ddlPuesto", @class = "control-label", @style = "width:140px;" })
+                @Html.DropDownListFor(m => m.SelectedPuestoId, new SelectList(Model.Puestos, "Value", "Text", "0"), "--Seleccionar--", new { @class = "form-control input-sm", @style = "width:175px; border-color: red" })                
+                @Html.ValidationMessageFor(m => m.SelectedPuestoId)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Persona.brevete, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
+                @Html.TextBoxFor(x => x.Persona.brevete, new { @id = "txtBrevete", @class = "form-control", @style = "width:175px;", @maxlength = "10" })
+            </div>
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.Label(" ", htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
+                <input type="button" id="btn-grabar" value="Grabar" class="btn btn-primary btn-sm" />
+                @Html.ActionLink("Cancelar", "Index", null, null, htmlAttributes: new { @class = "btn btn-danger btn-sm" })
+            </div>
+            <div class="form-group">
+            </div>
+        </div>
+    </form>
+
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#SelectedPuestoId").change(function (evt) {
+                var value = $(this).val();
+                if (value == 1) {
+                    $("#txtBrevete").removeAttr("disabled");
+                    $("#txtBrevete").css("border-color", "red");
+                }
+                else if (value == 2) {
+                    $("#txtBrevete").val('');
+                    $("#txtBrevete").attr("disabled", "disabled");
+                    $('#txtBrevete').css("border-color", "lightgray");
+                }
+                evt.preventDefault();
+            });
+        });
+        $(".input-sm").keypress(function (key) {
+            window.console.log(key.charCode)
+            if ((key.charCode < 97 || key.charCode > 122)//letras mayusculas
+                && (key.charCode < 65 || key.charCode > 90) //letras minusculas
+                && (key.charCode != 45) //retroceso
+                && (key.charCode != 241) //ñ
+                 && (key.charCode != 209) //Ñ
+                 && (key.charCode != 32) //espacio
+                 && (key.charCode != 225) //á
+                 && (key.charCode != 233) //é
+                 && (key.charCode != 237) //í
+                 && (key.charCode != 243) //ó
+                 && (key.charCode != 250) //ú
+                 && (key.charCode != 193) //Á
+                 && (key.charCode != 201) //É
+                 && (key.charCode != 205) //Í
+                 && (key.charCode != 211) //Ó
+                 && (key.charCode != 218) //Ú
+                )
+                return false;
+        });
+        $("#txtDNI").on("keydown", numericTextBox);
+        $("#txtTelefono").on("keydown", numericTextBox);
+        $("#txtCelular").on("keydown", numericTextBox);
+        function numericTextBox(e) {
+            if (
+                e.keyCode == 8 // backspace
+                || e.keyCode == 9 // tab
+                || e.keyCode == 13 // enter
+                || e.keyCode == 27 // escape
+                || e.keyCode == 46 // delete
+                || (e.keyCode >= 35 && e.keyCode <= 39) // end, home, left arrow, up arrow, right arrow
+            ) {
+                return;
+            }
+            else {
+                if (!((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 96 && e.keyCode <= 105))) {
+                    // not 0-9, numpad 0-9
+                    e.preventDefault();
+                    return;
+                }
+                else {
+                    var keyCode = e.keyCode;
+                    if (keyCode >= 96 && keyCode <= 105) {
+                        keyCode -= 48;
+                    }
+                    var value = $(this).val();
+                    value += String.fromCharCode(keyCode);
+                    value = parseInt(value, 10)
+                    var maxNumber = $(this).data("maxnumber");
+                    if (maxNumber) {
+                        maxNumber = parseInt(maxNumber);
+                        if (value > maxNumber) {
+                            e.preventDefault();
+                        }
+                    }
+                }
+            }
+        }
+        $(function () {
+            $("#btn-grabar").on("click", function () {                
+                var vNombreVal = $('#txtNombre').val();
+                if (vNombreVal == "") {
+                    WarningMessage("Debe ingresar un nombre");
+                    return;
+                }
+                var vApePaternoVal = $('#txtApPaterno').val();
+                if (vApePaternoVal == "") {
+                    WarningMessage("Debe ingresar un apellido paterno");
+                    return;
+                }
+                var vApeMaternoVal = $('#txtApMaterno').val();
+                if (vApeMaternoVal == "") {
+                    WarningMessage("Debe ingresar un apellido materno");
+                    return;
+                }
+
+
+                var vDni = $('#txtDNI').val();
+                var vNombre = $('#txtNombre').val();
+                var vApePaterno = $('#txtApPaterno').val();
+                var vApeMaterno = $('#txtApMaterno').val();
+                var vDireccion = $('#txtDireccion').val();
+                var vTelefono = $('#txtTelefono').val();
+                var vCelular = $('#txtCelular').val();
+
+                var vIdPuesto = $('#SelectedPuestoId').val();
+                if (vIdPuesto == 0) {
+                    WarningMessage("Debe seleccionar un puesto");
+                    return;
+                }
+
+                var vBrevete = $('#txtBrevete').val();
+
+                if (vIdPuesto == "1" && vBrevete.length == 0) {
+                    WarningMessage("Debe ingresar el número de Brevete");
+                    return;
+                }
+
+                $.ajax({
+                    url: "/Personal/setPersona",
+                    data: {
+                        'pDni': vDni, 'pNombre': vNombre, 'pApePaterno': vApePaterno, 'pApeMaterno': vApeMaterno,
+                        'pDireccion': vDireccion, 'pTelefono': vTelefono, 'pCelular': vCelular, 'pIdPuesto': vIdPuesto, 'pBrevete': vBrevete
+                    },
+                    async: false,
+                    success: function (data) {
+                        WarningMessage("Se actualizo el personal");
+                    },
+                    error: function (ex) {
+                        console.log(ex);
+                    },
+                    complete: function (xhr, textStatus) {
+                       
+                    }
+                });
+            });
+        });
+    </script>
+}

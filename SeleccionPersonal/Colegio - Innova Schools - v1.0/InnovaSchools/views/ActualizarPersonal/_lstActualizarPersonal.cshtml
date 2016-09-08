@@ -1,0 +1,69 @@
+﻿@model InnovaSchools.Models.ActualizarPersonalViewModel
+
+@{
+    int index = 0;
+}
+<span class="TitleEstTimeClass" style="color: red">
+    @Html.DisplayFor(m => m.resultadoFind)
+</span>
+
+
+<br />
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-condensed">
+        <tr class="active">
+            <th colspan="5">LISTA DE PERSONAL</th>
+        </tr>
+        <tr class="active">
+            <th>
+                @Html.DisplayNameFor(model => model.Persona.dni)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Persona.nombreCompleto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Persona.Puesto.descripcion_puesto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Persona.telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Persona.direccion)
+            </th>
+        </tr>
+
+        @for (index = 0; index < Model.Personas.Count; index++)
+        {
+            <tr>
+                <td>
+                    @Model.Personas[index].dni.ToString()
+                </td>
+                <td>
+                    @Html.ActionLink(@Model.Personas[index].nombreCompleto.ToString(), "getPersona", "Personal", new { pDni = @Model.Personas[index].dni }, null)
+                </td>
+                <td>
+                    @Model.Personas[index].Puesto.descripcion_puesto
+                </td>
+                <td>
+                    @Model.Personas[index].telefono
+                </td>
+                <td>
+                    @Model.Personas[index].direccion
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            debugger;
+            alert(1);
+
+        });
+    </script>
+
+}
