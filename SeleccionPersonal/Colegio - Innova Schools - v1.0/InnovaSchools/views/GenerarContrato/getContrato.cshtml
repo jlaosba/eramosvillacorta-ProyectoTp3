@@ -1,0 +1,265 @@
+﻿@model InnovaSchools.Models.GenerarContratoViewModel
+@using InnovaSchools.Util
+
+@{
+    ViewBag.Title = "Agregar Información de Contrato";
+}
+
+<div class="jumbotron">
+    <h4>AGREGAR INFORMACIÓN DE CONTRATO</h4>
+    <hr />
+    <form class="form-horizontal">
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.Label("Nro de Contrato", htmlAttributes: new {@id = "lblNroContato", @class = "control-label", @style = "width:200px;" })
+                @Html.TextBoxFor(x => x.nroContrato, new { @id = "txtNroContato", @class = "form-control input-sm", @style = "width:175px;", @maxlength = "8", @disabled = "disabled" })
+            </div>
+            <div class="form-group">
+            </div>
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.documentoIdentidad, htmlAttributes: new { @class = "control-label", @style = "width:170px;" })*@
+                @Html.Label("Nro de Documento", htmlAttributes: new { @class = "control-label", @style = "width:200px;" })
+                @Html.TextBoxFor(x => x.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.documentoIdentidad, new { @id = "txtDNI", @class = "form-control input-sm", @style = "width:175px;", @maxlength = "8", @disabled = "disabled" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Tipo de Contrato", htmlAttributes: new { @id = "ddlTipoContrato", @class = "control-label", @style = "width:170px;" })
+                @Html.DropDownListFor(m => m.SelectedTipoContratoId, new SelectList(Model.TipoContratos, "Value", "Text", "0"), "--Seleccionar--", new { @class = "form-control input-sm", @style = "width:175px; border-color: red" })
+                @Html.ValidationMessageFor(m => m.SelectedTipoContratoId)               
+            </div>
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.nombre, htmlAttributes: new { @class = "control-label", @style = "width:170px;" })*@
+                @Html.Label("Nombre del Contratado", htmlAttributes: new { @class = "control-label", @style = "width:200px;" })
+                @Html.TextBoxFor(x => x.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.nombre, new { @id = "txtNombre", @class = "form-control input-sm", @style = "width:175px;", @maxlength = "15", @disabled = "disabled" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.salario, htmlAttributes: new { @class = "control-label", @style = "width:170px;" })
+                @Html.TextBoxFor(x => x.salario, new { @id = "txtSalario", @class = "form-control", @style = "width:175px; border-color: red", @maxlength = "7" })
+                @*@Html.LabelFor(model => model.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.apellidoMaterno, htmlAttributes: new { @class = "control-label", @style = "width:200px;" })
+                @Html.TextBoxFor(x => x.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.apellidoMaterno, new { @id = "txtApMaterno", @class = "form-control input-sm", @style = "width:175px;", @maxlength = "30", @disabled = "disabled" })*@
+            </div>
+            <div class="form-group">
+            </div>
+        </div>        
+        <div class="form-inline">
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.apellidoPaterno, htmlAttributes: new { @class = "control-label", @style = "width:170px;" })*@
+                @Html.Label("Apellidos del Contratado", htmlAttributes: new { @class = "control-label", @style = "width:200px;" })
+                @Html.TextBoxFor(x => x.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.apellidoPaterno, new { @id = "txtApPaterno", @class = "form-control input-sm", @style = "width:175px;", @maxlength = "30", @disabled = "disabled" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.fechaIngreso, htmlAttributes: new { @class = "control-label", @style = "width:170px;" })
+                @Html.TextBox("ddlFecha_ingreso", "", new { @class = "date-picker", @style = "border-color: red" })
+                @Html.ValidationMessageFor(model => model.fechaIngreso, "", new { @class = "text-danger" })
+
+                @*@Html.LabelFor(model => model.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.correoElectronico, htmlAttributes: new { @class = "control-label", @style = "width:200px;" })
+                @Html.TextBoxFor(x => x.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.correoElectronico, new { @id = "txtEmail", @class = "form-control", @style = "width:175px;", @maxlength = "10", @disabled = "disabled" })*@
+            </div>
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.Label("Puesto del Contratado", htmlAttributes: new { @id = "ddlPuesto", @class = "control-label", @style = "width:200px;" })
+                @Html.DropDownListFor(m => m.SelectedPuestoId, new SelectList(Model.Puestos, "Value", "Text", "0"), "--Seleccionar--", new { @class = "form-control input-sm", @style = "width:175px;", @disabled = "disabled" })
+                @Html.ValidationMessageFor(m => m.SelectedPuestoId)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.fechaCese, htmlAttributes: new { @class = "control-label", @style = "width:170px;" })
+                @Html.TextBox("ddlFecha_cese", "", new { @class = "date-picker", @style = "border-color: red" })
+                @Html.ValidationMessageFor(model => model.fechaCese, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+            </div>
+        </div>
+        
+        <div class="form-inline">
+            <div class="form-group">
+                <br />
+                @Html.Label(" ", htmlAttributes: new { @class = "control-label", @style = "width:200px;" })
+                <input type="button" id="btn-grabar" value="Grabar" class="btn btn-success btn-sm" />
+                @Html.ActionLink("Cancelar", "Index", null, null, htmlAttributes: new { @class = "btn btn-danger btn-sm" })
+            </div>
+            <div class="form-group">
+            </div>
+        </div>
+    </form>    
+</div>
+
+@section Scripts {
+    @*<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <script src="~/Scripts/bootstrap-filestyle.min.js" type="text/javascript"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#lblNroContato').hide();
+            $("#txtNroContato").css("display", "none");
+
+            $.datepicker.regional['es'] = {
+                closeText: 'Cerrar',
+                prevText: '<Ant',
+                nextText: 'Sig>',
+                currentText: 'Hoy',
+                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+                dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+                weekHeader: 'Sm',
+                dateFormat: 'dd/mm/yy',
+                firstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: ''
+            };
+            $.datepicker.setDefaults($.datepicker.regional['es']);
+
+            $("#ddlFecha_ingreso").datepicker({
+                minDate: new Date(),
+                onClose: function (selectedDate) {
+                    $("#ddlFecha_cese").datepicker("option", "minDate", selectedDate);
+                },
+            });
+
+            $("#ddlFecha_cese").datepicker({
+                onClose: function (selectedDate) {
+                    $("#ddlFecha_ingreso").datepicker("option", "maxDate", selectedDate);
+                }
+            });
+            $("#ddlFecha_ingreso").datepicker({ dateFormat: "dd/mm/yy" }).mask("99/99/9999");
+            $("#ddlFecha_cese").datepicker({ dateFormat: "dd/mm/yy" }).mask("99/99/9999");
+        });
+        $(".input-sm").keypress(function (key) {
+            window.console.log(key.charCode)
+            if ((key.charCode < 97 || key.charCode > 122)//letras mayusculas
+                && (key.charCode < 65 || key.charCode > 90) //letras minusculas
+                && (key.charCode != 45) //retroceso
+                && (key.charCode != 241) //ñ
+                 && (key.charCode != 209) //Ñ
+                 && (key.charCode != 32) //espacio
+                 && (key.charCode != 225) //á
+                 && (key.charCode != 233) //é
+                 && (key.charCode != 237) //í
+                 && (key.charCode != 243) //ó
+                 && (key.charCode != 250) //ú
+                 && (key.charCode != 193) //Á
+                 && (key.charCode != 201) //É
+                 && (key.charCode != 205) //Í
+                 && (key.charCode != 211) //Ó
+                 && (key.charCode != 218) //Ú
+                )
+                return false;
+        });
+        $("#txtDNI").on("keydown", numericTextBox);
+        $("#txtTelefono").on("keydown", numericTextBox);
+        $("#txtCelular").on("keydown", numericTextBox);
+        $("#txtSalario").on("keydown", numericTextBox);
+        function numericTextBox(e) {
+            if (
+                e.keyCode == 8 // backspace
+                || e.keyCode == 9 // tab
+                || e.keyCode == 13 // enter
+                || e.keyCode == 27 // escape
+                || e.keyCode == 46 // delete
+                || (e.keyCode >= 35 && e.keyCode <= 39) // end, home, left arrow, up arrow, right arrow
+            ) {
+                return;
+            }
+            else {
+                if (!((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 96 && e.keyCode <= 105))) {
+                    // not 0-9, numpad 0-9
+                    e.preventDefault();
+                    return;
+                }
+                else {
+                    var keyCode = e.keyCode;
+                    if (keyCode >= 96 && keyCode <= 105) {
+                        keyCode -= 48;
+                    }
+                    var value = $(this).val();
+                    value += String.fromCharCode(keyCode);
+                    value = parseInt(value, 10)
+                    var maxNumber = $(this).data("maxnumber");
+                    if (maxNumber) {
+                        maxNumber = parseInt(maxNumber);
+                        if (value > maxNumber) {
+                            e.preventDefault();
+                        }
+                    }
+                }
+            }
+        }
+
+        $(function () {
+            $("#btn-grabar").on("click", function () {
+                var vDniVal = $('#txtDNI').val();
+                var vTipoContratoVal = $('#SelectedTipoContratoId').val();
+                if (vTipoContratoVal == 0) {
+                    WarningMessage("Debe seleccionar un tipo de contrato");
+                    return;
+                }
+                var vSalarioVal = $('#txtSalario').val();
+                if (vSalarioVal <= 0) {
+                    WarningMessage("Debe ingresar un salario");
+                    return;
+                }
+                var vFechaInicioVal = $('#ddlFecha_ingreso').val();
+                if (vFechaInicioVal == "") {
+                    WarningMessage("Debe ingresar una Fecha de Inicio de contrato");
+                    return;
+                }
+
+                var vFechaFinVal = $('#ddlFecha_cese').val();
+                if (vFechaFinVal == "") {
+                    WarningMessage("Debe ingresar una Fecha de Fin de contrato");
+                    return;
+                }
+                
+                $.ajax({
+                    url: "/GenerarContrato/setEmpleado",
+                    data: {
+                           'pDni': vDniVal, 'pTipoContrato': vTipoContratoVal, 'pSalario': vSalarioVal,
+                           'pFechaInicio': vFechaInicioVal, 'FechaFin': vFechaFinVal
+                        },
+                    async: false,
+                    success: function (data) {
+                        if (data) {
+                            $("#SelectedTipoContratoId").attr("disabled", "disabled");
+                            $("#txtSalario").attr("disabled", "disabled");
+                            $("#ddlFecha_ingreso").attr("disabled", "disabled");
+                            $("#ddlFecha_cese").attr("disabled", "disabled");                            
+                            $("#btn-grabar").attr("disabled", "disabled");
+
+                            $('#lblNroContato').show("swing");
+                            $("#txtNroContato").show("swing"); //.css("display", "block");
+                            $("#txtNroContato").val(data);
+                            WarningMessage("Se creo el contrato número:" + data);
+                        } else {
+                            WarningMessage("No se realizo la modificaciones");
+                        }
+                    },
+                    error: function (ex) {
+                        console.log(ex);
+                    },
+                    complete: function (xhr, textStatus) {
+
+                    }
+                });
+            });
+        });
+
+    </script>
+}

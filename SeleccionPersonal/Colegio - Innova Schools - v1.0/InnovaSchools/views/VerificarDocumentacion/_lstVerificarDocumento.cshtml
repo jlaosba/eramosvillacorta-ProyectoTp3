@@ -16,55 +16,53 @@
         </tr>
         <tr class="active">
             <th>
-                @Html.DisplayNameFor(model => model.Candidato.Persona.fecha_inicio)
+                @Html.DisplayNameFor(model => model.Convocatoria.ConvocatoriaCandidato.Candidato.nombreCompleto)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Candidato.Persona.fecha_fin)
+                @Html.DisplayNameFor(model => model.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.TipoDocumento.descripcionDocumento)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Candidato.Persona.Puesto.descripcion_puesto)
+                @Html.DisplayNameFor(model => model.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.documentoIdentidad)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Candidato.Persona.codigo_persona)
+                @Html.DisplayNameFor(model => model.Convocatoria.TipoPuesto.descripcionPuesto)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Candidato.Persona.nombreCompleto)
-            </th>            
-            <th>
-                @Html.DisplayNameFor(model => model.Candidato.Persona.telefono)
+                @Html.DisplayNameFor(model => model.Convocatoria.Puesto.descripcionPuesto)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Candidato.Persona.direccion)
+                @Html.DisplayNameFor(model => model.Convocatoria.fechaVencimientoDocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Convocatoria.ConvocatoriaCandidato.Candidato.EstadoCandidato.estadoCandidato)
             </th>
         </tr>
-
-        @for (index = 0; index < Model.Candidatos.Count; index++)
+        @for (index = 0; index < Model.Convocatorias.Count; index++)
         {
             <tr>
                 <td>
-                    @Model.Candidatos[index].Persona.fecha_inicio 
+                    @Html.ActionLink(@Model.Convocatorias[index].ConvocatoriaCandidato.Candidato.Persona.nombreCompleto.ToString(), "getContrato", "VerificarDocumentacion", new { pIdPersona = @Model.Convocatorias[index].ConvocatoriaCandidato.Candidato.Persona.idPersona }, null)
                 </td>
                 <td>
-                    @Model.Candidatos[index].Persona.fecha_fin
+                    @Model.Convocatorias[index].ConvocatoriaCandidato.Candidato.Persona.TipoDocumento.descripcionDocumento
                 </td>
                 <td>
-                    @Model.Candidatos[index].Persona.Puesto.descripcion_puesto
+                    @Model.Convocatorias[index].ConvocatoriaCandidato.Candidato.Persona.documentoIdentidad
                 </td>
                 <td>
-                    @Model.Candidatos[index].Persona.codigo_persona
+                    @Model.Convocatorias[index].TipoPuesto.descripcionPuesto
                 </td>
                 <td>
-                    @Html.ActionLink(@Model.Candidatos[index].Persona.nombreCompleto.ToString(), "getContrato", "VerificarDocumentacion", new { pCodigo_persona = @Model.Candidatos[index].Persona.codigo_persona }, null)
-                </td>                
-                <td>
-                    @Model.Candidatos[index].Persona.telefono
+                    @Model.Convocatorias[index].Puesto.descripcionPuesto
                 </td>
-                <td>
-                    @Model.Candidatos[index].Persona.direccion
+                <td style="align-content: flex-end; text-align: center">
+                    @Model.Convocatorias[index].fechaVencimientoDocumentoStr
+                </td>
+                <td style="align-content: flex-end; text-align: center">
+                    @Model.Convocatorias[index].ConvocatoriaCandidato.Candidato.EstadoCandidato.estadoCandidato 
                 </td>
             </tr>
         }
-
     </table>
 </div>
 

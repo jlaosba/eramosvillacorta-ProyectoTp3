@@ -210,19 +210,35 @@
     <Compile Include="Controllers\GenerarContratoController.cs" />
     <Compile Include="Controllers\GenerarReporteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PersonalController.cs" />
     <Compile Include="Controllers\VerificarDocumentacionController.cs" />
     <Compile Include="dstIncidencias.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dstIncidencias.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Models\Area.cs" />
+    <Compile Include="Models\Banco.cs" />
     <Compile Include="Models\Candidato.cs" />
+    <Compile Include="Models\ConvocatoriaCandidato.cs" />
+    <Compile Include="Models\Contrato.cs" />
     <Compile Include="Models\Convocatoria.cs" />
+    <Compile Include="Models\Desarrollo.cs" />
+    <Compile Include="Models\DocumentoIdentidad.cs" />
     <Compile Include="Models\Empleado.cs" />
     <Compile Include="Models\Estado.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\Turno.cs" />
+    <Compile Include="Models\EstadoCandidato.cs" />
+    <Compile Include="Models\EstadoCivil.cs" />
+    <Compile Include="Models\EstadoEmpleado.cs" />
+    <Compile Include="Models\FondoPensiones.cs" />
+    <Compile Include="Models\Nacionalidad.cs" />
+    <Compile Include="Models\NivelEstudio.cs" />
+    <Compile Include="Models\Seguro.cs" />
+    <Compile Include="Models\TipoContrato.cs" />
+    <Compile Include="Models\TipoDocumento.cs" />
+    <Compile Include="Models\TipoPuesto.cs" />
     <Compile Include="Models\ViewModel\ActualizarPersonalViewModel.cs" />
     <Compile Include="Models\ViewModel\ActualizarFotoCheckViewModel.cs" />
     <Compile Include="Models\ViewModel\GenerarContratoViewModel.cs" />
@@ -234,6 +250,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\ViewModel\PersonalViewModel.cs" />
     <Compile Include="Models\InnovaSchoolsContext.cs" />
     <Compile Include="Models\InnovaSchoolsContextInitializer.cs" />
     <Compile Include="Models\Puesto.cs" />
@@ -248,6 +265,7 @@
     <Content Include="Content\fileinput.css" />
     <Content Include="Content\fileinput.min.css" />
     <Content Include="Content\jquery.validate.bootstrap.css" />
+    <Content Include="Content\Justified-Nav.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\site.css" />
     <Content Include="Content\themes\base\accordion.css" />
@@ -290,7 +308,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Images\logo_shadow.png" />
+    <Content Include="Images\ColegioPortada.jpg" />
+    <Content Include="Images\innova-school.png" />
+    <Content Include="Images\innova_schools.png" />
+    <Content Include="Images\logo.png" />
     <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\app\cascadingdropdown.js" />
     <Content Include="Scripts\app\jquery.cascadingdropdown.js" />
@@ -376,13 +397,18 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_Layout1.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\_HeaderNavBar.cshtml" />
     <Content Include="Views\Personal\index.cshtml" />
     <Content Include="Views\Personal\_lstPersonas.cshtml" />
     <Content Include="Views\Personal\getPersona.cshtml" />
     <Content Include="Views\Personal\newPersona.cshtml" />
+    <Content Include="Views\GenerarInformeEntrega\index.cshtml" />
+    <Content Include="Views\GenerarInformeEntrega\_lstConsultarInforme.cshtml" />
+    <Content Include="Views\GenerarInformeEntrega\getOrdenDespacho.cshtml" />
+    <Content Include="Views\ReProgramarPersonal\_lstProgramarPersonalsPro.cshtml" />
+    <Content Include="Views\ReProgramarPersonal\index.cshtml" />
     <Content Include="Views\VerificarDocumentacion\index.cshtml" />
     <Content Include="Views\VerificarDocumentacion\_lstVerificarDocumento.cshtml" />
     <Content Include="Views\GenerarContrato\index.cshtml" />
@@ -395,6 +421,9 @@
     <Content Include="Views\GenerarReporte\_lstGenerarReporte.cshtml" />
     <Content Include="Views\GenerarReporte\indexDocente.cshtml" />
     <Content Include="Views\VerificarDocumentacion\getContrato.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\GenerarContrato\getContrato.cshtml" />
+    <Content Include="Views\ActualizarPersonal\getEmpleado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -406,6 +435,9 @@
   <ItemGroup>
     <Content Include="Content\bootstrap-datetimepicker-build.less" />
     <Content Include="Content\_bootstrap-datetimepicker.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ReProgramarPersonal\getProgramarPersonal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />

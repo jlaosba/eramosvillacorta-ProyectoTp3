@@ -11,57 +11,105 @@
     <form class="form-horizontal">
         <div class="form-inline">
             <div class="form-group">
-                @Html.LabelFor(model => model.dni, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
-                @Html.TextBoxFor(x => x.Candidato.Persona.codigo_persona, new { @id = "txtDNI", @class = "form-control input-sm", @style = "width:175px; border-color: red", @maxlength = "8" })
+                @Html.Label("Tipo Documento", htmlAttributes: new { @id = "ddlTipoDocumento", @class = "control-label", @style = "width:170px;" })
+                @Html.DropDownListFor(m => m.SelectedTipoDocumentoId, new SelectList(Model.TipoDocumentos, "Value", "Text", "0"), "--Seleccionar--", new { @class = "form-control input-sm", @style = "width:175px; border-color: red", @disabled = "disabled" })
+                @Html.ValidationMessageFor(m => m.SelectedTipoDocumentoId)
             </div>
             <div class="form-group">
-                @Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
-                @Html.TextBoxFor(x => x.Candidato.Persona.nombre, new { @id = "txtNombre", @class = "form-control input-sm", @style = "width:175px; border-color: red", @maxlength = "15" })
+                @Html.LabelFor(model => model.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.documentoIdentidad, htmlAttributes: new { @class = "control-label", @style = "width:200px;" })
+                @Html.TextBoxFor(x => x.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.documentoIdentidad, new { @id = "txtDocumentoIdentidad", @class = "form-control input-sm", @style = "width:175px;", @maxlength = "8", @disabled = "disabled" })
+            </div>            
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label", @style = "width:170px;" })
+                @Html.TextBoxFor(x => x.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.nombre, new { @id = "txtNombre", @class = "form-control input-sm", @style = "width:175px;", @maxlength = "15", @disabled = "disabled" })
+            </div>
+            <div class="form-group">
             </div>
             <div class="form-group">
             </div>
         </div>
         <div class="form-inline">
             <div class="form-group">
-                @Html.LabelFor(model => model.apellido_paterno, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
-                @Html.TextBoxFor(x => x.Candidato.Persona.apellido_paterno, new { @id = "txtApPaterno", @class = "form-control input-sm", @style = "width:175px; border-color: red", @maxlength = "30" })
+                @Html.LabelFor(model => model.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.apellidoPaterno, htmlAttributes: new { @class = "control-label", @style = "width:170px;" })
+                @Html.TextBoxFor(x => x.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.apellidoPaterno, new { @id = "txtApPaterno", @class = "form-control input-sm", @style = "width:175px;", @maxlength = "30", @disabled = "disabled" })
             </div>
             <div class="form-group">
-                @Html.LabelFor(model => model.apellido_materno, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
-                @Html.TextBoxFor(x => x.Candidato.Persona.apellido_materno, new { @id = "txtApMaterno", @class = "form-control input-sm", @style = "width:175px; border-color: red", @maxlength = "30" })
-            </div>
-            <div class="form-group">
-            </div>
-        </div>
-        <div class="form-inline">
-            <div class="form-group">
-                @Html.LabelFor(model => model.Candidato.Persona.direccion, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
-                @Html.TextBoxFor(x => x.Candidato.Persona.direccion, new { @id = "txtDireccion", @class = "form-control", @style = "width:470px;", @maxlength = "50" })
+                @Html.LabelFor(model => model.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.apellidoMaterno, htmlAttributes: new { @class = "control-label", @style = "width:200px;" })
+                @Html.TextBoxFor(x => x.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.apellidoMaterno, new { @id = "txtApMaterno", @class = "form-control input-sm", @style = "width:175px;", @maxlength = "30", @disabled = "disabled" })
             </div>
             <div class="form-group">
             </div>
         </div>
         <div class="form-inline">
             <div class="form-group">
-                @Html.LabelFor(model => model.Candidato.Persona.telefono, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
-                @Html.TextBoxFor(x => x.Candidato.Persona.telefono, new { @id = "txtTelefono", @class = "form-control", @style = "width:175px;", @maxlength = "7" })
+                @Html.LabelFor(model => model.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.telefono, htmlAttributes: new { @class = "control-label", @style = "width:170px;" })
+                @Html.TextBoxFor(x => x.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.telefono, new { @id = "txtTelefono", @class = "form-control", @style = "width:175px;", @maxlength = "7", @disabled = "disabled" })
             </div>
             <div class="form-group">
-                @Html.LabelFor(model => model.Candidato.Persona.celular, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
-                @Html.TextBoxFor(x => x.Candidato.Persona.celular, new { @id = "txtCelular", @class = "form-control", @style = "width:175px;", @maxlength = "9" })
+                @Html.LabelFor(model => model.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.celular, htmlAttributes: new { @class = "control-label", @style = "width:200px;" })
+                @Html.TextBoxFor(x => x.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.celular, new { @id = "txtCelular", @class = "form-control", @style = "width:175px;", @maxlength = "9", @disabled = "disabled" })
             </div>
             <div class="form-group">
             </div>
         </div>
         <div class="form-inline">
             <div class="form-group">
-                @Html.Label("Puesto", htmlAttributes: new { @id = "ddlPuesto", @class = "control-label", @style = "width:140px;" })
-                @Html.DropDownListFor(m => m.SelectedPuestoId, new SelectList(Model.Puestos, "Value", "Text", "0"), "--Seleccionar--", new { @class = "form-control input-sm", @style = "width:175px; border-color: red" })
+                @Html.LabelFor(model => model.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.direccion, htmlAttributes: new { @class = "control-label", @style = "width:170px;" })
+                @Html.TextBoxFor(x => x.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.direccion, new { @id = "txtDireccion", @class = "form-control", @style = "width:530px;", @maxlength = "50", @disabled = "disabled" })
+            </div>
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="form-inline">            
+            <div class="form-group">
+                @Html.LabelFor(model => model.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.correoElectronico, htmlAttributes: new { @class = "control-label", @style = "width:170px;" })
+                @Html.TextBoxFor(x => x.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.correoElectronico, new { @id = "txtEmail", @class = "form-control", @style = "width:530px;", @maxlength = "10", @disabled = "disabled" })
+            </div>
+            <div class="form-group">
+            </div>
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Convocatoria.fechaFinPublicacionStr, htmlAttributes: new { @class = "control-label", @style = "width:170px;" })
+                @Html.TextBoxFor(x => x.Convocatoria.fechaFinPublicacionStr, new { @id = "txtFchFinPublicacion", @class = "form-control", @style = "width:175px;", @maxlength = "10", @disabled = "disabled" })    
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Convocatoria.fechaVencimientoDocumentoStr, htmlAttributes: new { @class = "control-label", @style = "width:200px;" })
+                @Html.TextBoxFor(x => x.Convocatoria.fechaVencimientoDocumentoStr, new { @id = "txtFchVctDocumento", @class = "form-control", @style = "width:175px;", @maxlength = "10", @disabled = "disabled" })
+            </div>
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.Label("Tipo Puesto", htmlAttributes: new { @id = "ddlTipoPuesto", @class = "control-label", @style = "width:170px;" })
+                @Html.DropDownListFor(m => m.SelectedTipoPuestoId, new SelectList(Model.TipoPuestos, "Value", "Text", "0"), "--Seleccionar--", new { @class = "form-control input-sm", @style = "width:175px;", @disabled = "disabled" })
+                @Html.ValidationMessageFor(m => m.SelectedTipoPuestoId)
+            </div>
+            <div class="form-group">
+                @Html.Label("Puesto", htmlAttributes: new { @id = "ddlPuesto", @class = "control-label", @style = "width:200px;" })
+                @Html.DropDownListFor(m => m.SelectedPuestoId, new SelectList(Model.Puestos, "Value", "Text", "0"), "--Seleccionar--", new { @class = "form-control input-sm", @style = "width:175px;", @disabled = "disabled" })
                 @Html.ValidationMessageFor(m => m.SelectedPuestoId)
             </div>
             <div class="form-group">
-                @Html.LabelFor(model => model.Candidato.Persona.email, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
-                @Html.TextBoxFor(x => x.Candidato.Persona.email, new { @id = "txtEmail", @class = "form-control", @style = "width:175px;", @maxlength = "10" })
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.Label("Área", htmlAttributes: new { @id = "ddlArea", @class = "control-label", @style = "width:170px;" })
+                @Html.DropDownListFor(m => m.SelectedAreaId, new SelectList(Model.Areas, "Value", "Text", "0"), "--Seleccionar--", new { @class = "form-control input-sm", @style = "width:175px;", @disabled = "disabled" })
+                @Html.ValidationMessageFor(m => m.SelectedAreaId)
+            </div>
+            <div class="form-group">
+                @Html.Label("Desarrollo", htmlAttributes: new { @id = "ddlDesarrollo", @class = "control-label", @style = "width:200px;" })
+                @Html.DropDownListFor(m => m.SelectedDesarrolloId, new SelectList(Model.Desarrollos, "Value", "Text", "0"), "--Seleccionar--", new { @class = "form-control input-sm", @style = "width:175px;", @disabled = "disabled" })
+                @Html.ValidationMessageFor(m => m.SelectedDesarrolloId)
             </div>
             <div class="form-group">
             </div>
@@ -70,62 +118,63 @@
     <hr style="color: #0056b2;" />
     <form class="form-horizontal" enctype="multipart/form-data" method="post" action="@Url.Action("setContrato")">
         <div class="row">
-            <div class="col-xs-6 col-sm-4">
-                @Html.Label("Copia de DNI", htmlAttributes: new { @id = "lblImgDni", @class = "control-label", @style = "width:140px;" })
+                <div class="col-md-3">
+                    @Html.Label("Copia de DNI", htmlAttributes: new { @id = "lblImgDni", @class = "control-label", @style = "width:220px;" })
+                </div>
+                <div class="col-md-6">
+                    <input id="input_folder_Dni" name="input_folder_Dni" type="file" class="filestyle" data-buttontext=" Examinar ..." data-size="sm" data-buttonname="btn-primary" data-buttonbefore="true" data-placeholder="No archivo" data-preview-file-type=".jpg">
+                </div>
+                <div class="col-md-1">
+                    <button type="button" id="btn-verDni" class="btn btn-info btn-sm" data-toggle="modal">Ver</button>
+                </div>
             </div>
-            <div class="col-xs-6 col-sm-4">
-                <input id="input_folder_Dni" name="input_folder_Dni" type="file" class="filestyle" data-buttontext=" Examinar ..." data-size="sm" data-buttonname="btn-primary" data-buttonbefore="true" data-placeholder="No archivo" data-preview-file-type=".jpg">
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.Label("Declaración Jurada Domiciliaria", htmlAttributes: new { @id = "lblImgDomiciliaria", @class = "control-label", @style = "width:220px;" })
+                </div>
+                <div class="col-md-6">
+                    <input id="input-folder-Domiciliaria" type="file" class="filestyle" data-buttontext=" Examinar ..." data-size="sm" data-buttonname="btn-primary" data-buttonbefore="true" data-placeholder="No archivo">
+                </div>
+                <div class="col-md-1">
+                    <button type="button" id="btn-verDomicilio" class="btn btn-info btn-sm" data-toggle="modal">Ver</button>
+                </div>
             </div>
-            <div class="col-xs-6 col-sm-4">
-                <button type="button" id="btn-verDni" class="btn btn-info btn-sm" data-toggle="modal">Ver</button>
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.Label("Antecedentes Penales", htmlAttributes: new { @id = "lblImgPenales", @class = "control-label", @style = "width:220px;" })
+                </div>
+                <div class="col-md-6">
+                    <input id="input-folder-Penales" type="file" class="filestyle" data-buttontext=" Examinar ..." data-size="sm" data-buttonname="btn-primary" data-buttonbefore="true" multiple data-min-file-count="1" data-placeholder="No archivo">
+                </div>
+                <div class="col-md-1">
+                    <button type="button" id="btn-verPenales" class="btn btn-info btn-sm" data-toggle="modal">Ver</button>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-6 col-md-4">
-                @Html.Label("D.J. Domiciliaria", htmlAttributes: new { @id = "lblImgDomiciliaria", @class = "control-label", @style = "width:140px;" })
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.Label("Antecedentes Policiales", htmlAttributes: new { @id = "lblImgPoliciales", @class = "control-label", @style = "width:220px;" })
+                </div>
+                <div class="col-md-6">
+                    <input id="input-folder-Policiales" type="file" class="filestyle" data-buttontext=" Examinar ..." data-size="sm" data-buttonname="btn-primary" data-buttonbefore="true" data-placeholder="No archivo">
+                </div>
+                <div class="col-md-1">
+                    <button type="button" id="btn-verPoliciales" class="btn btn-info btn-sm" data-toggle="modal">Ver</button>
+                </div>
             </div>
-            <div class="col-xs-6 col-sm-4">
-                <input id="input-folder-Domiciliaria" type="file" class="filestyle" data-buttontext=" Examinar ..." data-size="sm" data-buttonname="btn-primary" data-buttonbefore="true" data-placeholder="No archivo">
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.Label("Título Profesional", htmlAttributes: new { @id = "lblImgTitulo", @class = "control-label", @style = "width:220px;" })
+                </div>
+                <div class="col-md-6">
+                    <input id="input-folder-Titulo" type="file" class="filestyle" data-buttontext=" Examinar ..." data-size="sm" data-buttonname="btn-primary" data-buttonbefore="true" data-placeholder="No archivo">
+                </div>
+                <div class="col-md-1">
+                    <button type="button" id="btn-verTitulo" class="btn btn-info btn-sm" data-toggle="modal">Ver</button>
+                </div>
             </div>
-            <div class="col-xs-6 col-sm-4">
-                <button type="button" id="btn-verDomicilio" class="btn btn-info btn-sm" data-toggle="modal">Ver</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-6 col-md-4">
-                @Html.Label("Antec. Penales", htmlAttributes: new { @id = "lblImgPenales", @class = "control-label", @style = "width:140px;" })
-            </div>
-            <div class="col-xs-6 col-sm-4">
-                <input id="input-folder-Penales" type="file" class="filestyle" data-buttontext=" Examinar ..." data-size="sm" data-buttonname="btn-primary" data-buttonbefore="true" multiple data-min-file-count="1" data-placeholder="No archivo">
-            </div>
-            <div class="col-xs-6 col-sm-4">
-                <button type="button" id="btn-verPenales" class="btn btn-info btn-sm" data-toggle="modal">Ver</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-6 col-md-4">
-                @Html.Label("Antec. Policiales", htmlAttributes: new { @id = "lblImgPoliciales", @class = "control-label", @style = "width:140px;" })
-            </div>
-            <div class="col-xs-6 col-sm-4">
-                <input id="input-folder-Policiales" type="file" class="filestyle" data-buttontext=" Examinar ..." data-size="sm" data-buttonname="btn-primary" data-buttonbefore="true" data-placeholder="No archivo">
-            </div>
-            <div class="col-xs-6 col-sm-4">
-                <button type="button" id="btn-verPoliciales" class="btn btn-info btn-sm" data-toggle="modal">Ver</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-6 col-md-4">
-                @Html.Label("Título Profesional", htmlAttributes: new { @id = "lblImgTitulo", @class = "control-label", @style = "width:140px;" })
-            </div>
-            <div class="col-xs-6 col-sm-4">
-                <input id="input-folder-Titulo" type="file" class="filestyle" data-buttontext=" Examinar ..." data-size="sm" data-buttonname="btn-primary" data-buttonbefore="true" data-placeholder="No archivo">
-            </div>
-            <div class="col-xs-6 col-sm-4">
-                <button type="button" id="btn-verTitulo" class="btn btn-info btn-sm" data-toggle="modal">Ver</button>
-            </div>
-        </div>
         <div class="form-inline">
             <div class="form-group">
+                <br />
                 @Html.Label(" ", htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
                 <input type="button" id="btn-grabar" value="Grabar" class="btn btn-success btn-sm" />
                 @Html.ActionLink("Cancelar", "Index", null, null, htmlAttributes: new { @class = "btn btn-danger btn-sm" })
@@ -184,6 +233,30 @@
             //      }
             //      evt.preventDefault();
             //  });
+           
+            var vIdTipoPuesto = $('#SelectedTipoPuestoId').val();
+            switch (vIdTipoPuesto) {
+                case '1':
+                    $(".input_folder_Dni").css('border-color', 'red');
+                    $("#input-folder-Domiciliaria").attr('border-color', 'red');
+                    $("#input-folder-Titulo").attr('border-color', 'red');
+                    return;
+                case '2':
+                    $("#input_folder_Dni").attr('border-color', 'red');
+                    $("#input-folder-Domiciliaria").attr('border-color', 'red');
+                    $("#input-folder-Penales").attr('border-color', 'red');                            
+                    return;
+                case '3','4':
+                    $("#input_folder_Dni").attr('border-color', 'red');
+                    $("#input-folder-Domiciliaria").attr('border-color', 'red');
+                    $("#input-folder-Penales").attr('border-color', 'red');
+                    $("#input-folder-Policiales").attr('border-color', 'red');
+                    $("#input-folder-Titulo").attr('border-color', 'red');
+                    return;
+            }
+        
+
+
         });
         $(".input-sm").keypress(function (key) {
             window.console.log(key.charCode)
@@ -248,7 +321,7 @@
         $(function () {
             $("#btn-grabar").on("click", function () {
 
-                var vDni = $('#txtDNI').val();
+                var vDni = $('#txtDocumentoIdentidad').val();
                 if (vDni == "") {
                     WarningMessage("Debe ingresar el DNI");
                     return;

@@ -1,0 +1,251 @@
+﻿@model InnovaSchools.Models.ProgramarPersonalViewModel
+@using InnovaSchools.Util
+
+@{
+    ViewBag.Title = "Editar";
+    int index = 0;
+}
+<div class="jumbotron">
+    <h4>RE-ASIGNAR DISPONIBILIDAD PERSONAL</h4>
+    <hr />
+    <form class="form-horizontal">
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.LabelFor(model => model.fecha_inicio, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
+                @*@Html.EditorFor(model => model.fecha_inicio, new { @id = "FechaInicio", @class = "date-picker", @style = "width:130px;", @disabled = "disabled" })*@
+                @Html.TextBoxFor(x => x.Persona.fecha_inicio, new { @id = "txtFechaInicio", @class = "date-picker", @style = "width:175px;", @disabled = "disabled" })
+
+                @Html.ValidationMessageFor(model => model.fecha_inicio, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.fecha_fin, htmlAttributes: new { @class = "control-label", @style = "width:160px;" })
+                @*@Html.EditorFor(model => model.fecha_fin, new { @id = "txtFechaFin", htmlAttributes = new { @class = "date-picker", @style = "width:130px;", @disabled = "disabled" } })*@
+                @Html.TextBoxFor(x => x.Persona.fecha_fin, new { @id = "txtFechaFin", @class = "date-picker", @style = "width:175px;", @disabled = "disabled" })
+                @Html.ValidationMessageFor(model => model.fecha_fin, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="form-inline">
+            @*<div class="form-group">
+            @Html.LabelFor(model => model.Persona.dni, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
+            @Html.TextBoxFor(x => x.Persona.dni, new { @id = "txtDni", @class = "form-control input-sm", @style = "width:175px;", @disabled = "disabled" })
+        </div>*@
+            <div class="form-group">
+                @Html.TextBoxFor(model => model.Persona.id_persona, htmlAttributes: new {@id = "txtIdPersona", @class = "control-label", @style = "width:140px; display:none" })
+
+                @Html.LabelFor(model => model.Persona.nombreCompleto, htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
+                @Html.TextBoxFor(x => x.Persona.nombreCompleto, new { @id = "txtNombre", @class = "form-control input-sm", @style = "width:175px;", @disabled = "disabled" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Turno", htmlAttributes: new { @id = "ddlTurno", @class = "control-label", @style = "width:160px;" })
+                @Html.DropDownListFor(m => m.SelectedTurnoId, Model.Turnos, new { @class = "form-control input-sm", @style = "width:175px;", @disabled = "disabled" })
+                @Html.ValidationMessageFor(m => m.SelectedTurnoId)
+            </div>
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="form-inline">
+
+            <div class="form-group">
+                @Html.Label("Puesto", htmlAttributes: new { @class = "control-label", @style = "width:140px;" })
+                @Html.DropDownListFor(m => m.SelectedPuestoId, Model.Puestos, new { @class = "form-control input-sm", @style = "width:175px;", @disabled = "disabled" })
+                @Html.ValidationMessageFor(m => m.SelectedPuestoId)
+            </div>
+            <div class="form-group">
+                @Html.Label(" ", htmlAttributes: new { @class = "control-label", @style = "width:160px;" })
+                <input type="button" id="btn-Guardar" value="Grabar" class="btn btn-primary btn-sm" />
+                @Html.ActionLink("Cancelar", "Index", null, null, htmlAttributes: new { @class = "btn btn-danger btn-sm" })
+            </div>
+            <div class="form-group">
+            </div>
+        </div>
+    </form>
+</div>
+<table id="tblGrid" class="table table-hover table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProgramarPersonal.id_programar_persona)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProgramarPersonal.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProgramarPersonal.dia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProgramarPersonal.Checked)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProgramarPersonal.Turno.descripcion_turno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProgramarPersonal.nro_ordenes)
+        </th>        
+    </tr>
+
+    @for (index = 0; index < Model.ProgramarPersonals.Count; index++)
+    {
+        <tr>
+            <td>
+                @Model.ProgramarPersonals[index].id_programar_persona.ToString()
+            </td>
+            <td>
+                @Model.ProgramarPersonals[index].fecha_programacion.ToString()
+            </td>
+            <td>
+                @Model.ProgramarPersonals[index].dia.ToString()
+            </td>
+            <td>                
+                @if (Model.ProgramarPersonals[index].nro_ordenes > 0)
+                {
+                    @Html.CheckBoxFor(x => x.ProgramarPersonals[index].Checked, new { @onclik = "return false;", @class = "checkbox", @disabled = "disabled" })
+                    @Html.ValidationMessageFor(m => m.SelectedTurnoId)    
+                }else{
+                    @Html.CheckBoxFor(x => x.ProgramarPersonals[index].Checked, new { @onclik = "return false;", @class = "checkbox" })    
+                    @Html.ValidationMessageFor(m => m.SelectedTurnoId)
+                }                                                  
+            </td>
+            <td>
+                @if (Model.ProgramarPersonals[index].nro_ordenes > 0)
+                {
+                    @Html.DropDownListFor(model => model.ProgramarPersonals[index].SelectedTurnoId,
+                            new SelectList(Model.Turnos, "Value", "Text", Model.ProgramarPersonals[index].Turno.id_turno.ToString()), "--Seleccionar--",
+                            htmlAttributes: new { @class = "form-control input-sm", @style = "width:175px; ", @disabled = "disabled" })   
+                     @Html.ValidationMessageFor(m => m.SelectedTurnoId)                                                              
+                }
+                else{
+                   @Html.DropDownListFor(model => model.ProgramarPersonals[index].SelectedTurnoId,
+                            new SelectList(Model.Turnos, "Value", "Text", Model.ProgramarPersonals[index].Turno.id_turno.ToString()), "--Seleccionar--",
+                            htmlAttributes: new { @class = "form-control input-sm", @style = "width:175px; " })   
+                     @Html.ValidationMessageFor(m => m.SelectedTurnoId)             
+                }
+            </td>
+            <td>
+                @Model.ProgramarPersonals[index].nro_ordenes.ToString()
+            </td>            
+        </tr>
+    }
+</table>
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            
+        });               
+             
+        $(function () {
+            $("#btn-Guardar").on("click", function () {
+                var arrayDetalleSelec = "";
+                var vFechaTurno = "";
+                var vFinArray = -1;
+                var vCorrecto = false;
+                $("input[type='checkbox']").each(function () {
+                    //if ($(this).is(':checked') && $(this).attr('disabled') != 'disabled') {
+                        var idChk = this.id;
+                        var element = $(this).parents('tr');
+                        var idProgramarPersona = ($("td:nth-child(1)", element).html()).trim();
+                        var idTurno = $("td:nth-child(5) option:selected", element).val();
+                        var fecha = ($("td:nth-child(2)", element).html()).trim();
+
+                        if ($(this).is(':checked')) {
+                            idProgramaDel = 0;
+                        } else {
+                            idProgramaDel = 1;
+                        }
+
+                        if (idTurno == "") {
+                            vFinArray = 1;
+                            WarningMessage("Debe de seleccionar un turno");
+                            vCorrecto = false;
+                            return false;
+                        } else {
+                            var vValorFechaTurno = "'" + fecha.replace("/", "").replace("/", "") + idTurno + "'";
+                            vFinArray = $.inArray(vValorFechaTurno, vFechaTurno);
+                            if (vFechaTurno.length > 0) {
+                                var valNew = vFechaTurno.split(',');
+                                for (var i = 0; i < valNew.length; i++) {
+                                    if (vValorFechaTurno == valNew[i]) {
+                                        vFinArray = 1;
+                                    }
+                                }
+                            }
+                            if (vFinArray == -1) {
+                                if (vFechaTurno == "") {
+                                    vFechaTurno = (vValorFechaTurno);
+                                } else {
+                                    vFechaTurno = vFechaTurno + "," + (vValorFechaTurno);
+                                }
+                                if (arrayDetalleSelec == "") {//arrayDetalleSelec = idChk; 
+                                    arrayDetalleSelec = '{"id_programar_persona":"' + idProgramarPersona + '","id_turno": "' + idTurno + '","fecha_programacion":"' + fecha + '","idProgramaDel":"' + idProgramaDel + '"}';
+                                }
+                                else {
+                                    arrayDetalleSelec = arrayDetalleSelec + "," + '{"id_programar_persona":"' + idProgramarPersona + '","id_turno": "' + idTurno + '","fecha_programacion":"' + fecha + '","idProgramaDel":"' + idProgramaDel + '"}';
+                                }
+                                vCorrecto = true;
+                            } else {
+                                WarningMessage("Debe de escoger un turno diferente");
+                                vCorrecto = false;
+                                return false;
+                            }
+
+                        }
+
+                        //$.each(vFechaTurno, function (index, value) {
+                        //    //console.log(value);
+                        //    //// Will stop running after "three"
+                        //    //return (value !== 'three');
+                        //        if (vValorFechaTurno == value) {
+                        //            vFinArray = 1;
+                        //        } else {
+                        //            vFinArray = -1;
+                        //        }
+                        //});
+
+
+                                               
+                        //counter++;
+                    //}
+                });
+
+                if (vCorrecto) {
+                    arrayDetalleSelec = JSON.stringify('[' + arrayDetalleSelec + ']');
+                    var idPersona = $("#txtIdPersona").val(); //(((window.location.href).split("?")[1]).split("&")[3]).split("=")[1];
+                    //console.log(idPersona);
+
+                    $.ajax({
+                        url: "/ReProgramarPersonal/saveProgramarPersonal",
+                        method: "post",
+                        data: "{idPersona:'" + idPersona + "', cronograma:'" + arrayDetalleSelec + "'}",
+                        //dataType: "json",
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (data) {
+                            //if (data) {
+                            $("#btn-Guardar").attr("disabled", "disabled");
+                            //    WarningMessage("Se guardo las modificaciones");
+                            //    setTimeout(function () {
+                            //        location.reload();
+                            //    }, 2000)
+                            //} else {
+                            //    WarningMessage("No se pudo guardo las modificaciones");
+                            //}
+
+                            WarningMessage("Se guardo las modificaciones");
+                            //setTimeout(function () {
+                            //    location.reload();
+                            //}, 2000)
+
+                        },
+                        error: function (ex) {
+                            console.log(ex);
+                        },
+                        complete: function (xhr, textStatus) {
+                        }
+                    });
+                }                
+            });
+        });
+
+
+
+    </script>
+}

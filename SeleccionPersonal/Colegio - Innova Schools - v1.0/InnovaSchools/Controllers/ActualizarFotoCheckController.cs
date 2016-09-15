@@ -20,7 +20,7 @@ namespace InnovaSchools.Controllers
         {
             ActualizarFotoCheckViewModel ActualizarFotoCheck = new ActualizarFotoCheckViewModel();
             //ProgramarPersonal.TurnoList = (from entry in _db.Turno orderby entry.id_turno ascending select entry).Take(20).ToList();
-            ActualizarFotoCheck.PuestoList = (from entry in _db.Puesto orderby entry.id_puesto ascending select entry).Take(20).ToList();
+            ActualizarFotoCheck.PuestoList = (from entry in _db.Puesto orderby entry.idPuesto ascending select entry).Take(20).ToList();
             ActualizarFotoCheck.Persona = new Persona();
             ActualizarFotoCheck.Personas = new List<Persona>();
             return View(ActualizarFotoCheck);

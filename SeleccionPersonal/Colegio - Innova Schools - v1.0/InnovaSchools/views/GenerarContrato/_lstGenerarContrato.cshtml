@@ -12,47 +12,34 @@
 <div class="table-responsive">
     <table class="table table-hover table-striped table-bordered table-condensed">
         <tr class="active">
-            <th colspan="5">LISTA DE CANDIDATOS</th>
+            <th colspan="7">LISTA DE CANDIDATOS</th>
         </tr>
         <tr class="active">
             <th>
-                @Html.DisplayNameFor(model => model.Persona.dni)
+                @Html.DisplayNameFor(model => model.Convocatoria.ConvocatoriaCandidato.Candidato.nombreCompleto)
+            </th>            
+            <th>
+                @Html.DisplayNameFor(model => model.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.documentoIdentidad)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Persona.nombreCompleto)
+                @Html.DisplayNameFor(model => model.Convocatoria.Puesto.descripcionPuesto)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Persona.Puesto.descripcion_puesto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Persona.telefono)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Persona.direccion)
-            </th>
+        
         </tr>
-
-        @for (index = 0; index < Model.Personas.Count; index++)
+        @for (index = 0; index < Model.Convocatorias.Count; index++)
         {
             <tr>
                 <td>
-                    @Model.Personas[index].dni.ToString()
+                    @Html.ActionLink(@Model.Convocatorias[index].ConvocatoriaCandidato.Candidato .Persona.nombreCompleto.ToString(), "getContrato", "GenerarContrato", new { pIdPersona = @Model.Convocatorias[index].ConvocatoriaCandidato.Candidato.Persona.idPersona }, null)
+                </td>
+               <td>
+                    @Model.Convocatorias[index].ConvocatoriaCandidato.Candidato.Persona.documentoIdentidad
                 </td>
                 <td>
-                    @Html.ActionLink(@Model.Personas[index].nombreCompleto.ToString(), "getPersona", "Personal", new { pDni = @Model.Personas[index].dni }, null)
-                </td>
-                <td>
-                    @Model.Personas[index].Puesto.descripcion_puesto
-                </td>
-                <td>
-                    @Model.Personas[index].telefono
-                </td>
-                <td>
-                    @Model.Personas[index].direccion
-                </td>
+                    @Model.Convocatorias[index].Puesto.descripcionPuesto
+                </td>                                                
             </tr>
         }
-
     </table>
 </div>
 

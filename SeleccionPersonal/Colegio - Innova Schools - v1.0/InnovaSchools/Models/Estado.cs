@@ -7,15 +7,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InnovaSchools.Models
 {
-    [Table("t_estado")]
+    [Table("gsp.Estado")]
     public class Estado
     {
         [Key]
         [Required]
         public int id_estado { get; set; }
+
         [Display(Name = "Estado")]
-        public string descripcion_estado { get; set; }
-
-
+        public string descripcion_estado { get; set; }        
     }
 }

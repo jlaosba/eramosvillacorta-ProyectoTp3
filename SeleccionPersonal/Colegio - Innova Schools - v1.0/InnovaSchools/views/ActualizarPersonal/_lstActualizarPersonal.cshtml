@@ -16,43 +16,36 @@
         </tr>
         <tr class="active">
             <th>
-                @Html.DisplayNameFor(model => model.Persona.dni)
+                @Html.DisplayNameFor(model => model.Contrato.idContrato)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Persona.nombreCompleto)
+                @Html.DisplayNameFor(model => model.Contrato.Empleado.nombreCompleto)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Persona.Puesto.descripcion_puesto)
+                @Html.DisplayNameFor(model => model.Contrato.Convocatoria.Puesto.descripcionPuesto)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Persona.telefono)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Persona.direccion)
-            </th>
+                @Html.DisplayNameFor(model => model.Contrato.TipoContrato.descripcionContrato)
+            </th>            
         </tr>
 
-        @for (index = 0; index < Model.Personas.Count; index++)
+        @for (index = 0; index < Model.Contratos.Count; index++)
         {
             <tr>
                 <td>
-                    @Model.Personas[index].dni.ToString()
+                    @Model.Contratos[index].idContrato
                 </td>
                 <td>
-                    @Html.ActionLink(@Model.Personas[index].nombreCompleto.ToString(), "getPersona", "Personal", new { pDni = @Model.Personas[index].dni }, null)
+                    @Html.ActionLink(@Model.Contratos[index].Empleado.nombreCompleto.ToString(), "getEmpleado", "ActualizarPersonal", new { pIdContrato = @Model.Contratos[index].idContrato}, null)
                 </td>
                 <td>
-                    @Model.Personas[index].Puesto.descripcion_puesto
+                    @Model.Contratos[index].Convocatoria.Puesto.descripcionPuesto
                 </td>
                 <td>
-                    @Model.Personas[index].telefono
-                </td>
-                <td>
-                    @Model.Personas[index].direccion
+                    @Model.Contratos[index].TipoContrato.descripcionContrato
                 </td>
             </tr>
         }
-
     </table>
 </div>
 
