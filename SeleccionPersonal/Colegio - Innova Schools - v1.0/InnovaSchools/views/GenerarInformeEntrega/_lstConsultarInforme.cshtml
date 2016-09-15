@@ -1,0 +1,56 @@
+﻿@model InnovaSchools.Models.ProgramarRutaViewModel
+
+@{
+    int index = 0;
+}
+
+   <span class="TitleEstTimeClass" style="color: red">
+    @Html.DisplayFor(m => m.resultadoFind)
+    </span>
+    <br />
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-condensed">
+        <tr class="active"><th colspan="5" >LISTA DE ORDENES DE DESPACHO</th></tr>
+        <tr class="active">
+            <th>
+                @Html.DisplayNameFor(model => model.OrdenDespacho.id_orden_despacho)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrdenDespacho.fechaDespacho)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrdenDespacho.tipo_prioridad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrdenDespacho.Zona.descripcion_zona)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrdenDespacho.Transporte.nro_placa)
+            </th>
+            
+        </tr>
+
+        @for (index = 0; index < Model.OrdenDespachos.Count; index++)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(@Model.OrdenDespachos[index].id_orden_despacho.ToString(), "getOrdenDespacho", "GenerarInformeEntrega", new { pIdOrdenDespacho = @Model.OrdenDespachos[index].id_orden_despacho}, null)
+                </td>
+                <td>
+                    @Model.OrdenDespachos[index].fechaDespacho
+                </td>
+                <td>
+                    @Model.OrdenDespachos[index].tipo_prioridad
+                </td>
+                <td>
+                    @Model.OrdenDespachos[index].Zona.descripcion_zona
+                </td>
+                <td>
+                    @Model.OrdenDespachos[index].Transporte.nro_placa
+                </td>
+                
+            </tr>
+        }
+
+    </table>
+</div>

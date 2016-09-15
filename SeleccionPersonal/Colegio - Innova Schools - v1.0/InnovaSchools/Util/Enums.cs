@@ -32,13 +32,13 @@ namespace InnovaSchools.Util
         Operario = 2
     }
 
-    public enum TipoProducto
-    {
-        Perecible = 1,
-        [Description("No Perecible")]
-        NoPerecible = 2,
-        Devuelto = 3
-    }
+    //public enum TipoProducto
+    //{
+    //    Perecible = 1,
+    //    [Description("No Perecible")]
+    //    NoPerecible = 2,
+    //    Devuelto = 3
+    //}
 
     public enum CategoriaProducto
     {
@@ -99,8 +99,10 @@ namespace InnovaSchools.Util
     //*********************************************************//
     public enum EstadoVerificacionDocumento
     {
-        Observado = 1,
-        Todos = 2
+        Seleccionado = 1,
+        Verificado = 2,
+        Observado = 3,
+        Rechazado = 4
     }
 
 }

@@ -20,10 +20,10 @@ namespace InnovaSchools.Controllers
         public ActionResult index()
         {
             VerificarDocumentacionViewModel VerificarDocumentacion = new VerificarDocumentacionViewModel();
-            //ProgramarPersonal.TurnoList = (from entry in _db.Turno orderby entry.id_turno ascending select entry).Take(20).ToList();
-            VerificarDocumentacion.PuestoList = (from entry in _db.Puesto orderby entry.id_puesto ascending select entry).Take(20).ToList();
-            VerificarDocumentacion.Candidato = new Candidato();
-            VerificarDocumentacion.Candidatos = new List<Candidato>();
+            VerificarDocumentacion.TipoPuestoList = (from entry in _db.TipoPuesto orderby entry.idTipoPuesto ascending select entry).Take(20).ToList();
+            VerificarDocumentacion.EstadoCandidatoList = (from entry in _db.EstadoCandidato orderby entry.idEstadoCandidato ascending select entry).Take(20).ToList();
+            VerificarDocumentacion.Convocatoria = new Convocatoria();
+            VerificarDocumentacion.Convocatorias = new List<Convocatoria>();
             return View(VerificarDocumentacion);
         }
         
@@ -32,59 +32,72 @@ namespace InnovaSchools.Controllers
         // </summary>
         // <returns>Fecha Creacion      : 29/08/0216 | C. Quiroz</remarks>
         // <remarks>Fecha Modificacion  : 29/08/0216 | C. Quiroz</remarks>
-        public ActionResult lstCandidatos(string pFechaInicio, string pFechaFin, Int16 pIdPuesto)
+        public ActionResult lstCandidatos(string pFechaInicio, string pFechaFin, string pNombre, string pApePaterno, Int16 pIdTipoPuesto, Int16 pIdEstadoCandidato)
         {
-            //DateTime fechaInicio = Convert.ToDateTime(pFechaInicio);
-            //DateTime fechaFin = Convert.ToDateTime(pFechaFin);
             var fechaInicio = Convert.ToDateTime(pFechaInicio);
             var fechaFin = Convert.ToDateTime(pFechaFin);
 
-            VerificarDocumentacionViewModel VerificarDocumentacionViewModel = new VerificarDocumentacionViewModel()
-            {
-                Candidato = new Candidato()
-            };
-            VerificarDocumentacionViewModel.Candidatos = new List<Candidato>();
-            
+            VerificarDocumentacionViewModel VerificarDocumentacionViewModel = new VerificarDocumentacionViewModel(){};
+            VerificarDocumentacionViewModel.Convocatorias = new List<Convocatoria>();
+
             var objPersona =
-                       from cnd in _db.Candidato
-                       join cvt in _db.Convocatoria on cnd.id_convocatoria equals cvt.id_convocatoria
-                       join pst in _db.Puesto on cvt.id_puesto equals pst.id_puesto
-                       join per in _db.Persona on cnd.codigo_persona equals per.codigo_persona
+                       from cvt in _db.Convocatoria
+                       join ccd in _db.ConvocatoriaCandidato on cvt.idConvocatoria equals ccd.idConvocatoria
+                       join cnd in _db.Candidato on ccd.idCandidato equals cnd.idCandidato
+                       //join pst in _db.Puesto on cvt.Puesto .idPuesto equals pst.idPuesto
+                       join pst in _db.Puesto on cvt.idPuesto equals pst.idPuesto
+                       join tpt in _db.TipoPuesto on cvt.idTipoPuesto equals tpt.idTipoPuesto
+                       //join per in _db.Persona on cnd.Persona.idPersona equals per.idPersona
+                       join per in _db.Persona on cnd.idPersona equals per.idPersona
+                       join tdc in _db.TipoDocumento on per.idTipoDocumento equals tdc.idTipoDocumento
+                       join ecd in _db.EstadoCandidato on cnd.idEstadoCandidato equals ecd.idEstadoCandidato
                        //where (cvt.fechaInicioPublicacion >= fechaInicio && cvt.fechaFinPublicacion <= fechaFin) 
-                       select new { Candidato = cnd, Convocatoria = cvt, Puesto = pst, Persona = per };
+                       where cnd.idEstadoCandidato != 5
+                       select new { Convocatoria = cvt, ConvocatoriaCandidato = ccd, Candidato = cnd, EstadoCandidato = ecd, TipoPuesto = tpt, Puesto = pst, Persona = per };
 
-            if (pIdPuesto > 0) { objPersona = objPersona.Where(x => x.Convocatoria.id_puesto == pIdPuesto); }
+            if (pNombre.Trim().LongCount() > 0) { objPersona = objPersona.Where(x => x.Persona.nombre.Contains(pNombre)); }
+            if (pApePaterno.Trim().LongCount() > 0) { objPersona = objPersona.Where(x => x.Persona.apellidoPaterno.Contains(pApePaterno)); }
+            if (pIdTipoPuesto > 0) { objPersona = objPersona.Where(x => x.Convocatoria.idTipoPuesto == pIdTipoPuesto); }
+            if (pIdEstadoCandidato > 0) { objPersona = objPersona.Where(x => x.Candidato.idEstadoCandidato == pIdEstadoCandidato); }
 
-            foreach (var itmPrs in objPersona)
+            foreach (var itm in objPersona)
             {
-
-                //&&
-                //    _db.ProgramarPersonal.Where(w => w.fecha >= fechaInicio &&
-                //                                       w.fecha <= fechaFin).Count() == 0
-
-                if (VerificarDocumentacionViewModel.Candidatos.Where(w => w.codigo_persona == itmPrs.Persona.codigo_persona).ToList().Count == 0)
+                if (VerificarDocumentacionViewModel.Convocatorias.Where(w => w.ConvocatoriaCandidato.Candidato.Persona.idPersona == itm.Persona.idPersona).ToList().Count == 0)
                 {
-                    VerificarDocumentacionViewModel.Candidatos.Add(new Candidato
-                    {                        
-                        Persona = new Persona
+                    VerificarDocumentacionViewModel.Convocatorias.Add(new Convocatoria
+                    {
+                        fechaVencimientoDocumentoStr = itm.Convocatoria.fechaVencimientoDocumento.ToShortDateString(),
+                        ConvocatoriaCandidato = new ConvocatoriaCandidato
                         {
-                            fecha_inicio = itmPrs.Convocatoria.fechaInicioPublicacion.ToShortDateString(),
-                            fecha_fin = itmPrs.Convocatoria.fechaFinPublicacion.ToShortDateString(),
-                            id_programar_persona = 0,
-                            codigo_persona = itmPrs.Persona.codigo_persona,
-                            nombre = itmPrs.Persona.nombre,
-                            apellido_paterno = itmPrs.Persona.apellido_paterno,
-                            apellido_materno = itmPrs.Persona.apellido_materno,
-                            telefono = itmPrs.Persona.telefono,
-                            direccion = itmPrs.Persona.direccion,
-                            id_puesto = itmPrs.Persona.id_puesto,
-                            Puesto = new Puesto { descripcion_puesto = itmPrs.Puesto.descripcion_puesto },
-                            Turno = new Turno { descripcion_turno = "" }
-                        }
+                            Candidato = new Candidato
+                            {
+                                EstadoCandidato = new EstadoCandidato
+                                {
+                                    idEstadoCandidato = itm.EstadoCandidato.idEstadoCandidato,
+                                    estadoCandidato = itm.EstadoCandidato.estadoCandidato
+                                },
+                                Persona = new Persona
+                                {
+                                    fecha_inicio = itm.Convocatoria.fechaInicioPublicacion.ToShortDateString(),
+                                    fecha_fin = itm.Convocatoria.fechaFinPublicacion.ToShortDateString(),
+                                    idPersona = itm.Persona.idPersona,
+                                    nombre = itm.Persona.nombre,
+                                    apellidoPaterno = itm.Persona.apellidoPaterno,
+                                    apellidoMaterno = itm.Persona.apellidoMaterno,
+                                    telefono = itm.Persona.telefono,
+                                    direccion = itm.Persona.direccion,
+                                    documentoIdentidad = itm.Persona.documentoIdentidad,
+                                    TipoDocumento = new TipoDocumento { idTipoDocumento = itm.Persona.idTipoDocumento, descripcionDocumento = itm.Persona.TipoDocumento.descripcionDocumento }
+                                },
+
+                            }
+                        },
+                        TipoPuesto = new TipoPuesto { idTipoPuesto = itm.TipoPuesto.idTipoPuesto, descripcionPuesto = itm.TipoPuesto.descripcionPuesto },
+                        Puesto = new Puesto { idPuesto = itm.Puesto.idPuesto, descripcionPuesto = itm.Puesto.descripcionPuesto }
                     });
                 }
             }
-            if (VerificarDocumentacionViewModel.Candidatos.Count() == 0)
+            if (VerificarDocumentacionViewModel.Convocatorias.Count() == 0)
             {
                 VerificarDocumentacionViewModel.resultadoFind = string.Concat("No se encontraron resultado en busqueda");
             }
@@ -100,53 +113,73 @@ namespace InnovaSchools.Controllers
         // </summary>
         // <returns>Fecha Creacion      : 29/08/0216 | C. Quiroz</remarks>
         // <remarks>Fecha Modificacion  : 29/08/0216 | C. Quiroz</remarks>
-        public ActionResult getContrato(string pCodigo_persona)
+        public ActionResult getContrato(int pIdPersona)
         {
-
             var objPersona =
-                       from per in _db.Persona
-                       join cdt in _db.Candidato on per.codigo_persona equals cdt.codigo_persona
-                       join pst in _db.Puesto on per.id_puesto equals pst.id_puesto
-                       where cdt.codigo_persona == pCodigo_persona
-                       select new { Persona = per, Candidato = cdt, Puest = pst };
-
+                      from cvt in _db.Convocatoria
+                      join ccd in _db.ConvocatoriaCandidato on cvt.idConvocatoria equals ccd.idConvocatoria
+                      join cnd in _db.Candidato on ccd.idCandidato equals cnd.idCandidato
+                      join pst in _db.Puesto on cvt.Puesto.idPuesto equals pst.idPuesto
+                      join per in _db.Persona on cnd.Persona.idPersona equals per.idPersona
+                      where per.idPersona == pIdPersona
+                      select new { Candidato = cnd, Convocatoria = cvt, Puesto = pst, Persona = per };
+            
             VerificarDocumentacionViewModel verificarDocumento = new VerificarDocumentacionViewModel();
 
             foreach (var itm in objPersona)
             {
-                verificarDocumento.Candidato = new Candidato
+                verificarDocumento.Convocatoria = new Convocatoria
                 {
-                    codigo_persona = itm.Persona.codigo_persona,
-                    rutaImgDni = itm.Candidato.rutaImgDni,
-                    rutaImgDeclaracionJurada = itm.Candidato.rutaImgDeclaracionJurada,
-                    rutaImgAntecedentesPenales = itm.Candidato.rutaImgAntecedentesPenales,
-                    rutaImgAntecedentesPoliciales = itm.Candidato.rutaImgAntecedentesPoliciales,
-                    rutaImgTituloProfesional = itm.Candidato.rutaImgTituloProfesional,
-                    Persona = new Persona
+                    fechaFinPublicacionStr = itm.Convocatoria.fechaFinPublicacion.ToShortDateString(),
+                    fechaVencimientoDocumentoStr = itm.Convocatoria.fechaVencimientoDocumento.ToShortDateString(),
+                    idTipoPuesto = itm.Convocatoria.idTipoPuesto,
+                    idPuesto = itm.Convocatoria.idPuesto,
+                    idArea = itm.Convocatoria.idArea,
+                    idDesarrollo = itm.Convocatoria.idDesarrollo,
+                    ConvocatoriaCandidato = new ConvocatoriaCandidato
                     {
-                        codigo_persona = itm.Persona.codigo_persona,
-                        nombre = itm.Persona.nombre,
-                        apellido_paterno = itm.Persona.apellido_paterno,
-                        apellido_materno = itm.Persona.apellido_materno,
-                        direccion = itm.Persona.direccion,
-                        telefono = itm.Persona.telefono,
-                        celular = itm.Persona.celular,
-                        id_puesto = itm.Persona.id_puesto,
-                        email = itm.Persona.email,
-                        Puesto = new Puesto
+                        Candidato = new Candidato
                         {
-                            id_puesto = itm.Persona.Puesto.id_puesto,
-                            descripcion_puesto = itm.Persona.Puesto.descripcion_puesto
+                            Persona = new Persona
+                            {
+                                fecha_inicio = itm.Convocatoria.fechaInicioPublicacion.ToShortDateString(),
+                                fecha_fin = itm.Convocatoria.fechaFinPublicacion.ToShortDateString(),
+                                idPersona = itm.Persona.idPersona,
+                                nombre = itm.Persona.nombre,
+                                apellidoPaterno = itm.Persona.apellidoPaterno,
+                                apellidoMaterno = itm.Persona.apellidoMaterno,
+                                telefono = itm.Persona.telefono,
+                                direccion = itm.Persona.direccion,
+                                documentoIdentidad = itm.Persona.documentoIdentidad,
+                                celular = itm.Persona.celular,
+                                correoElectronico = itm.Persona.correoElectronico,
+                                TipoDocumento = new TipoDocumento { idTipoDocumento = itm.Persona.TipoDocumento.idTipoDocumento, descripcionDocumento = itm.Persona.TipoDocumento.descripcionDocumento }
+                            },
                         }
+                    },
+                    Puesto = new Puesto
+                    {
+                        idPuesto = itm.Puesto.idPuesto,
+                        descripcionPuesto = itm.Puesto.descripcionPuesto,
                     }
-                    
-                };                
+                };
             };
-
-            verificarDocumento.PuestoList = (from entry in _db.Puesto orderby entry.id_puesto ascending select entry).Take(20).ToList();
-            verificarDocumento.SelectedPuestoId = verificarDocumento.Candidato.Persona.id_puesto;
-
+            verificarDocumento.TipoDocumentoList = (from entry in _db.TipoDocumento orderby entry.idTipoDocumento ascending select entry).Take(20).ToList();
+            verificarDocumento.SelectedTipoDocumentoId = verificarDocumento.Convocatoria.ConvocatoriaCandidato.Candidato.Persona.TipoDocumento.idTipoDocumento;
+            
+            verificarDocumento.TipoPuestoList = (from entry in _db.TipoPuesto orderby entry.idTipoPuesto ascending select entry).Take(20).ToList();
+            verificarDocumento.SelectedTipoPuestoId = verificarDocumento.Convocatoria.idTipoPuesto;
+            
+            verificarDocumento.PuestoList = (from entry in _db.Puesto orderby entry.idPuesto ascending select entry).Take(20).ToList();
+            verificarDocumento.SelectedPuestoId = verificarDocumento.Convocatoria.idPuesto;
+            
+            verificarDocumento.AreaList = (from entry in _db.Area orderby entry.idArea ascending select entry).Take(20).ToList();
+            verificarDocumento.SelectedAreaId = Convert.ToInt16(verificarDocumento.Convocatoria.idArea);
+            
+            verificarDocumento.DesarrolloList = (from entry in _db.Desarrollo orderby entry.idDesarrollo ascending select entry).Take(20).ToList();
+            verificarDocumento.SelectedDesarrolloId = Convert.ToInt16 (verificarDocumento.Convocatoria.idDesarrollo);
             return View(verificarDocumento);
+            //return RedirectToAction("Index");
         }
 
         // <summary>
@@ -154,26 +187,28 @@ namespace InnovaSchools.Controllers
         // </summary>
         // <returns>Fecha Creacion      : 29/08/0216 | C. Quiroz</remarks>
         // <remarks>Fecha Modificacion  : 29/08/0216 | C. Quiroz</remarks>
-        public JsonResult setContrato(string pDni, string pNombre, string pApePaterno, string pApeMaterno, string pDireccion, string pTelefono, string pCelular, Int16 pIdPuesto, string pEmail,
+        public JsonResult setContrato(int pIdPersona, string pNombre, string pApePaterno, string pApeMaterno, string pDireccion, string pTelefono, string pCelular, Int16 pIdPuesto, string pEmail,
                                       string pRutaImgDni, string pRutaImgDomiciliaria, string pRutaImgPenales, string pRutaImgPoliciales, string pRutaImgtitulo,
                                       HttpPostedFileBase Input_folder_Dni)
         {
-            var objCandidato = _db.Candidato.First(x => x.codigo_persona == pDni);
+            VerificarDocumentacionViewModel VerificarDocumentacion = new VerificarDocumentacionViewModel();
+
+            var objCandidato = _db.Candidato.First(x => x.Persona.idPersona == pIdPersona);
             objCandidato.rutaImgDni = Path.GetFileName(pRutaImgDni);
             objCandidato.rutaImgDeclaracionJurada = Path.GetFileName(pRutaImgDomiciliaria);
             objCandidato.rutaImgAntecedentesPenales = Path.GetFileName(pRutaImgPenales);
             objCandidato.rutaImgAntecedentesPoliciales = Path.GetFileName(pRutaImgPoliciales);
             objCandidato.rutaImgTituloProfesional = Path.GetFileName(pRutaImgtitulo);
             
-            var objPersona = _db.Persona.First(x => x.codigo_persona == pDni);
-            objPersona.nombre = pNombre;
-            objPersona.apellido_paterno = pApePaterno;
-            objPersona.apellido_materno = pApeMaterno;
-            objPersona.direccion = pDireccion;
-            objPersona.telefono = pTelefono;
-            objPersona.celular = pCelular;
-            objPersona.id_puesto = pIdPuesto;
-            objPersona.email = pEmail;
+            //var objPersona = _db.Persona.First(x => x.codigo_persona == pDni);
+            //objPersona.nombre = pNombre;
+            //objPersona.apellido_paterno = pApePaterno;
+            //objPersona.apellido_materno = pApeMaterno;
+            //objPersona.direccion = pDireccion;
+            //objPersona.telefono = pTelefono;
+            //objPersona.celular = pCelular;
+            //objPersona.id_puesto = pIdPuesto;
+            //objPersona.email = pEmail;
 
             
             //string archivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + file.FileName).ToLower();
@@ -219,6 +254,7 @@ namespace InnovaSchools.Controllers
             //}
 
             _db.SaveChanges();
+
             return Json(true, JsonRequestBehavior.AllowGet);
             //return View(true);
         }
@@ -260,11 +296,6 @@ namespace InnovaSchools.Controllers
             //return Json(jsonStr, JsonRequestBehavior.AllowGet); //Now return Json as you need.
             return Json(true, JsonRequestBehavior.AllowGet); //Now return Json as you need.
         }
-
-
-
-
-
 
     }
 }

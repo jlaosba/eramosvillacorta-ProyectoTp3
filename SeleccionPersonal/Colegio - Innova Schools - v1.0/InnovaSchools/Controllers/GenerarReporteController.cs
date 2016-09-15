@@ -20,7 +20,7 @@ namespace InnovaSchools.Controllers
         {
             GenerarReporteViewModel GenerarReporte = new GenerarReporteViewModel();
             //ProgramarPersonal.TurnoList = (from entry in _db.Turno orderby entry.id_turno ascending select entry).Take(20).ToList();
-            GenerarReporte.PuestoList = (from entry in _db.Puesto orderby entry.id_puesto ascending select entry).Take(20).ToList();
+            GenerarReporte.PuestoList = (from entry in _db.Puesto orderby entry.idPuesto ascending select entry).Take(20).ToList();
             GenerarReporte.Persona = new Persona();
             GenerarReporte.Personas = new List<Persona>();
             return View(GenerarReporte);
@@ -29,7 +29,7 @@ namespace InnovaSchools.Controllers
         {
             GenerarReporteViewModel GenerarReporte = new GenerarReporteViewModel();
             //ProgramarPersonal.TurnoList = (from entry in _db.Turno orderby entry.id_turno ascending select entry).Take(20).ToList();
-            GenerarReporte.PuestoList = (from entry in _db.Puesto orderby entry.id_puesto ascending select entry).Take(20).ToList();
+            GenerarReporte.PuestoList = (from entry in _db.Puesto orderby entry.idPuesto ascending select entry).Take(20).ToList();
             GenerarReporte.Persona = new Persona();
             GenerarReporte.Personas = new List<Persona>();
             return View(GenerarReporte);

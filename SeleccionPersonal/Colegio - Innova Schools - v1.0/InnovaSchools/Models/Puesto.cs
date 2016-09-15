@@ -7,19 +7,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InnovaSchools.Models
 {
-    [Table("t_puesto")]
+    [Table("gsp.Puesto")]
     public class Puesto
     {
         [Key]
         [Required]
-        public int id_puesto { get; set; }
+        public int idPuesto { get; set; }
 
         [Display(Name = "Puesto")]
-        public string descripcion_puesto { get; set; }
+        [Column("descripcionPuesto", TypeName = "varchar")]
+        [StringLength(50)]
+        public string descripcionPuesto { get; set; }
 
         [Display(Name = "Función")]
+        [Column("funcion", TypeName = "varchar")]
+        [StringLength(50)]
         public string funcion { get; set; }
         
-        //public virtual List<Persona> Personas { get; set; }
     }
 }

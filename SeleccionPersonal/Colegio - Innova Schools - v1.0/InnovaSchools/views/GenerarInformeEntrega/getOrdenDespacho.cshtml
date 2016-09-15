@@ -1,0 +1,140 @@
+﻿@model InnovaSchools.Models.OrdenDespachoViewModel
+@using InnovaSchools.Util
+
+@{
+    ViewBag.Title = "Orden Despacho";
+    int index = 0;
+}
+<div class="jumbotron">
+    <h4>ORDEN DESPACHO</h4>
+    <hr />
+    <form class="form-horizontal">
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.LabelFor(model => model.OrdenDespacho.id_orden_despacho, htmlAttributes: new { @class = "control-label", @style = "width:120px;" })
+                @Html.TextBoxFor(x => x.OrdenDespachoDetalles.First().OrdenDespacho.id_orden_despacho, new { @class = "form-control", @disabled = "disabled" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.OrdenDespacho.tipo_prioridad, htmlAttributes: new { @class = "control-label", @style = "width:100px;" })
+                @Html.TextBoxFor(x => x.OrdenDespachoDetalles.First().OrdenDespacho.tipo_prioridad, new { @class = "form-control input-sm", @disabled = "disabled" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.OrdenDespacho.fechaDespacho, htmlAttributes: new { @class = "control-label", @style = "width:150px;" })
+                @Html.TextBoxFor(x => x.OrdenDespachoDetalles.First().OrdenDespacho.fechaDespacho, new { @class = "form-control input-sm", @disabled = "disabled" })
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.LabelFor(model => model.OrdenDespacho.Transporte.nro_placa, htmlAttributes: new { @class = "control-label", @style = "width:120px;" })
+                @Html.TextBoxFor(x => x.OrdenDespachoDetalles.First().OrdenDespacho.Transporte.nro_placa, new { @class = "form-control", @disabled = "disabled" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.OrdenDespacho.Zona.descripcion_zona, htmlAttributes: new { @class = "control-label", @style = "width:100px;" })
+                @Html.TextBoxFor(x => x.OrdenDespachoDetalles.First().OrdenDespacho.OrdenDespachoSolicitud.SolicitudCompra.Tienda.Zona.descripcion_zona, new { @class = "form-control", @disabled = "disabled", @style = "width:170px;", })
+            </div>
+            <div class="form-group">
+                @Html.Label(" ", htmlAttributes: new { @class = "control-label", @style = "width:150px;" })
+                @Html.ActionLink("Cancelar", "Index", null, null, htmlAttributes: new { @class = "btn btn-danger btn-sm" })
+            </div>
+        </div>
+    </form>
+</div>
+
+ @Html.ActionLink("Exportar PDF", "exportar", null, null, htmlAttributes: new { @class = "btn btn-success btn-sm" })
+
+   <span class="TitleEstTimeClass" style="color: red">
+    @Html.DisplayFor(m => m.resultadoFind)
+    </span>
+    <br />
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-condensed">
+        <tr class="active"><th colspan="7" >DETALLE DE ORDEN DE DESPACHO</th></tr>
+        <tr class="active">
+            <th>
+                @Html.DisplayNameFor(model => model.OrdenDespachoDetalles.First().OrdenDespacho.OrdenDespachoSolicitud.SolicitudCompra.Tienda.descripcion_tienda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrdenDespachoDetalles.First().OrdenDespacho.OrdenDespachoSolicitud.id_solicitud_compra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrdenDespachoDetalles.First().OrdenDespacho.OrdenDespachoSolicitud.SolicitudCompra.fechaSolicitudCompra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrdenDespachoDetalles.First().Producto.id_producto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrdenDespachoDetalles.First().Producto.descripcion_producto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrdenDespachoDetalles.First().Producto.UnidadMedida.descripcion_unidad_medida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrdenDespachoDetalles.First().cantidad_requerida)
+            </th>
+        </tr>
+
+        @for (index = 0; index < Model.OrdenDespachoDetalles.Count; index++)
+        {
+            <tr>
+                <td>
+                    @Model.OrdenDespachoDetalles[index].OrdenDespacho.OrdenDespachoSolicitud.SolicitudCompra.Tienda.descripcion_tienda
+                </td>
+                <td>
+                    @Model.OrdenDespachoDetalles[index].OrdenDespacho.OrdenDespachoSolicitud.id_solicitud_compra
+                </td>
+                <td style="align-content: flex-end; text-align: center">
+                    @Model.OrdenDespachoDetalles[index].OrdenDespacho.OrdenDespachoSolicitud.SolicitudCompra.fechaSolicitudCompra
+                </td>
+                <td>
+                    @Model.OrdenDespachoDetalles[index].Producto.id_producto
+                </td>
+                <td>
+                    @Model.OrdenDespachoDetalles[index].Producto.descripcion_producto
+                </td>
+                <td>
+                    @Model.OrdenDespachoDetalles[index].Producto.UnidadMedida.descripcion_unidad_medida
+                </td>
+                <td style="align-content: flex-end; text-align: right">
+                    @Model.OrdenDespachoDetalles[index].cantidad_requerida
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-condensed">
+        <tr class="active"><th colspan="3" >DETALLE DE INCIDENCIAS</th></tr>
+        <tr class="active">
+            <th>
+                @Html.DisplayNameFor(model => model.OrdenDespachoIncidencias.First().id_orden_despacho_incidencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrdenDespachoIncidencias.First().descripcion_incidencia)
+            </th>            
+        </tr>
+
+        @for (index = 0; index < Model.OrdenDespachoIncidencias.Count; index++)
+        {
+            <tr>
+                <td>
+                    @Model.OrdenDespachoIncidencias[index].id_orden_despacho_incidencia
+                </td>
+                <td colspan="6" >
+                    @Model.OrdenDespachoIncidencias[index].descripcion_incidencia
+                </td>                
+            </tr>
+        }
+
+    </table>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+}
