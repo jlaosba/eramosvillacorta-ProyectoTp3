@@ -212,11 +212,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonalController.cs" />
     <Compile Include="Controllers\VerificarDocumentacionController.cs" />
-    <Compile Include="dstIncidencias.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dstIncidencias.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Models\Area.cs" />
     <Compile Include="Models\Banco.cs" />
     <Compile Include="Models\Candidato.cs" />
@@ -233,8 +228,10 @@
     <Compile Include="Models\EstadoCivil.cs" />
     <Compile Include="Models\EstadoEmpleado.cs" />
     <Compile Include="Models\FondoPensiones.cs" />
+    <Compile Include="Models\Fotocheck.cs" />
     <Compile Include="Models\Nacionalidad.cs" />
     <Compile Include="Models\NivelEstudio.cs" />
+    <Compile Include="Models\Reporte.cs" />
     <Compile Include="Models\Seguro.cs" />
     <Compile Include="Models\TipoContrato.cs" />
     <Compile Include="Models\TipoDocumento.cs" />
@@ -256,6 +253,11 @@
     <Compile Include="Models\Puesto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\Enums.cs" />
+    <Compile Include="Views\GenerarReporte\dstInforme.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dstInforme.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datetimepicker.css" />
@@ -312,7 +314,6 @@
     <Content Include="Images\innova-school.png" />
     <Content Include="Images\innova_schools.png" />
     <Content Include="Images\logo.png" />
-    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\app\cascadingdropdown.js" />
     <Content Include="Scripts\app\jquery.cascadingdropdown.js" />
     <Content Include="Scripts\bootbox.js" />
@@ -323,17 +324,6 @@
     <Content Include="Scripts\bootstrap-filestyle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="App_Browsers\qt.browser" />
-    <Content Include="dstIncidencias.xsc">
-      <DependentUpon>dstIncidencias.xsd</DependentUpon>
-    </Content>
-    <None Include="dstIncidencias.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dstIncidencias.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="dstIncidencias.xss">
-      <DependentUpon>dstIncidencias.xsd</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\fileinput.js" />
     <Content Include="Scripts\fileinput.min.js" />
@@ -404,11 +394,6 @@
     <Content Include="Views\Personal\_lstPersonas.cshtml" />
     <Content Include="Views\Personal\getPersona.cshtml" />
     <Content Include="Views\Personal\newPersona.cshtml" />
-    <Content Include="Views\GenerarInformeEntrega\index.cshtml" />
-    <Content Include="Views\GenerarInformeEntrega\_lstConsultarInforme.cshtml" />
-    <Content Include="Views\GenerarInformeEntrega\getOrdenDespacho.cshtml" />
-    <Content Include="Views\ReProgramarPersonal\_lstProgramarPersonalsPro.cshtml" />
-    <Content Include="Views\ReProgramarPersonal\index.cshtml" />
     <Content Include="Views\VerificarDocumentacion\index.cshtml" />
     <Content Include="Views\VerificarDocumentacion\_lstVerificarDocumento.cshtml" />
     <Content Include="Views\GenerarContrato\index.cshtml" />
@@ -424,6 +409,19 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\GenerarContrato\getContrato.cshtml" />
     <Content Include="Views\ActualizarPersonal\getEmpleado.cshtml" />
+    <Content Include="Views\GenerarReporte\indexMantenimiento.cshtml" />
+    <Content Include="Views\GenerarReporte\indexApoyo.cshtml" />
+    <Content Include="Views\GenerarReporte\dstInforme.xsc">
+      <DependentUpon>dstInforme.xsd</DependentUpon>
+    </Content>
+    <None Include="Views\GenerarReporte\dstInforme.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dstInforme.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Views\GenerarReporte\dstInforme.xss">
+      <DependentUpon>dstInforme.xsd</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -437,13 +435,10 @@
     <Content Include="Content\_bootstrap-datetimepicker.less" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\ReProgramarPersonal\getProgramarPersonal.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="incidencias.rdlc" />
+    <EmbeddedResource Include="Views\GenerarReporte\informe.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

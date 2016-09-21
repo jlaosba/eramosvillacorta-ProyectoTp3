@@ -12,47 +12,45 @@
 <div class="table-responsive">
     <table class="table table-hover table-striped table-bordered table-condensed">
         <tr class="active">
-            <th colspan="5">LISTA DE PERSONAL ADMINISTRATIVO</th>
+            <th colspan="5">LISTA DE PERSONAL</th>
         </tr>
         <tr class="active">
             <th>
-                @Html.DisplayNameFor(model => model.Persona.dni)
+                @Html.DisplayNameFor(model => model.Contrato.Empleado.Candidato.Persona.documentoIdentidad)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Persona.nombreCompleto)
+                @Html.DisplayNameFor(model => model.Contrato.Empleado.Candidato.Persona.nombreCompleto)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Persona.Puesto.descripcion_puesto)
+                @Html.DisplayNameFor(model => model.Contrato.fechaIngresoStr)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Persona.telefono)
+                @Html.DisplayNameFor(model => model.Contrato.Convocatoria.Puesto.descripcionPuesto)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Persona.direccion)
+                @Html.DisplayNameFor(model => model.Contrato.TipoContrato.descripcionContrato)
             </th>
         </tr>
-
-        @for (index = 0; index < Model.Personas.Count; index++)
+        @for (index = 0; index < Model.Contratos.Count; index++)
         {
             <tr>
                 <td>
-                    @Model.Personas[index].dni.ToString()
+                    @Model.Contratos[index].Empleado.Candidato.Persona.documentoIdentidad
                 </td>
                 <td>
-                    @Html.ActionLink(@Model.Personas[index].nombreCompleto.ToString(), "getPersona", "Personal", new { pDni = @Model.Personas[index].dni }, null)
+                    @Model.Contratos[index].Empleado.Candidato.Persona.nombreCompleto
+                </td>
+                <td style="align-content: flex-end; text-align: center">
+                    @Model.Contratos[index].fechaIngresoStr
                 </td>
                 <td>
-                    @Model.Personas[index].Puesto.descripcion_puesto
+                    @Model.Contratos[index].Convocatoria.Puesto.descripcionPuesto
                 </td>
                 <td>
-                    @Model.Personas[index].telefono
-                </td>
-                <td>
-                    @Model.Personas[index].direccion
+                    @Model.Contratos[index].TipoContrato.descripcionContrato
                 </td>
             </tr>
         }
-
     </table>
 </div>
 

@@ -7,7 +7,7 @@
     ViewBag.Title = "Generar Reporte de Contratados";
 }
 <div class="jumbotron">
-    <h4>GENERAR REPORTE DE CONTRATADOS - DOCENTE</h4>
+    <h4>GENERAR REPORTE DE CONTRATADOS - APOYO</h4>
     <hr />
     <form class="form-horizontal">
         <div class="form-inline">
@@ -158,13 +158,26 @@
         });
     });
     $(function () {
+        $('#myLink').click(function () {
+            $("#btn-buscar").removeAttr("disabled");
+            $("#myLink").attr("disabled", "disabled");
+            var value = $('#SelectedPuestoId').val();
+            value = value !== "" ? parseInt(value) : 0;
+            //$('#divIndexDetail').load(this.href, { someField: value });
+            var url = $(this).attr('href') + '?pTipoReporte=ADMINISTRATIVO&pIdPuesto=' + value;
+            //var url = $(this).attr('href');
+            location.href = url;
+            return false;
+        });
+    });
+    $(function () {
         $('#lnkPrint').click(function () {
             $("#btn-buscar").removeAttr("disabled");
             $("#lnkPrint").attr("disabled", "disabled");
             var value = $('#SelectedPuestoId').val();
             value = value !== "" ? parseInt(value) : 0;
             //$('#divIndexDetail').load(this.href, { someField: value });
-            var url = $(this).attr('href') + '?pTipoReporte=DOCENTE&pIdPuesto=' + value;
+            var url = $(this).attr('href') + '?pTipoReporte=APOYO&pIdPuesto=' + value;
             //var url = $(this).attr('href');
             location.href = url;
             return false;

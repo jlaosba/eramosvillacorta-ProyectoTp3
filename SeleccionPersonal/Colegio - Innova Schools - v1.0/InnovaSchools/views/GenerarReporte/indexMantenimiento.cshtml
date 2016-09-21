@@ -7,7 +7,7 @@
     ViewBag.Title = "Generar Reporte de Contratados";
 }
 <div class="jumbotron">
-    <h4>GENERAR REPORTE DE CONTRATADOS - DOCENTE</h4>
+    <h4>GENERAR REPORTE DE CONTRATADOS - MANTENIMIENTO</h4>
     <hr />
     <form class="form-horizontal">
         <div class="form-inline">
@@ -139,6 +139,11 @@
         //}
         vPuestoVal = vPuestoVal !== "" ? parseInt(vPuestoVal) : 0;
 
+        //$("#ddlFecha_inicio").attr("disabled", "disabled");
+        //$("#ddlFecha_fin").attr("disabled", "disabled");
+        //$("#SelectedPuestoId").attr("disabled", "disabled");
+        //$("#btn-buscar").attr("disabled", "disabled");
+
         $('#ddlFecha_inicio').val('');
         $('#ddlFecha_fin').val('');
         $('#SelectedPuestoId').val('');
@@ -164,7 +169,7 @@
             var value = $('#SelectedPuestoId').val();
             value = value !== "" ? parseInt(value) : 0;
             //$('#divIndexDetail').load(this.href, { someField: value });
-            var url = $(this).attr('href') + '?pTipoReporte=DOCENTE&pIdPuesto=' + value;
+            var url = $(this).attr('href') + '?pTipoReporte=MANTENIMIENTO&pIdPuesto=' + value;
             //var url = $(this).attr('href');
             location.href = url;
             return false;
