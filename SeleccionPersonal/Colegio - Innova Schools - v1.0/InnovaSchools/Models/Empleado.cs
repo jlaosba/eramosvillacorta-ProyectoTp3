@@ -53,7 +53,12 @@ namespace InnovaSchools.Models
         [Column("cuentaBanco", TypeName = "varchar")]
         [StringLength(15)]
         public string cuentaBanco { get; set; }
-        
+
+        [Display(Name = "Código Fotocheck")]
+        [Column("codigoFotocheck", TypeName = "varchar")]
+        [StringLength(50)]
+        public string codigoFotocheck { get; set; }
+
 
         [Display(Name = "Nombre Empleado")]
         [NotMapped]

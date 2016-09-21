@@ -11,33 +11,24 @@ namespace InnovaSchools.Models
     public class GenerarReporteViewModel
     {
         [Display(Name = "Fecha Inicio")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime fecha_inicio { get; set; }
 
         [Display(Name = "Fecha Fin")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime fecha_fin { get; set; }
-
-        public int id_persona { get; set; }
-        [Display(Name = "DNI")]
-        public string dni { get; set; }
-        [Display(Name = "Nombre")]
-        public string nombre { get; set; }
-        [Display(Name = "Ape. Paterno")]
-        public string apellido_paterno { get; set; }
-        [Display(Name = "Ape. Materno")]
-        public string apellido_materno { get; set; }
 
         public string resultadoFind { get; set; }
 
-        public Persona Persona { get; set; }
-        public List<Persona> Personas { get; set; }
+        public Contrato Contrato { get; set; }
+        public List<Contrato> Contratos { get; set; }
 
         public List<Puesto> PuestoList { get; set; }
         [Display(Name = "Puesto")]
         public int SelectedPuestoId { get; set; }
         public IEnumerable<SelectListItem> Puestos
         {
-            get { return new SelectList(PuestoList, "id_puesto", "descripcion_puesto"); }
+            get { return new SelectList(PuestoList, "idPuesto", "descripcionPuesto"); }
         }
-
     }
 }

@@ -15,13 +15,25 @@ namespace InnovaSchools.Models
         [Display(Name = "Nro. Contrato")]
         public int idContrato { get; set; }
 
-        [Display(Name = "Fecha Ingreso")]
+        [NotMapped]
+        [Display(Name = "Nro. Contrato")]
+        public String nroContrato { get; set; }
+
+        [Display(Name = "Fecha Inicio Contrato")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]        
-        public DateTime fechaIngreso { get; set; }
+        public DateTime fechaInicioContrato { get; set; }
+
+        [NotMapped]
+        [Display(Name = "Fecha Inicio Contrato")]
+        public String fechaInicioContratoStr { get; set; }
 
         [Display(Name = "Fecha Cese")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]        
-        public DateTime fechaCese { get; set; }
+        public DateTime fechaFinContrato { get; set; }
+
+        [NotMapped]
+        [Display(Name = "Fecha Cese")]
+        public String fechaFinContratoStr { get; set; }
 
         [ForeignKey("idEmpleado")]
         public virtual Empleado Empleado { get; set; }

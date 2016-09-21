@@ -12,43 +12,54 @@
 <div class="table-responsive">
     <table class="table table-hover table-striped table-bordered table-condensed">
         <tr class="active">
-            <th colspan="5">LISTA DE PERSONAL</th>
+            <th colspan="7">LISTA DE PERSONAL</th>
         </tr>
         <tr class="active">
             <th>
-                @Html.DisplayNameFor(model => model.Persona.dni)
+                @Html.DisplayNameFor(model => model.Contrato.idContrato)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Persona.nombreCompleto)
+                @Html.DisplayNameFor(model => model.Contrato.TipoContrato.descripcionContrato )
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Persona.Puesto.descripcion_puesto)
+                @Html.DisplayNameFor(model => model.Contrato.Empleado.nombreCompleto)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Persona.telefono)
+                @Html.DisplayNameFor(model => model.Contrato.fechaIngreso)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Persona.direccion)
+                @Html.DisplayNameFor(model => model.Contrato.fechaCese)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contrato.Convocatoria.Puesto.descripcionPuesto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contrato.Empleado.codigoFotocheck)
+            </th>            
         </tr>
-
-        @for (index = 0; index < Model.Personas.Count; index++)
+        @for (index = 0; index < Model.Contratos.Count; index++)
         {
             <tr>
                 <td>
-                    @Model.Personas[index].dni.ToString()
+                    @Model.Contratos[index].idContrato.ToString()
                 </td>
                 <td>
-                    @Html.ActionLink(@Model.Personas[index].nombreCompleto.ToString(), "getPersona", "Personal", new { pDni = @Model.Personas[index].dni }, null)
+                    @Model.Contratos[index].TipoContrato.descripcionContrato
                 </td>
                 <td>
-                    @Model.Personas[index].Puesto.descripcion_puesto
+                    @Html.ActionLink(@Model.Contratos[index].Empleado.Candidato.Persona.nombreCompleto.ToString(), "getEmpleado", "ActualizarFotoCheck", new { pDni = @Model.Contratos[index].idContrato}, null)
                 </td>
                 <td>
-                    @Model.Personas[index].telefono
+                    @Model.Contratos[index].fechaIngreso
                 </td>
                 <td>
-                    @Model.Personas[index].direccion
+                    @Model.Contratos[index].fechaCese
+                </td>
+                <td>
+                    @Model.Contratos[index].Convocatoria.Puesto.descripcionPuesto
+                </td>
+                <td>
+                    @Model.Contratos[index].Empleado.codigoFotocheck
                 </td>
             </tr>
         }

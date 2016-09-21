@@ -34,6 +34,7 @@ namespace InnovaSchools.Models
         public DbSet<Convocatoria> Convocatoria { get; set; }
         public DbSet<TipoContrato> TipoContrato { get; set; }
         public DbSet<Empleado> Empleado { get; set; }
+
         public DbSet<Contrato> Contrato { get; set; }
         public DbSet<ConvocatoriaCandidato> ConvocatoriaCandidato { get; set; }
                 

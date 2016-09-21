@@ -205,8 +205,8 @@ namespace InnovaSchools.Controllers
 
                 var objContrato = new Contrato
                 {
-                    fechaIngreso = Convert.ToDateTime(pFechaInicio),
-                    fechaCese = Convert.ToDateTime(pFechaFin),
+                    fechaInicioContrato = Convert.ToDateTime(pFechaInicio),
+                    fechaFinContrato = Convert.ToDateTime(pFechaFin),
                     idEmpleado = objEmpleado.idEmpleado,
                     salario = Convert.ToDecimal(pSalario),
                     idTipoContrato = pTipoContrato,
