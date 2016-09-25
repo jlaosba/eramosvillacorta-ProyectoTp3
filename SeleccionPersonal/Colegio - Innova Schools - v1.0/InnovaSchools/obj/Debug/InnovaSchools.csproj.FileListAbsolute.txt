@@ -397,8 +397,18 @@ D:\_TP3\Colegio - Innova Schools\InnovaSchools\bin\ko\System.Spatial.resources.d
 D:\_TP3\Colegio - Innova Schools\InnovaSchools\bin\ru\System.Spatial.resources.dll
 D:\_TP3\Colegio - Innova Schools\InnovaSchools\bin\zh-Hans\System.Spatial.resources.dll
 D:\_TP3\Colegio - Innova Schools\InnovaSchools\bin\zh-Hant\System.Spatial.resources.dll
+D:\_TP3\Colegio - Innova Schools\InnovaSchools\obj\Debug\InnovaSchools.csprojResolveAssemblyReference.cache
 D:\_TP3\Colegio - Innova Schools\InnovaSchools\obj\Debug\RdlCompile.cache
 D:\_TP3\Colegio - Innova Schools\InnovaSchools\obj\Debug\RdlCompile.compiled
 D:\_TP3\Colegio - Innova Schools\InnovaSchools\obj\Debug\InnovaSchools.dll
 D:\_TP3\Colegio - Innova Schools\InnovaSchools\obj\Debug\InnovaSchools.pdb
-D:\_TP3\Colegio - Innova Schools\InnovaSchools\obj\Debug\InnovaSchools.csprojResolveAssemblyReference.cache
+D:\Colegio - Innova Schools\InnovaSchools\bin\System.Net.Http.Formatting.dll
+D:\Colegio - Innova Schools\InnovaSchools\bin\System.Web.Http.dll
+D:\Colegio - Innova Schools\InnovaSchools\bin\System.Web.Http.WebHost.dll
+D:\Colegio - Innova Schools\InnovaSchools\bin\System.Net.Http.Formatting.xml
+D:\Colegio - Innova Schools\InnovaSchools\bin\System.Web.Http.xml
+D:\Colegio - Innova Schools\InnovaSchools\bin\System.Web.Http.WebHost.xml
+D:\Colegio - Innova Schools\InnovaSchools\bin\es\System.Net.Http.Formatting.resources.dll
+D:\Colegio - Innova Schools\InnovaSchools\bin\es\System.Web.Http.resources.dll
+D:\Colegio - Innova Schools\InnovaSchools\bin\es\System.Web.Http.WebHost.resources.dll
+C:\Users\Inspirait30\Downloads\Colegio - Innova Schools (1)\InnovaSchools\obj\Debug\InnovaSchools.csprojResolveAssemblyReference.cache

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using InnovaSchools.Models;
 using System.IO;
-using Microsoft.Reporting.WebForms;
+//using Microsoft.Reporting.WebForms;
 
 namespace InnovaSchools.Controllers
 {
@@ -197,6 +197,7 @@ namespace InnovaSchools.Controllers
                         documentoIdentidad = itm.Empleado.Candidato.Persona.documentoIdentidad,
                         nombreCompleto = itm.Contrato.Empleado.Candidato.nombreCompleto,
                         descripcionPuesto = itm.Contrato.Convocatoria.Puesto.descripcionPuesto,
+                        nroContrato = itm.Contrato.nroContrato,
                         fechaIngresoStr = itm.Contrato.fechaInicioContratoStr,
                         descripcionContrato = itm.Contrato.TipoContrato.descripcionContrato
                     });
