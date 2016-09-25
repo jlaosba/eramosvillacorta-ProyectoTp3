@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title - Innova Schools</title>
+
+    @Styles.Render("~/Content/bootstrap.css")
+    <!-- Bootstrap -->
+    @Styles.Render("~/bootstrap/css")
+    @*[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/
+    html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/
+    respond.min.js"></script>
+    <![endif]-->*@
+
+    <style>
+        .navbar-default .navbar-nav > li > a {
+            color: #ffffff;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    @Scripts.Render("~/bootstrap/js")
+    @Scripts.Render("~/bundles/modernizr")    
+    @Scripts.Render("~/bootstrap/bootstrap-datetimepicker")
+    @Scripts.Render("~/bundles/jquery") 
+    @Scripts.Render("~/bundles/bootstrap")
+    
+    <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    @*<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>*@
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+   @* <script type='text/javascript'>
+    $(function(){
+        $('.date-picker').datepicker({
+            dateFormat: 'dd/mm/yy'            
+        });
+    })
+    </script>*@
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="masthead">
+            <div class="row">
+                <div class="col-sm-6">
+                    <img src="~/Images/innova_schools.png" alt="" />
+                </div>
+                <div class="col-sm-6" style="text-align: right">
+                    <h3 class="text-info">
+                        <a href='@Url.Content("~/Home/Index")'>Sistema de gestión académica</a>
+                    </h3>
+                </div>
+            </div>
+            <ul class="nav nav-justified">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#">Gestion<br />
+                        Pedagógica<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href='@Url.Content("~/Home/Opcion1Modulo1")'>Opcion1</a>
+                        </li>
+                        <li>
+                            <a href='@Url.Content("~/Home/Opcion2Modulo1")'>Opcion2</a>
+                        </li>
+                        <li>
+                            <a href='@Url.Content("~/Home/Opcion3Modulo1")'>Opcion3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href='@Url.Content("~/Home/Modulo2")'>Gestión<br/>Directiva</a>
+                </li>
+                <li>@Html.ActionLink("Gestión Apoyo Académico", "Modulo3", "Home")</li>
+                @*<li>@Html.ActionLink("Selección de Personal", "Modulo4", "Home")</li>*@
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión de Selección de Personal<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Verificar documentos entregados para contratación", "index", "VerificarDocumentacion")</li>
+                        <li>@Html.ActionLink("Generar Contrato Laboral", "index", "GenerarContrato")</li>
+                        <li>@Html.ActionLink("Actualizar Información de personal", "index", "ActualizarPersonal")</li>
+                        <li>@Html.ActionLink("Actualizar solicitud de emisión de fotocheck", "index", "ActualizarFotoCheck")</li>
+                        @*<li>@Html.ActionLink("Generar Reporte de Contratados", "index", "GenerarReporte")</li>*@
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Generar Reporte de Contratados<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Personal Administrativo", "indexAdministrativo", "GenerarReporte")</li>
+                                <li>@Html.ActionLink("Personal Docente", "indexDocente", "GenerarReporte")</li>
+                                <li>@Html.ActionLink("Personal M y L", "indexMantenimiento", "GenerarReporte")</li>
+                                <li>@Html.ActionLink("Personal de Apoyo Téc.", "indexApoyo", "GenerarReporte")</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+                <li>@Html.ActionLink("Gestion Académica y Formativa", "Modulo5", "Home")</li>
+                <li>@Html.ActionLink("Gestión de Gobierno Escolar", "Modulo1", "Home")</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - UPC Derechos reservados (C)</p>
+        </footer>
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

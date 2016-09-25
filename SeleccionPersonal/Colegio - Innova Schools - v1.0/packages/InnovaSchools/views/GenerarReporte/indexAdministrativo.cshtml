@@ -1,0 +1,213 @@
+﻿@model InnovaSchools.Models.GenerarReporteViewModel
+
+@using PagedList.Mvc;
+@using InnovaSchools.Util
+
+@{
+    ViewBag.Title = "Generar Reporte de Contratados";
+}
+<div class="jumbotron">
+    <h4>GENERAR REPORTE DE CONTRATADOS - ADMINISTRATIVO</h4>
+    <hr />
+    <form class="form-horizontal">
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.LabelFor(model => model.fecha_inicio, htmlAttributes: new { @class = "control-label", @style = "width:170px;" })
+                @Html.TextBox("ddlFecha_inicio", "", new { @class = "date-picker", @style = "border-color: red" })
+                @Html.ValidationMessageFor(model => model.fecha_inicio, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.fecha_fin, htmlAttributes: new { @class = "control-label", @style = "width:200px;" })
+                @Html.TextBox("ddlFecha_fin", "", new { @class = "date-picker", @style = "border-color: red" })
+                @Html.ValidationMessageFor(model => model.fecha_fin, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+            </div>
+        </div>        
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.Label("Puesto", htmlAttributes: new { @id = "ddlPuesto", @class = "control-label", @style = "width:170px;" })
+                @Html.DropDownListFor(m => m.SelectedPuestoId, new SelectList(Model.Puestos, "Value", "Text", "0"), "--Seleccionar--", new { @class = "form-control input-sm", @style = "width:175px; " })
+                @Html.ValidationMessageFor(m => m.SelectedPuestoId)
+            </div>
+            <div class="form-group">
+            </div>
+            <div class="form-group">
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+            </div>
+            <div class="form-group">
+                @Html.Label(" ", htmlAttributes: new { @class = "control-label", @style = "width:195px;" })
+                <input type="button" id="btn-buscar" value="Buscar" class="btn btn-primary btn-sm" />
+                @*@Html.ActionLink("Imprimir","print","GenerarReporte", new {@pTipoReporte = "ADMINISTRATIVO", pIdPuesto= 1 }, htmlAttributes: new { @class = "btn btn-success btn-sm" })
+                <input type="button" id="btn-imprimir" value="Imprimir" class="btn btn-success btn-sm" />*@
+                @Html.ActionLink("Imprimir","print","GenerarReporte", null, htmlAttributes: new { id = "lnkPrint", @class = "btn btn-success btn-sm" })
+            </div>
+            <div class="form-group">                
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="form-horizontal">
+    <div class="form-group" id="divIndexDetail">
+        @Html.Partial("_lstGenerarReporte")
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery-2.2.3.min.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.datepicker.regional['es'] = {
+                closeText: 'Cerrar',
+                prevText: '<Ant',
+                nextText: 'Sig>',
+                currentText: 'Hoy',
+                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+                dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+                weekHeader: 'Sm',
+                dateFormat: 'dd/mm/yy',
+                firstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: ''
+            };
+            $.datepicker.setDefaults($.datepicker.regional['es']);
+
+            $("#ddlFecha_inicio").datepicker({
+                onClose: function (selectedDate) {
+                    $("#ddlFecha_fin").datepicker("option", "minDate", selectedDate);
+                },
+            });
+
+            $("#ddlFecha_fin").datepicker({
+                onClose: function (selectedDate) {
+                    $("#ddlFecha_inicio").datepicker("option", "maxDate", selectedDate);
+                }
+            });
+            $("#ddlFecha_inicio").datepicker({ dateFormat: "dd/mm/yy" }).mask("99/99/9999");
+            $("#ddlFecha_fin").datepicker({ dateFormat: "dd/mm/yy" }).mask("99/99/9999");
+
+            $("#lnkPrint").attr("disabled", "disabled");
+        });
+        $(".input-sm").keypress(function (key) {
+            window.console.log(key.charCode)
+            if ((key.charCode < 97 || key.charCode > 122)//letras mayusculas
+                && (key.charCode < 65 || key.charCode > 90) //letras minusculas
+                && (key.charCode != 45) //retroceso
+                && (key.charCode != 241) //ñ
+                 && (key.charCode != 209) //Ñ
+                 && (key.charCode != 32) //espacio
+                 && (key.charCode != 225) //á
+                 && (key.charCode != 233) //é
+                 && (key.charCode != 237) //í
+                 && (key.charCode != 243) //ó
+                 && (key.charCode != 250) //ú
+                 && (key.charCode != 193) //Á
+                 && (key.charCode != 201) //É
+                 && (key.charCode != 205) //Í
+                 && (key.charCode != 211) //Ó
+                 && (key.charCode != 218) //Ú
+                )
+                return false;
+        });
+        $("#btn-buscar").on("click", function () {
+            var vFechaInicioVal = $('#ddlFecha_inicio').val();
+            if (vFechaInicioVal == "") {
+                WarningMessage("Debe ingresar una Fecha de Inicio");
+                return;
+            }
+
+            var vFechaFinVal = $('#ddlFecha_fin').val();
+            if (vFechaFinVal == "") {
+                WarningMessage("Debe ingresar una Fecha de Fin");
+                return;
+            }           
+
+            var vPuestoVal = $('#SelectedPuestoId').val();
+            //if (vPuestoVal == 0) {
+            //    WarningMessage("Debe seleccionar un puesto");
+            //    return;
+            //}
+            vPuestoVal = vPuestoVal !== "" ? parseInt(vPuestoVal) : 0;           
+
+            $('#ddlFecha_inicio').val('');
+            $('#ddlFecha_fin').val('');
+            $('#SelectedPuestoId').val('');
+
+            $.ajax({
+                url: "/GenerarReporte/lstEmpleados",
+                data: { 'pFechaInicio': vFechaInicioVal, 'pFechaFin': vFechaFinVal, 'pIdPuesto': vPuestoVal },
+                async: false,
+                success: function (data) {
+                    $("#divIndexDetail").html(data);
+                    $("#lnkPrint").removeAttr("disabled");
+                    $("#btn-buscar").attr("disabled", "disabled");
+                },
+                error: function (ex) {
+                    console.log(ex);
+                }
+            });
+        });
+        $("#btn-imprimir").on("click", function () {            
+            var vPuestoVal = $('#SelectedPuestoId').val();
+            vPuestoVal = vPuestoVal !== "" ? parseInt(vPuestoVal) : 0;
+
+            var fileName = "reporte_empleados.pdf";
+
+            $.ajax({
+                url: "/GenerarReporte/print",
+                data: { 'pTipoReporte': 'ADMINISTRATIVO', 'pIdPuesto': vPuestoVal },
+                async: false,
+                success: function (data) {
+
+                    //var iframe = $('<iframe>');
+                    //iframe.attr('src', '/Views/GenerarReporte/reporte_empleados.pdf?options=first&second=here');
+                    //$('#divIndexDetail').append(iframe);
+
+                    //$("#divIndexDetail").html(data);
+                    //$("#divIndexDetail").load(data);
+
+                    var object = "<object data=\"{FileName}\" type=\"application/pdf\" width=\"500px\" height=\"300px\">";
+                    object += "If you are unable to view file, you can download from <a href = \"{FileName}\">here</a>";
+                    object += " or download <a target = \"_blank\" href = \"http://get.adobe.com/reader/\">Adobe PDF Reader</a> to view the file.";
+                    object += "</object>";
+                    object = object.replace(/{FileName}/g, "Files/" + fileName);
+                    $("#dialog").html(object);
+
+
+
+
+                    alert(data);
+                   
+                },
+                error: function (ex) {
+                    console.log(ex);
+                }
+            });
+        });
+        $(function () {
+            $('#lnkPrint').click(function () {
+                $("#btn-buscar").removeAttr("disabled");
+                $("#lnkPrint").attr("disabled", "disabled");
+                var value = $('#SelectedPuestoId').val();
+                value = value !== "" ? parseInt(value) : 0;
+                //$('#divIndexDetail').load(this.href, { someField: value });
+                var url = $(this).attr('href') + '?pTipoReporte=ADMINISTRATIVO&pIdPuesto=' + value;
+                //var url = $(this).attr('href');
+                location.href = url;
+                return false;
+            });
+        });
+    </script>
+}
